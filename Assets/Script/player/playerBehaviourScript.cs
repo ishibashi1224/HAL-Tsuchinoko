@@ -5,8 +5,6 @@ using UnityEngine;
 public class playerBehaviourScript : MonoBehaviour
 {
     // PlayerBulletプレハブ
-    public GameObject bullet;
-
     [SerializeField]
     private float move = 0.0f;
     private GUIStyle labelStyle;
@@ -33,8 +31,6 @@ public class playerBehaviourScript : MonoBehaviour
         this.labelStyle = new GUIStyle();
         this.labelStyle.fontSize = Screen.height / 22;
         this.labelStyle.normal.textColor = Color.white;
-
-       // Instantiate(bullet, transform.position, transform.rotation);
     }
 
     // Update is called once per frame

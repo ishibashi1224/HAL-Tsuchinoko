@@ -12,13 +12,17 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        float screenRate = (float)512 / Screen.height;
+        if (screenRate > 1) screenRate = 1;
+        int width = (int)(Screen.width * screenRate);
+        int height = (int)(Screen.height * screenRate);
+        Screen.SetResolution(width, height, true, 15);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
         {
             if (!FadeManager.GetFadeing())
             {
