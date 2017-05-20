@@ -105,11 +105,11 @@ public class map_load : MonoBehaviour
                 break;
 
             case 1:
-                Instantiate(playerObj, new Vector3(x * fSize, 0, z * fSize), Quaternion.identity);
+                Instantiate(playerObj, new Vector3(x * fSize, playerObj.transform.position.y, z * fSize), Quaternion.identity);
                 break;
 
             case 2:
-                Instantiate(enemyObj, new Vector3(x * fSize, 0, z * fSize), Quaternion.identity);
+                Instantiate(enemyObj, new Vector3(x * fSize, enemyObj.transform.position.y, z * fSize), Quaternion.identity);
                 break;
 
             default:

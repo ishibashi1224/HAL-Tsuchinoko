@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko", "HAL-Tsuchinoko.csproj", "{6BFB3605-25E7-AB42-AA65-307BC9078AFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko.CSharp.Plugins", "HAL-Tsuchinoko.CSharp.Plugins.csproj", "{39774E3E-F6F0-EF9F-8983-20868FDD5392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko.CSharp", "HAL-Tsuchinoko.CSharp.csproj", "{BBBB92F6-F3B0-1B81-9AD9-E82F13434725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko.CSharp.Editor", "HAL-Tsuchinoko.CSharp.Editor.csproj", "{28CEB182-DD09-10A5-57F6-178AC40A7105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39774E3E-F6F0-EF9F-8983-20868FDD5392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39774E3E-F6F0-EF9F-8983-20868FDD5392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39774E3E-F6F0-EF9F-8983-20868FDD5392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39774E3E-F6F0-EF9F-8983-20868FDD5392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBB92F6-F3B0-1B81-9AD9-E82F13434725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBB92F6-F3B0-1B81-9AD9-E82F13434725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBB92F6-F3B0-1B81-9AD9-E82F13434725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBB92F6-F3B0-1B81-9AD9-E82F13434725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28CEB182-DD09-10A5-57F6-178AC40A7105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CEB182-DD09-10A5-57F6-178AC40A7105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CEB182-DD09-10A5-57F6-178AC40A7105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CEB182-DD09-10A5-57F6-178AC40A7105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

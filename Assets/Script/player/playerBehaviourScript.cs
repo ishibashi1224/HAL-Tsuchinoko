@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class playerBehaviourScript : MonoBehaviour
 {
+    // PlayerBulletプレハブ
+    public GameObject bullet;
+
     [SerializeField]
     private float move = 0.0f;
     private GUIStyle labelStyle;
@@ -12,7 +15,16 @@ public class playerBehaviourScript : MonoBehaviour
     Quaternion rot;
     Vector3 TargetRot;
     Vector3 NowRot;
-    Vector3 test;
+    Vector3 RotMove;
+
+    void Awake()
+    {
+        float screenRate = (float)1024 / Screen.height;
+        if (screenRate > 1) screenRate = 1;
+        int width = (int)(Screen.width * screenRate);
+        int height = (int)(Screen.height * screenRate);
+        Screen.SetResolution(width, height, true, 15);
+    }
 
     // Use this for initialization
     void Start()
@@ -21,6 +33,8 @@ public class playerBehaviourScript : MonoBehaviour
         this.labelStyle = new GUIStyle();
         this.labelStyle.fontSize = Screen.height / 22;
         this.labelStyle.normal.textColor = Color.white;
+
+       // Instantiate(bullet, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
@@ -33,14 +47,27 @@ public class playerBehaviourScript : MonoBehaviour
 
         NowRot = gameObject.transform.rotation.eulerAngles;
 
-        //NowRot.y = NowRot.y ;
-        //NowRot.y = NowRot.y * -1;
+        if (NowRot.y >= 180.0f)
+        {
+            NowRot.y = 360.0f - NowRot.y;
+            NowRot.y = NowRot.y * -1;
+        }
 
-        //NowRot.y += (TargetRot.y - NowRot.y) * 0.1f;
+        RotMove.y = TargetRot.y - NowRot.y;
 
-        test = Vector3.Lerp(NowRot, TargetRot, 0.1f);
+        if (RotMove.y >= 180.0f)
+        {
+            RotMove.y = RotMove.y - 2 * 180.0f;
+        }
+        else if (RotMove.y <= -180.0f)
+        {
+            RotMove.y = 2 * 180.0f + RotMove.y;
+        }
 
-        Rot = new Vector3(gameObject.transform.rotation.eulerAngles.x, test.y, gameObject.transform.rotation.eulerAngles.z);
+        RotMove = RotMove * 0.1f;
+        NowRot.y += RotMove.y;
+
+        Rot = new Vector3(gameObject.transform.rotation.eulerAngles.x, NowRot.y, gameObject.transform.rotation.eulerAngles.z);
 
         rot.eulerAngles = Rot;
         gameObject.transform.rotation = rot;
