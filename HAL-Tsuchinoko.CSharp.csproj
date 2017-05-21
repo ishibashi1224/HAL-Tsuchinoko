@@ -81,20 +81,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Delete.cs" />
     <Compile Include="Assets\Script\FadeManager.cs" />
-    <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\MenuManager.cs" />
-    <Compile Include="Assets\Script\ParticleDelete.cs" />
+    <Compile Include="Assets\Script\Menu\Flick.cs" />
+    <Compile Include="Assets\Script\Menu\MenuFlick.cs" />
+    <Compile Include="Assets\Script\Menu\MenuManager.cs" />
     <Compile Include="Assets\Script\SingletonMonoBehaviour.cs" />
-    <Compile Include="Assets\Script\TutorialManager.cs" />
+    <Compile Include="Assets\Script\Tutorial\TutorialManager.cs" />
     <Compile Include="Assets\Script\camera.cs" />
-    <Compile Include="Assets\Script\enemy\Chase.cs" />
-    <Compile Include="Assets\Script\enemy\enemy.cs" />
-    <Compile Include="Assets\Script\map\map_load.cs" />
-    <Compile Include="Assets\Script\player\Bullet.cs" />
-    <Compile Include="Assets\Script\player\BulletManager.cs" />
-    <Compile Include="Assets\Script\player\playerBehaviourScript.cs" />
+    <Compile Include="Assets\Script\game\Delete\Delete.cs" />
+    <Compile Include="Assets\Script\game\Delete\ParticleDelete.cs" />
+    <Compile Include="Assets\Script\game\GameManager.cs" />
+    <Compile Include="Assets\Script\game\enemy\Chase.cs" />
+    <Compile Include="Assets\Script\game\enemy\enemy.cs" />
+    <Compile Include="Assets\Script\game\map\map_load.cs" />
+    <Compile Include="Assets\Script\game\player\Bullet.cs" />
+    <Compile Include="Assets\Script\game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\test\Fade.cs" />
     <Compile Include="Assets\test\FadeImage.cs" />
     <Compile Include="Assets\test\IFade.cs" />
