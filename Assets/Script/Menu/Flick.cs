@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MenuFlick : MonoBehaviour
+public class Flick : SingletonMonoBehaviourFast<Flick>
 {
-    [SerializeField]
-    private float move = 0.0f;
     private Vector3 touchStartPos;
     private Vector3 touchEndPos;
+    private static string Direction;
 
     // Use this for initialization
     void Start()
     {
         touchStartPos = new Vector3(0, 0, 0);
         touchEndPos = new Vector3(0, 0, 0);
+        Direction = "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        Flick();
+        FlickDecision();
     }
 
-    void Flick()
+    void FlickDecision()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -44,7 +45,6 @@ public class MenuFlick : MonoBehaviour
     {
         float directionX = touchEndPos.x - touchStartPos.x;
         float directionY = touchEndPos.y - touchStartPos.y;
-        string Direction = "";
 
         if (Mathf.Abs(directionY) < Mathf.Abs(directionX))
         {
@@ -77,30 +77,12 @@ public class MenuFlick : MonoBehaviour
             //タッチを検出
             Direction = "touch";
         }
-
-        switch (Direction)
-        {
-            case "up":
-                Debug.Log("up");
-                break;
-
-            case "down":
-                Debug.Log("down");
-                break;
-
-            case "right":
-                Debug.Log("right");
-                transform.localPosition += new Vector3(move, 0, 0);
-                break;
-
-            case "left":
-                Debug.Log("left");
-                transform.localPosition -= new Vector3(move, 0, 0);
-                break;
-
-            case "touch":
-                Debug.Log("touch");
-                break;
-        }
+    }
+    
+    public static string GetFlick()
+    {
+        string str = Direction;
+        Direction = "touch";
+        return str;
     }
 }

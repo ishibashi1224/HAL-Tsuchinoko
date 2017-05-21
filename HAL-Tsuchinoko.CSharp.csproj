@@ -83,8 +83,9 @@
   <ItemGroup>
     <Compile Include="Assets\Script\FadeManager.cs" />
     <Compile Include="Assets\Script\Menu\Flick.cs" />
-    <Compile Include="Assets\Script\Menu\MenuFlick.cs" />
     <Compile Include="Assets\Script\Menu\MenuManager.cs" />
+    <Compile Include="Assets\Script\Menu\Scroll.cs" />
+    <Compile Include="Assets\Script\Menu\ScrollManager.cs" />
     <Compile Include="Assets\Script\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialManager.cs" />
     <Compile Include="Assets\Script\camera.cs" />

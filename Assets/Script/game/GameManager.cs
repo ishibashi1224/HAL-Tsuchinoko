@@ -9,14 +9,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private string FadeSceneName = null;   //  フェードするシーン名
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         float screenRate = (float)512 / Screen.height;
         if (screenRate > 1) screenRate = 1;
         int width = (int)(Screen.width * screenRate);
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+       
     }
 
     // Update is called once per frame
