@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
 
     public float speed = 0.01f;
+    public int dleateTime = 5;
+    private int cntTime = 0;
 
     // Use this for initialization
     void Start()
@@ -16,7 +18,19 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = (gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI + (Mathf.PI * 0.5f);
-        gameObject.transform.position += new Vector3(Mathf.Cos(angle) * speed, 0.0f, Mathf.Sin(angle) * speed);
+        float angle = (gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+        gameObject.transform.position += new Vector3(Mathf.Sin(angle) * speed, 0.0f, Mathf.Cos(angle) * speed);
+
+        //デリート
+        cntTime++;
+        if (cntTime > 60)
+        {
+            cntTime = 0;
+            dleateTime--;
+            if (dleateTime == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

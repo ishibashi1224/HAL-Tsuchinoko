@@ -14,6 +14,7 @@ public class playerBehaviourScript : MonoBehaviour
     Vector3 TargetRot;
     Vector3 NowRot;
     Vector3 RotMove;
+    float tuchLength;
 
     void Awake()
     {
@@ -68,6 +69,25 @@ public class playerBehaviourScript : MonoBehaviour
         rot.eulerAngles = Rot;
         gameObject.transform.rotation = rot;
         gameObject.transform.position += Pos;
+
+        if (Input.touchCount >= 2)
+        {
+            Touch t1 = Input.GetTouch(0);
+            Touch t2 = Input.GetTouch(1);
+
+            if (t2.phase == TouchPhase.Began)
+            {
+                tuchLength = Vector2.Distance(t1.position, t2.position);
+            }
+            else if(t1.phase == TouchPhase.Moved && t2.phase == TouchPhase.Moved)
+            {
+                if( tuchLength > Vector2.Distance(t1.position, t2.position) )
+                {
+                    transform.GetChild(0).gameObject.transform.position = new Vector3(Mathf.Sin(gameObject.transform.eulerAngles.y) * move, 0.0f, Mathf.Cos(gameObject.transform.eulerAngles.y) * move);
+                }
+            }
+        }
+
     }
     /// <summary>
     /// GUI更新はここじゃないとダメらしいよ。

@@ -9,6 +9,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField]
     private float interval = 0.0f;
     private float time = 0.0f;
+    private Quaternion tes;
 
     // Use this for initialization
     void Start()
@@ -21,7 +22,9 @@ public class BulletManager : MonoBehaviour
     {
         if(time >= interval)
         {
-            Instantiate(bullet, transform.position, transform.localRotation);
+            tes = Quaternion.identity;
+            tes.y = 90;
+            Instantiate(bullet, transform.position, transform.rotation * transform.localRotation);
             time = 0;
         }
         time += Time.deltaTime;
