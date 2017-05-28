@@ -98,9 +98,17 @@
     <Compile Include="Assets\Script\game\player\Bullet.cs" />
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
     <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
-    <Compile Include="Assets\test\Fade.cs" />
-    <Compile Include="Assets\test\FadeImage.cs" />
-    <Compile Include="Assets\test\IFade.cs" />
+    <Compile Include="Assets\Works\test\Fade.cs" />
+    <Compile Include="Assets\Works\test\FadeImage.cs" />
+    <Compile Include="Assets\Works\test\IFade.cs" />
+    <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
+    <Compile Include="Assets\Works\石橋\Script\EnemyLife.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\CircularMove.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\EnemyMove.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\HorizontalMovement.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\VerticalMovwment.cs" />
+    <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
@@ -180,7 +188,8 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
-    <None Include="Assets\test\UI-Fade-Alpha.shader" />
+    <None Include="Assets\Works\test\UI-Fade-Alpha.shader" />
+    <None Include="Assets\Works\石橋\Shader\Alpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
