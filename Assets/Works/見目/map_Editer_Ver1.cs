@@ -6,18 +6,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class map_Editer_Ver1 : MonoBehaviour
-{
+{ 
     [SerializeField]
-    private GameObject playerObj;
+    //private GameObject FieldObject;
+
+    List<GameObject> FieldPrefabs = new List<GameObject>();
 
     [SerializeField]
-    private GameObject enemyObj;
+    private float fSize = 0.0f;
 
     [SerializeField]
-    private GameObject[] FieldObj;
-
-    [SerializeField]
-    private float fSize;
+    private float fFog = 0.0f;
 
     [SerializeField]
     private TextAsset csvFile; // CSVファイル
@@ -39,8 +38,10 @@ public class map_Editer_Ver1 : MonoBehaviour
     {
         // ストリームリーダーsrに読み込む
         StreamReader sr = new StreamReader(path);
+
         // ストリームリーダーをstringに変換
         string strStream = sr.ReadToEnd();
+
         // StringSplitOptionを設定(要はカンマとカンマに何もなかったら格納しないことにする)
         System.StringSplitOptions option = StringSplitOptions.RemoveEmptyEntries;
 
@@ -103,28 +104,23 @@ public class map_Editer_Ver1 : MonoBehaviour
         }
     }
 
-    private void SetObject(int x, int z, int number)
+    private void SetObject(int x, int z, int Number )
     {
-        Debug.Log(number);
+        Debug.Log(Number);
 
-        switch (number)
+        if (Number != 0 && Number <= FieldPrefabs.Count)
         {
-            case 0:
-                break;
-
-            case 1:
-                Instantiate(playerObj, new Vector3(x * fSize, playerObj.transform.position.y, z * fSize), Quaternion.identity);
-                break;
-
-            case 2:
-                Instantiate(enemyObj, new Vector3(x * fSize, enemyObj.transform.position.y, z * fSize), Quaternion.identity);
-                break;
-
-            default:
-                break;
+            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSize, FieldPrefabs[Number - 1].transform.position.y, z * fSize), Quaternion.identity);
         }
+
     }
 
+    private void RenderSetting()
+    {
+        RenderSettings.fog = true;
+        RenderSettings.fogColor = Color.black;
+        RenderSettings.fogDensity = 0f;
+    }
 
     void Start()
     {
@@ -159,7 +155,9 @@ public class map_Editer_Ver1 : MonoBehaviour
                 SetObject(nWidth, nHeight, int.Parse(csvDatas[nHeight][nWidth]));
             }
         }
-        
+
+        // レンダー設定
+        RenderSetting();
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
@@ -167,5 +165,19 @@ public class map_Editer_Ver1 : MonoBehaviour
     void UpDate()
     {
 
+        if(RenderSettings.fogDensity < fFog)
+        {
+            RenderSettings.fogDensity += 0.01f;
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log(fFog);
+
+        if (collider.gameObject.name.StartsWith("Cube"))
+        {
+            fFog += 0.05f;
+        }
     }
 }
