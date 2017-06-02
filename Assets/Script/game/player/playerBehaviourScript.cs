@@ -23,7 +23,7 @@ public class playerBehaviourScript : MonoBehaviour
     float limitLengthMax;
     Vector2[] defaultPos = new Vector2[3];
     Vector2[] maxPos = new Vector2[3];
-    Vector2[] nowPos = new Vector2[2];
+    Vector2[] nowPos = new Vector2[3];
 
     void Awake()
     {
@@ -55,7 +55,7 @@ public class playerBehaviourScript : MonoBehaviour
         nowPos[1] = defaultPos[1];
         nowPos[2] = defaultPos[2];
 
-        limitLengthMin = Vector2.Distance(nowPos[0], nowPos[1]);
+        limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
         limitLengthMax = limitLengthMin * 7;
     }
 
@@ -151,8 +151,8 @@ public class playerBehaviourScript : MonoBehaviour
                     //                                                                        transform.GetChild(1).gameObject.transform.position.y,
                     //                                                                        defaultPos[1].y);
                     //    transform.GetChild(2).gameObject.transform.position = new Vector3(  defaultPos[2].x,
-                                                                                            transform.GetChild(2).gameObject.transform.position.y,
-                                                                                            defaultPos[2].y);
+                                                                                            //transform.GetChild(2).gameObject.transform.position.y,
+                                                                                            //defaultPos[2].y);
                     }
                 }
             }
