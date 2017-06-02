@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko.Plugins", "HAL-Tsuchinoko.Plugins.csproj", "{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko", "HAL-Tsuchinoko.csproj", "{6BFB3605-25E7-AB42-AA65-307BC9078AFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAL-Tsuchinoko.Editor", "HAL-Tsuchinoko.Editor.csproj", "{61E2FDA8-8320-E078-89E9-59434F2DF5F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFB3605-25E7-AB42-AA65-307BC9078AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E2FDA8-8320-E078-89E9-59434F2DF5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E2FDA8-8320-E078-89E9-59434F2DF5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E2FDA8-8320-E078-89E9-59434F2DF5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E2FDA8-8320-E078-89E9-59434F2DF5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
