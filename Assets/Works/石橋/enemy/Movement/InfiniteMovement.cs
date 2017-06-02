@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalMovwment : MonoBehaviour {
-
+public class InfiniteMovement : MonoBehaviour
+{
+    [SerializeField]
+    private float width = 0.0f;
     [SerializeField]
     private float height = 0.0f;
     [SerializeField]
@@ -16,20 +18,16 @@ public class VerticalMovwment : MonoBehaviour {
     void Start()
     {
         pos = transform.root.position;
-        angle = 0.0f;
+        angle = Mathf.PI * 0.5f;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        //transform.root.position = new Vector3(pos.x, pos.y, pos.z + (Mathf.Sin(angle) * height));
-        //transform.root.position += new Vector3(0.0f, 0.0f, Mathf.Sin(angle) * height);
-        //angle += speed;
-
-        transform.root.position += Vector3.Normalize((transform.root.position + new Vector3(0.0f, 0.0f, Mathf.Cos(angle) * height)) - transform.root.position);
+        transform.root.position = new Vector3(pos.x + (Mathf.Cos(angle) * width), pos.y, pos.z + (Mathf.Sin(2 * angle) * height));
         angle += speed;
 
-        if (angle > Mathf.PI * 2)
+        if (angle > Mathf.PI * 2.5f)
         {
             angle = 0.0f;
             gameObject.SetActive(false);

@@ -73,12 +73,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -107,6 +101,14 @@
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
+    <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
+    <Compile Include="Assets\Works\石橋\Script\EnemyLife.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\CircularMove.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\EnemyMove.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\HorizontalMovement.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\InfiniteMovement.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\Movement\VerticalMovwment.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +190,7 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Works\test\UI-Fade-Alpha.shader" />
+    <None Include="Assets\Works\石橋\Shader\Alpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

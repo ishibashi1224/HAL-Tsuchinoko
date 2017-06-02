@@ -20,7 +20,7 @@ public class EnemyMove : MonoBehaviour
         num = 0;
         for (int count = 0; count < move.Length; count++)
         {
-            if(move[count].activeSelf == true)
+            if (move[count].activeSelf == true)
             {
                 num++;
             }

@@ -41,7 +41,7 @@ public class EnemyLife : MonoBehaviour
         if (collision.gameObject.tag == "bullet")
         {
             SubLife(10.0f);
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
     }
 }

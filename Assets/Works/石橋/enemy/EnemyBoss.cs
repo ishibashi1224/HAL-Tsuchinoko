@@ -28,16 +28,17 @@ public class EnemyBoss : MonoBehaviour
 
         if (_Radius <= OutRadius)
         {
-            transform.position = Vector3.Lerp(Object.transform.position, transform.position, Speed);
+            float angle = Mathf.Atan2(Object.transform.position.z - transform.position.z, Object.transform.position.x - transform.position.x);
+            transform.position += new Vector3(Mathf.Cos(angle) * Speed, 0.0f, Mathf.Sin(angle) * Speed);
 
-            if(_Radius <= InRadius)
+            if (_Radius <= InRadius)
             {
                 movement.SetActive(true);
             }
-            else
-            {
-                movement.SetActive(false);
-            }
+        }
+        else
+        {
+            movement.SetActive(false);
         }
     }
 }
