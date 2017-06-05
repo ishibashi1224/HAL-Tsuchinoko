@@ -21,16 +21,16 @@ public class Bullet : MonoBehaviour
         float angle = (gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
         gameObject.transform.position += new Vector3(Mathf.Sin(angle) * speed, 0.0f, Mathf.Cos(angle) * speed);
 
-        //デリート
-        cntTime++;
-        if (cntTime > 60)
-        {
-            cntTime = 0;
-            dleateTime--;
-            if (dleateTime == 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+        ////デリート
+        //cntTime++;
+        //if (cntTime > 60)
+        //{
+        //    cntTime = 0;
+        //    dleateTime--;
+        //    if (dleateTime == 0)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }
