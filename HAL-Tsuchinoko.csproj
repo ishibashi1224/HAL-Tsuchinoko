@@ -108,6 +108,7 @@
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
     <Compile Include="Assets\Works\木村\script\BitManager.cs" />
+    <Compile Include="Assets\Works\木村\script\Down.cs" />
     <Compile Include="Assets\Works\木村\script\GrappleObject.cs" />
     <Compile Include="Assets\Works\木村\script\TapCheck.cs" />
     <Compile Include="Assets\Works\木村\script\TapMove.cs" />

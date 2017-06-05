@@ -16,6 +16,11 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, target.position.z);
+        transform.position = new Vector3(target.position.x, transform.position.y, target.position.z +0.8f);
+
+        if(target.position.z >= -10.0f && transform.position.y <= 40.0f )
+        {
+            transform.position += new Vector3(0, 1.0f, 0);
+        }
     }
 }

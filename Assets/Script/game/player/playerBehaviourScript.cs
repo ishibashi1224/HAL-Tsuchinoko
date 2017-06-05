@@ -27,6 +27,7 @@ public class playerBehaviourScript : MonoBehaviour
     Vector2[] nowPos = new Vector2[3];
 
     int compileMode;
+    bool GameStart = false;
 
     void Awake()
     {
@@ -71,6 +72,19 @@ public class playerBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gameObject.transform.position.y <= 8.0f)
+        {
+            gameObject.transform.position += new Vector3(0, 0.05f, 0);
+        }
+        else if( GameStart == false && gameObject.transform.position.z <= -10.0f)
+        {
+            gameObject.transform.position += new Vector3(0, 0, move);
+        }
+        else
+        {
+            GameStart = true;
+        }
+
         Move();
 
         MoveRot();

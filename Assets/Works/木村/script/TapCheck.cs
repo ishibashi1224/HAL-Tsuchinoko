@@ -63,20 +63,20 @@ public class TapCheck : MonoBehaviour
             
             switch (i)
             {
-                case 0://X
-                    text_s = string.Format("touchStartPos-X:{0}", System.Math.Round(this.touchStartPos.x, 3));
-                    text_e = string.Format("touchEndPos-X:{0}", System.Math.Round(this.touchEndPos.x, 3));
-                    break;
-                case 1://Y
-                    text_s = string.Format("touchStartPos-Y:{0}", System.Math.Round(this.touchStartPos.y, 3));
-                    text_e = string.Format("touchEndPos-Y:{0}", System.Math.Round(this.touchEndPos.y, 3));
-                    break;
-                case 2://Z
-                    text_s = string.Format("touchStartPos-Z:{0}", System.Math.Round(this.touchStartPos.z, 3));
-                    text_e = string.Format("touchEndPos-Z:{0}", System.Math.Round(this.touchEndPos.z, 3));
-                    break;
-                default:
-                    throw new System.InvalidOperationException();
+                //case 0://X
+                //    text_s = string.Format("touchStartPos-X:{0}", System.Math.Round(this.touchStartPos.x, 3));
+                //    text_e = string.Format("touchEndPos-X:{0}", System.Math.Round(this.touchEndPos.x, 3));
+                //    break;
+                //case 1://Y
+                //    text_s = string.Format("touchStartPos-Y:{0}", System.Math.Round(this.touchStartPos.y, 3));
+                //    text_e = string.Format("touchEndPos-Y:{0}", System.Math.Round(this.touchEndPos.y, 3));
+                //    break;
+                //case 2://Z
+                //    text_s = string.Format("touchStartPos-Z:{0}", System.Math.Round(this.touchStartPos.z, 3));
+                //    text_e = string.Format("touchEndPos-Z:{0}", System.Math.Round(this.touchEndPos.z, 3));
+                //    break;
+                //default:
+                //    throw new System.InvalidOperationException();
             }
             GUI.Label(new Rect(x, y, w, h), text_s, this.labelStyle);
             GUI.Label(new Rect(x, y_2, w, h), text_e, this.labelStyle);
