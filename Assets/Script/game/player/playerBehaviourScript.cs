@@ -9,6 +9,7 @@ public class playerBehaviourScript : MonoBehaviour
     private float move = 0.0f;
     [SerializeField]
     private float ScalingMove = 0.0f;
+
     private GUIStyle labelStyle;
     Vector3 Pos;
     Vector3 Rot;
@@ -24,6 +25,11 @@ public class playerBehaviourScript : MonoBehaviour
     Vector2[] defaultPos = new Vector2[3];
     Vector2[] maxPos = new Vector2[3];
     Vector2[] nowPos = new Vector2[3];
+<<<<<<< HEAD
+=======
+
+    int compileMode;
+>>>>>>> playerBullet
 
     void Awake()
     {
@@ -56,17 +62,98 @@ public class playerBehaviourScript : MonoBehaviour
         nowPos[2] = defaultPos[2];
 
         limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
+<<<<<<< HEAD
         limitLengthMax = limitLengthMin * 7;
+=======
+        limitLengthMax = limitLengthMin * 10;
+
+#if UNITY_EDITOR_WIN
+        compileMode = 0;
+#else
+        compileMode = 1;
+#endif
+>>>>>>> playerBullet
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Pos.x = Input.acceleration.x * move;
-        Pos.z = Input.acceleration.y * move;
+        Move();
 
-        TargetRot.y = (Mathf.Atan2(Input.acceleration.x, Input.acceleration.y) / Mathf.PI) * 180.0f;
+        MoveRot();
 
+        rot.eulerAngles = Rot;
+        gameObject.transform.rotation = rot;
+        gameObject.transform.position += Pos;
+
+        Scaling();
+
+    }
+
+    void Move()
+    {
+        //移動
+        if (compileMode == 0)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    TargetRot.y = -45.0f;
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    TargetRot.y = 45.0f;
+                }
+                else
+                {
+                    TargetRot.y = 0.0f;
+                }
+                Pos.x = Mathf.Sin(TargetRot.y) * move;
+                Pos.z = Mathf.Cos(TargetRot.y) * move;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    TargetRot.y = -135.0f;
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    TargetRot.y = 135.0f;
+                }
+                else
+                {
+                    TargetRot.y = 180.0f;
+                }
+                Pos.x = Mathf.Sin(TargetRot.y) * move;
+                Pos.z = Mathf.Cos(TargetRot.y) * move;
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                TargetRot.y = -90.0f;
+                Pos.x = Mathf.Sin(TargetRot.y) * move;
+                Pos.z = Mathf.Cos(TargetRot.y) * move;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                TargetRot.y = 90.0f;
+                Pos.x = Mathf.Sin(TargetRot.y) * move;
+                Pos.z = Mathf.Cos(TargetRot.y) * move;
+            }
+
+        }
+        else
+        {
+            Pos.x = Input.acceleration.x * move;
+            Pos.z = Input.acceleration.y * move;
+
+            TargetRot.y = (Mathf.Atan2(Input.acceleration.x, Input.acceleration.y) / Mathf.PI) * 180.0f;
+        }
+    }
+
+    void MoveRot()
+    {
         NowRot = gameObject.transform.rotation.eulerAngles;
 
         if (NowRot.y >= 180.0f)
@@ -90,17 +177,45 @@ public class playerBehaviourScript : MonoBehaviour
         NowRot.y += RotMove.y;
 
         Rot = new Vector3(gameObject.transform.rotation.eulerAngles.x, NowRot.y, gameObject.transform.rotation.eulerAngles.z);
+    }
 
-        rot.eulerAngles = Rot;
-        gameObject.transform.rotation = rot;
-        gameObject.transform.position += Pos;
-
+    void Scaling()
+    {
         //ビット子機の距離計算用変数
         nowPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
         nowPos[1].y = transform.GetChild(1).gameObject.transform.position.z;
 
         nowPos[2].x = transform.GetChild(2).gameObject.transform.position.x;
         nowPos[2].y = transform.GetChild(2).gameObject.transform.position.z;
+
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (limitLengthMax >= Vector2.Distance(nowPos[1], nowPos[2]))
+            {
+                angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(0).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(1).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+            }
+        }
+        else if (Input.GetKey(KeyCode.Z))
+        {
+            if (limitLengthMin < Vector2.Distance(nowPos[1], nowPos[2]))
+            {
+                angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(0).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(1).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+            }
+        }
 
         if (Input.touchCount >= 2)
         {
@@ -111,13 +226,13 @@ public class playerBehaviourScript : MonoBehaviour
             {
                 tuchBegin = Vector2.Distance(t1.position, t2.position);
             }
-            else if(t1.phase == TouchPhase.Moved && t2.phase == TouchPhase.Moved)
+            else if (t1.phase == TouchPhase.Moved && t2.phase == TouchPhase.Moved)
             {
                 tuchMove = Vector2.Distance(t1.position, t2.position);
 
                 if (tuchBegin < tuchMove)
                 {
-                    if (limitLengthMax >= Vector2.Distance(nowPos[1], nowPos[2]) )
+                    if (limitLengthMax >= Vector2.Distance(nowPos[1], nowPos[2]))
                     {
                         angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(0).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
@@ -141,6 +256,7 @@ public class playerBehaviourScript : MonoBehaviour
 
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+<<<<<<< HEAD
                  
                     //if (limitLengthMin < Vector2.Distance(nowPos[1], nowPos[2]))
                     //{
@@ -153,6 +269,8 @@ public class playerBehaviourScript : MonoBehaviour
                     //    transform.GetChild(2).gameObject.transform.position = new Vector3(  defaultPos[2].x,
                                                                                             //transform.GetChild(2).gameObject.transform.position.y,
                                                                                             //defaultPos[2].y);
+=======
+>>>>>>> playerBullet
                     }
                 }
             }
@@ -161,18 +279,20 @@ public class playerBehaviourScript : MonoBehaviour
                 tuchBegin = Vector2.Distance(t1.position, t2.position);
             }
         }
-
     }
+
+
+
     /// <summary>
     /// GUI更新はここじゃないとダメらしいよ。
     /// まだよくわかんない。
     /// </summary>
     void OnGUI()
     {
-            float x = Screen.width / 10;
-            float y = 0;
-            float w = Screen.width * 8 / 10;
-            float h = Screen.height / 20;
+        float x = Screen.width / 10;
+        float y = 0;
+        float w = Screen.width * 8 / 10;
+        float h = Screen.height / 20;
 
         string text = string.Empty;
 

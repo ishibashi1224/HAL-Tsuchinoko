@@ -20,7 +20,7 @@ public class BulletManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(time >= interval)
+        if (time >= interval)
         {
             tes = Quaternion.identity;
             tes.y = 90;
