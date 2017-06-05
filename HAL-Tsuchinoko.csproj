@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -94,7 +100,6 @@
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\enemy\Chase.cs" />
     <Compile Include="Assets\Script\game\enemy\enemy.cs" />
-    <Compile Include="Assets\Script\game\map\map_load.cs" />
     <Compile Include="Assets\Script\game\player\BitLife.cs" />
     <Compile Include="Assets\Script\game\player\Bullet.cs" />
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
@@ -111,6 +116,7 @@
     <Compile Include="Assets\Works\石橋\enemy\Movement\InfiniteMovement.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\VerticalMovwment.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
+    <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
