@@ -37,12 +37,12 @@ public class MenuManager : MonoBehaviour
         //    }
         //}
         //else 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!FadeManager.GetFadeing())
-            {
-                FadeManager.Instance.LoadLevel(FadeSceneName2, FadeTime);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (!FadeManager.GetFadeing())
+        //    {
+        //        FadeManager.Instance.LoadLevel(FadeSceneName2, FadeTime);
+        //    }
+        //}
     }
 }
