@@ -16,7 +16,7 @@ public class ScrollManager : MonoBehaviour
         switch(Flick.GetFlick())
         {
             case "up":
-                FadeManager.Instance.LoadLevel("Game", 1);
+                //FadeManager.Instance.LoadLevel("Game", 1);
                 break;
 
             case "right":
