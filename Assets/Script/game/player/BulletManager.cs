@@ -20,13 +20,13 @@ public class BulletManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (time >= interval)
-        //{
-        //    tes = Quaternion.identity;
-        //    tes.y = 90;
-        //    Instantiate(bullet, transform.position, transform.rotation * transform.localRotation);
-        //    time = 0;
-        //}
-        //time += Time.deltaTime;
+        if (time >= interval)
+        {
+            tes = Quaternion.identity;
+            tes.y = 90;
+            Instantiate(bullet, transform.position, transform.rotation * transform.localRotation);
+            time = 0;
+        }
+        time += Time.deltaTime;
     }
 }

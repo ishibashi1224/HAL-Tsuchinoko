@@ -36,12 +36,12 @@ public class EnemyLife : MonoBehaviour
         return Life;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collider.tag == "bullet")
         {
             SubLife(10.0f);
-            Destroy(collision.gameObject);
+            Destroy(collider.gameObject);
         }
     }
 }
