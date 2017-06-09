@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: "Assets/Works/\u6728\u6751/Scene/Game&Menu.unity"
+=======
+- path: "Assets/Works/\u77F3\u6A4B/Scene/Game.unity"
+>>>>>>> aiEnemy
   isLoaded: 1
   isActive: 1
