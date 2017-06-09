@@ -7,38 +7,31 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField]
     private GameObject Object = null;
     [SerializeField]
-    private GameObject movement = null;
+    private RootMove rootmove = null;
     [SerializeField]
-    float OutRadius = 0.0f;
+    private float statechangetime = 0;
     [SerializeField]
-    float InRadius = 0.0f;
-    [SerializeField]
-    float Speed = 0.0f;
+    private int probability = 0;
+
+    private float time = 0;
 
     // Use this for initialization
     void Start()
     {
-
+        time = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float _Radius = Vector3.Distance(Object.transform.position, transform.position);
-
-        if (_Radius <= OutRadius)
+        time += Time.deltaTime;
+        if (time > statechangetime)
         {
-            float angle = Mathf.Atan2(Object.transform.position.z - transform.position.z, Object.transform.position.x - transform.position.x);
-            transform.position += new Vector3(Mathf.Cos(angle) * Speed, 0.0f, Mathf.Sin(angle) * Speed);
-
-            if (_Radius <= InRadius)
+            time = 0;
+            if (Random.Range(0, 100) < probability && rootmove.enabled == false)
             {
-                movement.SetActive(true);
+                rootmove.enabled = true;
             }
-        }
-        else
-        {
-            movement.SetActive(false);
         }
     }
 }

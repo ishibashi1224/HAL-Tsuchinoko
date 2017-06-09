@@ -94,7 +94,6 @@
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\enemy\Chase.cs" />
     <Compile Include="Assets\Script\game\enemy\enemy.cs" />
-    <Compile Include="Assets\Script\game\map\map_load.cs" />
     <Compile Include="Assets\Script\game\player\Bullet.cs" />
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
     <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
@@ -103,13 +102,32 @@
     <Compile Include="Assets\Works\test\IFade.cs" />
     <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
     <Compile Include="Assets\Works\石橋\Script\EnemyLife.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\BoosArea.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\BossRoot\Root.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\BossRoot\RootEditor.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\BossRoot\RootMove.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\BossRoot\RootPoint.cs" />
     <Compile Include="Assets\Works\石橋\enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\EnemyMotion.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\CircularMove.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\EnemyMove.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\HorizontalMovement.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\InfiniteMovement.cs" />
     <Compile Include="Assets\Works\石橋\enemy\Movement\VerticalMovwment.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\Boos.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\ChangeBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\CircularBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\DecisionBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\EnemyBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\InfiniteBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\LineBehavior.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\New Folder\State.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\New Folder\StateMachine.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\New Folder\_Enemy.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\RushBehaviour.cs" />
+    <Compile Include="Assets\Works\石橋\enemy\State\WaitBehavior.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
+    <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

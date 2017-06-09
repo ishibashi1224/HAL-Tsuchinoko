@@ -23,11 +23,7 @@ public class HorizontalMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.root.position = new Vector3(pos.x + (Mathf.Sin(angle) * width), pos.y, pos.z);
-        //transform.root.position += new Vector3(Mathf.Sin(angle) * width, 0.0f, 0.0f);
         angle += speed;
-
-        //transform.root.position += 0.1f * Vector3.Normalize(transform.root.position - (transform.root.position + new Vector3(Mathf.Sin(angle) * width, 0.0f, 0.0f)));
-        //angle += speed;
 
         if (angle > Mathf.PI * 2)
         {
