@@ -25,8 +25,8 @@ public class collision : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         //名前がbit1又はbit2だった時　かつ　マウスを離した瞬間
-        if ((other.gameObject.name == "bit1"|| other.gameObject.name == "bit2") &&
-            Input.GetKeyUp(KeyCode.Mouse0) )
+        if (other.gameObject.tag == "Player"&&
+            Input.GetKeyUp(KeyCode.Mouse0))
         {
             //入れ替えすべき処理
             //transform.position = other.gameObject.transform.position;              //座標補正
@@ -34,8 +34,8 @@ public class collision : MonoBehaviour {
             copy.transform.position = work_pos;
             //work.gameObject.transform.position= work_pos;
             
-            transform.rotation = other.transform.FindChild("bit").rotation;          //角度補正
-            transform.position = other.transform.FindChild("bit").position;          //座標補正
+            transform.rotation = other.transform.rotation;          //角度補正
+            transform.position = other.transform.position;          //座標補正
             
             Destroy(other.gameObject);                                               //当たったオブジェクト(bit1 || bit2)を消す
         }

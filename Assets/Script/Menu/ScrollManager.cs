@@ -16,6 +16,7 @@ public class ScrollManager : MonoBehaviour
         switch(Flick.GetFlick())
         {
             case "up":
+                //ここでPlayerBehaviourScriptのGamestartフラグをオンにすることでゲームモードに移行できる？
                 //FadeManager.Instance.LoadLevel("Game", 1);
                 break;
 
