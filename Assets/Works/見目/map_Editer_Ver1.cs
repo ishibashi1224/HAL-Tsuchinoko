@@ -13,13 +13,22 @@ public class map_Editer_Ver1 : MonoBehaviour
     List<GameObject> FieldPrefabs = new List<GameObject>();
 
     [SerializeField]
-    private float fSize = 0.0f;
+    private float fPosx = 0.0f;
+
+    [SerializeField]
+    private float fPosy = 0.0f;
+
+    [SerializeField]
+    private float fSpacingDistans = 0.0f;
 
     [SerializeField]
     private float fFog = 0.0f;
 
     [SerializeField]
-    private TextAsset csvFile; // CSVファイル
+    private TextAsset csvFileMap; // CSVファイル
+
+    [SerializeField]
+    private TextAsset csvFileUnit; // CSVファイル
 
     [SerializeField]
     private List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト
@@ -110,7 +119,7 @@ public class map_Editer_Ver1 : MonoBehaviour
 
         if (Number != 0 && Number <= FieldPrefabs.Count)
         {
-            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSize, FieldPrefabs[Number - 1].transform.position.y, z * fSize), Quaternion.identity);
+            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSpacingDistans + fPosx, FieldPrefabs[Number - 1].transform.position.y, z * fPosy), Quaternion.identity);
         }
 
     }
@@ -138,8 +147,8 @@ public class map_Editer_Ver1 : MonoBehaviour
         /* New ver */
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        csvFile = Resources.Load("CSV/map_sample") as TextAsset; /* Resouces/CSV下のCSV読み込み */
-        StringReader reader = new StringReader(csvFile.text);
+        csvFileMap = Resources.Load("CSV/map_sample") as TextAsset; /* Resouces/CSV下のCSV読み込み */
+        StringReader reader = new StringReader(csvFileMap.text);
 
         while (reader.Peek() > -1)
         {
