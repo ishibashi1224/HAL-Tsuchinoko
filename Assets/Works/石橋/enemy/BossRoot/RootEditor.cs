@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
 
 [CustomEditor(typeof(Root))]
 public class RootEditor : Editor
@@ -63,3 +64,5 @@ public class RootEditor : Editor
         }
     }
 }
+
+#endif
