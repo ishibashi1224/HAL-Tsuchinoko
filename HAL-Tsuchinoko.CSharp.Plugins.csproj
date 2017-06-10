@@ -193,6 +193,8 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Works\test\UI-Fade-Alpha.shader" />
+    <None Include="Assets\Works\石橋\Material\AlphaLife.shader" />
+    <None Include="Assets\Works\石橋\Material\AlphaMask.shader" />
     <None Include="Assets\Works\石橋\Shader\Alpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
