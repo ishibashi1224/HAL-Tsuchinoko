@@ -13,7 +13,13 @@ public class map_Editer_Ver1 : MonoBehaviour
     List<GameObject> FieldPrefabs = new List<GameObject>();
 
     [SerializeField]
-    private float fSize = 0.0f;
+    private float fPosx = 0.0f;
+
+    [SerializeField]
+    private float fPosy = 0.0f;
+
+    [SerializeField]
+    private float fSpacingDistance = 0.0f;
 
     [SerializeField]
     private float fFog = 0.0f;
@@ -110,7 +116,7 @@ public class map_Editer_Ver1 : MonoBehaviour
 
         if (Number != 0 && Number <= FieldPrefabs.Count)
         {
-            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSize, FieldPrefabs[Number - 1].transform.position.y, z * fSize), Quaternion.identity);
+            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSpacingDistance + fPosx, FieldPrefabs[Number - 1].transform.position.y, z * fPosy), Quaternion.identity);
         }
 
     }
@@ -138,7 +144,7 @@ public class map_Editer_Ver1 : MonoBehaviour
         /* New ver */
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        csvFile = Resources.Load("CSV/map_sample") as TextAsset; /* Resouces/CSV下のCSV読み込み */
+        csvFile = Resources.Load("CSV/test") as TextAsset; /* Resouces/CSV下のCSV読み込み */
         StringReader reader = new StringReader(csvFile.text);
 
         while (reader.Peek() > -1)
@@ -164,7 +170,6 @@ public class map_Editer_Ver1 : MonoBehaviour
 
     void UpDate()
     {
-
         if(RenderSettings.fogDensity < fFog)
         {
             RenderSettings.fogDensity += 0.01f;

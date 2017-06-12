@@ -100,12 +100,14 @@
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\enemy\Chase.cs" />
     <Compile Include="Assets\Script\game\enemy\enemy.cs" />
-    <Compile Include="Assets\Script\game\player\Bullet.cs" />
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\game\player\Shoot.cs" />
     <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
+    <Compile Include="Assets\Works\見目\Beam.cs" />
+    <Compile Include="Assets\Works\見目\Gizmo.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
     <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
