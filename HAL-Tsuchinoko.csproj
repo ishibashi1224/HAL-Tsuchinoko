@@ -94,13 +94,18 @@
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\enemy\Chase.cs" />
     <Compile Include="Assets\Script\game\enemy\enemy.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\game\player\BitLife.cs" />
     <Compile Include="Assets\Script\game\player\Bullet.cs" />
+=======
+>>>>>>> map
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\game\player\Shoot.cs" />
     <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Works\木村\script\BitManager.cs" />
     <Compile Include="Assets\Works\木村\script\Down.cs" />
     <Compile Include="Assets\Works\木村\script\GrappleObject.cs" />
@@ -133,6 +138,10 @@
     <Compile Include="Assets\Works\石橋\enemy\State\New Folder\_Enemy.cs" />
     <Compile Include="Assets\Works\石橋\enemy\State\RushBehaviour.cs" />
     <Compile Include="Assets\Works\石橋\enemy\State\WaitBehavior.cs" />
+=======
+    <Compile Include="Assets\Works\見目\Beam.cs" />
+    <Compile Include="Assets\Works\見目\Gizmo.cs" />
+>>>>>>> map
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
     <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>

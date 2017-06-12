@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Shoot : MonoBehaviour
 {
-
     public float speed = 0.01f;
     public int dleateTime = 5;
     private int cntTime = 0;
