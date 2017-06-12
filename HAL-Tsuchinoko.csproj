@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -94,18 +100,13 @@
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\enemy\Chase.cs" />
     <Compile Include="Assets\Script\game\enemy\enemy.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Script\game\player\BitLife.cs" />
-    <Compile Include="Assets\Script\game\player\Bullet.cs" />
-=======
->>>>>>> map
     <Compile Include="Assets\Script\game\player\BulletManager.cs" />
     <Compile Include="Assets\Script\game\player\Shoot.cs" />
     <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Works\木村\script\BitManager.cs" />
     <Compile Include="Assets\Works\木村\script\Down.cs" />
     <Compile Include="Assets\Works\木村\script\GrappleObject.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Assets\Works\木村\script\collision.cs" />
     <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
     <Compile Include="Assets\Works\石橋\Script\EnemyLife.cs" />
+    <Compile Include="Assets\Works\石橋\Texture\scroll.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BoosArea.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BossRoot\Root.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BossRoot\RootEditor.cs" />
@@ -138,10 +140,8 @@
     <Compile Include="Assets\Works\石橋\enemy\State\New Folder\_Enemy.cs" />
     <Compile Include="Assets\Works\石橋\enemy\State\RushBehaviour.cs" />
     <Compile Include="Assets\Works\石橋\enemy\State\WaitBehavior.cs" />
-=======
     <Compile Include="Assets\Works\見目\Beam.cs" />
-    <Compile Include="Assets\Works\見目\Gizmo.cs" />
->>>>>>> map
+    <Compile Include="Assets\Works\見目\chargeshot.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
     <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
@@ -224,6 +224,8 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Works\test\UI-Fade-Alpha.shader" />
+    <None Include="Assets\Works\石橋\Material\AlphaLife.shader" />
+    <None Include="Assets\Works\石橋\Material\AlphaMask.shader" />
     <None Include="Assets\Works\石橋\Shader\Alpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
