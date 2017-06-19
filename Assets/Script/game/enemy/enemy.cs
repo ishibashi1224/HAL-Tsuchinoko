@@ -21,10 +21,10 @@ public class enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.tag == "bullet")
-        //{
-        //    Instantiate(particle, transform.position, Quaternion.identity);
-        //    Destroy(gameObject);
-        //}
+        if (collision.gameObject.tag == "bullet")
+        {
+            Instantiate(particle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

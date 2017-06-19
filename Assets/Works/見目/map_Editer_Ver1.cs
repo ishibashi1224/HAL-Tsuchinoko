@@ -19,7 +19,6 @@ public class map_Editer_Ver1 : MonoBehaviour
     private float fPosy = 0.0f;
 
     [SerializeField]
-
     private float fSpacingDistans = 0.0f;
 
     [SerializeField]
@@ -27,6 +26,9 @@ public class map_Editer_Ver1 : MonoBehaviour
 
     [SerializeField]
     private TextAsset csvFileMap; // CSVファイル
+
+    [SerializeField]
+    private TextAsset csvFileUnit; // CSVファイル
 
     [SerializeField]
     private List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト
@@ -117,8 +119,8 @@ public class map_Editer_Ver1 : MonoBehaviour
 
         if (Number != 0 && Number <= FieldPrefabs.Count)
         {
-
-            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSpacingDistans + fPosx, FieldPrefabs[Number - 1].transform.position.y, z * fPosy), Quaternion.identity);        }
+            Instantiate(FieldPrefabs[Number - 1], new Vector3(x * fSpacingDistans + fPosx, FieldPrefabs[Number - 1].transform.position.y, z * fPosy), Quaternion.identity);
+        }
 
     }
 
@@ -171,6 +173,7 @@ public class map_Editer_Ver1 : MonoBehaviour
 
     void UpDate()
     {
+
         if(RenderSettings.fogDensity < fFog)
         {
             RenderSettings.fogDensity += 0.01f;

@@ -22,12 +22,14 @@ public class playerBehaviourScript : MonoBehaviour
     float angle;
     float limitLengthMin;
     float limitLengthMax;
-    Vector2[] defaultPos = new Vector2[3];
-    Vector2[] maxPos = new Vector2[3];
     Vector2[] nowPos = new Vector2[3];
 
     int compileMode;
     bool GameStart = false;
+    int artsCnt;
+
+    //テスト用（後で消そう）
+    int num = 0;
 
     void Awake()
     {
@@ -36,6 +38,7 @@ public class playerBehaviourScript : MonoBehaviour
         int width = (int)(Screen.width * screenRate);
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
+        artsCnt = 0;
     }
 
     // Use this for initialization
@@ -45,22 +48,6 @@ public class playerBehaviourScript : MonoBehaviour
         this.labelStyle = new GUIStyle();
         this.labelStyle.fontSize = Screen.height / 22;
         this.labelStyle.normal.textColor = Color.white;
-
-        defaultPos[0].x = transform.GetChild(0).gameObject.transform.position.x;
-        defaultPos[0].y = transform.GetChild(0).gameObject.transform.position.z;
-
-        defaultPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
-        defaultPos[1].y = transform.GetChild(1).gameObject.transform.position.z;
-
-        defaultPos[2].x = transform.GetChild(2).gameObject.transform.position.x;
-        defaultPos[2].y = transform.GetChild(2).gameObject.transform.position.z;
-
-        nowPos[0] = defaultPos[0];
-        nowPos[1] = defaultPos[1];
-        nowPos[2] = defaultPos[2];
-
-        limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
-        limitLengthMax = limitLengthMin * 10;
 
 #if UNITY_EDITOR_WIN
         compileMode = 0;
@@ -76,14 +63,21 @@ public class playerBehaviourScript : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(0, 0.05f, 0);
         }
-        else if( GameStart == false && gameObject.transform.position.z <= -10.0f)
+        else if( GameStart == false && gameObject.transform.position.z <= 0.0f)
         {
             gameObject.transform.position += new Vector3(0, 0, move);
         }
         else
         {
-            GameStart = true;
+            if (GameStart == false)
+            {
+                gameObject.transform.position = new Vector3(0, gameObject.transform.position.y, 0);
+                StartPoint();
+                GameStart = true;
+            }
         }
+            
+        Arts();
 
         Move();
 
@@ -94,6 +88,36 @@ public class playerBehaviourScript : MonoBehaviour
         gameObject.transform.position += Pos;
 
         Scaling();
+
+    }
+
+    void StartPoint()
+    {
+        //angle = 0;
+        //transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(angle) * 5);
+
+        //transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(0, 0, 2.5f);
+
+        angle = (240 / 180.0f) * Mathf.PI;
+        transform.GetChild(1).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
+
+        angle = (120 / 180.0f) * Mathf.PI;
+        transform.GetChild(2).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
+
+        gameObject.transform.GetChild(3).localScale = new Vector3(3.0f, 1.0f, 3.0f);
+
+        //ビット子機の距離計算用変数
+        nowPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
+        nowPos[1].y = transform.GetChild(1).gameObject.transform.position.z;
+
+        nowPos[2].x = transform.GetChild(2).gameObject.transform.position.x;
+        nowPos[2].y = transform.GetChild(2).gameObject.transform.position.z;
+
+        limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
+        limitLengthMax = limitLengthMin * 2;
+
+        angle = (330 / 180.0f) * Mathf.PI;
+        transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
 
     }
 
@@ -207,6 +231,8 @@ public class playerBehaviourScript : MonoBehaviour
 
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                gameObject.transform.GetChild(3).localScale += new Vector3( 0.4f , 0, 0.4f);
             }
         }
         else if (Input.GetKey(KeyCode.Z))
@@ -221,9 +247,12 @@ public class playerBehaviourScript : MonoBehaviour
 
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                gameObject.transform.GetChild(3).localScale -= new Vector3(0.4f, 0, 0.4f);
             }
         }
 
+////////スマホ・タッチ用//////////////
         if (Input.touchCount >= 2)
         {
             Touch t1 = Input.GetTouch(0);
@@ -273,6 +302,28 @@ public class playerBehaviourScript : MonoBehaviour
         }
     }
 
+    void Arts()
+    {
+        if (gameObject.transform.GetChild(3).gameObject.activeSelf == true )
+        {
+            artsCnt++;
+            if (artsCnt >= 120)
+            {
+               //transform.GetChild(0).gameObject.transform.position += (transform.position - transform.GetChild(0).gameObject.transform.position) * 0.1f;
+                //transform.GetChild(1).gameObject.transform.position += (transform.position - transform.GetChild(1).gameObject.transform.position) * 0.1f;
+                //transform.GetChild(2).gameObject.transform.position += (transform.position - transform.GetChild(2).gameObject.transform.position) * 0.1f;
+
+            }
+        }
+        else
+        {
+            if(artsCnt > 0)
+            {
+                //StartPoint();
+            }
+            artsCnt = 0;
+        }
+    }
 
 
     /// <summary>

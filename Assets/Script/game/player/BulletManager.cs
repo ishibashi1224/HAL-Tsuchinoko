@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject bullet = null;
-
     [SerializeField]
     private float interval = 0.0f;
     private float time = 0.0f;
