@@ -1,48 +1,51 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
 {
-    [SerializeField]
-    private float FadeTime = 1.0f;  //  フェードにかける時間。
-    [SerializeField]
-    private string FadeSceneName1 = null;   //  フェードするシーン名
-    [SerializeField]
-    private string FadeSceneName2 = null;   //  フェードするシーン名
 
-    void Awake()
-    {
-        float screenRate = (float)512 / Screen.height;
-        if (screenRate > 1) screenRate = 1;
-        int width = (int)(Screen.width * screenRate);
-        int height = (int)(Screen.height * screenRate);
-        Screen.SetResolution(width, height, true, 15);
-    }
-
+    private bool MenuUse;
+    private TutorialManeger tutoriaLmanegeR = null;
+    private ScoreManeger scorEmanegeR = null;
     // Use this for initialization
     void Start()
     {
-
+        MenuUse = false;
+        tutoriaLmanegeR = TutorialManeger.instance;
+        scorEmanegeR = ScoreManeger.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    if (!FadeManager.GetFadeing())
-        //    {
-        //        //FadeManager.Instance.LoadLevel(FadeSceneName1, FadeTime);
-        //    }
-        //}
-        //else 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (!FadeManager.GetFadeing())
-        //    {
-        //        FadeManager.Instance.LoadLevel(FadeSceneName2, FadeTime);
-        //    }
-        //}
+
+        if (!tutoriaLmanegeR.GetUse() && !scorEmanegeR.GetUse())
+        {
+            //bit入替可能
+            //if(↑)
+            if (Flick.GetFlick() == "up")
+            {
+                //ゲームに遷移
+                FadeManager.Instance.LoadLevel("Game", 1);
+            }
+        }
+        else
+        {
+
+            //if (Left)         //もし左押したら
+            //{
+            //  tutoriaLmanegeR.SetUse(true);
+            //}
+            //else if (right)   //それ以外でもし右押したら
+            //{
+            //  scorEmanegeR.SetUse(true);
+            //}
+        }
+    }
+
+    public void SetUse(bool use)
+    {
+        MenuUse = use;
     }
 }
