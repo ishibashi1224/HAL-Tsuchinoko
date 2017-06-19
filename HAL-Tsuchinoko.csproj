@@ -73,12 +73,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -118,7 +112,8 @@
     <Compile Include="Assets\Works\木村\script\collision.cs" />
     <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
     <Compile Include="Assets\Works\石橋\Script\EnemyLife.cs" />
-    <Compile Include="Assets\Works\石橋\Texture\scroll.cs" />
+    <Compile Include="Assets\Works\石橋\Script\Range.cs" />
+    <Compile Include="Assets\Works\石橋\Script\scroll.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BoosArea.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BossRoot\Root.cs" />
     <Compile Include="Assets\Works\石橋\enemy\BossRoot\RootEditor.cs" />
@@ -230,6 +225,8 @@
     <None Include="Assets\Works\石橋\Material\AlphaLife.shader" />
     <None Include="Assets\Works\石橋\Material\AlphaMask.shader" />
     <None Include="Assets\Works\石橋\Shader\Alpha.shader" />
+    <None Include="Assets\Works\石橋\Shader\Dissolve.shader" />
+    <None Include="Assets\Works\石橋\Shader\sample.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
