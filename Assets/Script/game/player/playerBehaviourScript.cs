@@ -105,6 +105,7 @@ public class playerBehaviourScript : MonoBehaviour
         transform.GetChild(2).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
 
         gameObject.transform.GetChild(3).localScale = new Vector3(3.0f, 1.0f, 3.0f);
+        gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale = new Vector3(0.7f, 1.0f, 0.7f);
 
         //ビット子機の距離計算用変数
         nowPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
@@ -233,6 +234,7 @@ public class playerBehaviourScript : MonoBehaviour
                 transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
                 gameObject.transform.GetChild(3).localScale += new Vector3( 0.4f , 0, 0.4f);
+                gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.01f, 0.0f, 0.01f);
             }
         }
         else if (Input.GetKey(KeyCode.Z))
@@ -249,6 +251,7 @@ public class playerBehaviourScript : MonoBehaviour
                 transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
                 gameObject.transform.GetChild(3).localScale -= new Vector3(0.4f, 0, 0.4f);
+                gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.01f, 0.0f, 0.01f);
             }
         }
 
@@ -309,10 +312,11 @@ public class playerBehaviourScript : MonoBehaviour
             artsCnt++;
             if (artsCnt >= 120)
             {
-               //transform.GetChild(0).gameObject.transform.position += (transform.position - transform.GetChild(0).gameObject.transform.position) * 0.1f;
-                //transform.GetChild(1).gameObject.transform.position += (transform.position - transform.GetChild(1).gameObject.transform.position) * 0.1f;
-                //transform.GetChild(2).gameObject.transform.position += (transform.position - transform.GetChild(2).gameObject.transform.position) * 0.1f;
-
+               transform.GetChild(0).gameObject.transform.position += (transform.position - transform.GetChild(0).gameObject.transform.position) * 0.1f;
+               transform.GetChild(1).gameObject.transform.position += (transform.position - transform.GetChild(1).gameObject.transform.position) * 0.1f;
+               transform.GetChild(2).gameObject.transform.position += (transform.position - transform.GetChild(2).gameObject.transform.position) * 0.1f;
+               gameObject.transform.GetChild(3).localScale -= new Vector3(0.4f, 0, 0.4f);
+               gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.01f, 0.0f, 0.01f);
             }
         }
         else

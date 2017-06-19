@@ -13,7 +13,8 @@ public class ButtonManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gageSpeed = 0.001f;
+        //gageSpeed = 0.001f;
+        gageSpeed = 1.0f;
     }
 
     // Update is called once per frame

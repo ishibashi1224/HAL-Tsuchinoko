@@ -8,6 +8,7 @@ public class Arts : MonoBehaviour {
     private Vector2 UVPos = Vector2.zero;
     private int time = 0;
     private bool loop;
+    private int animTime;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +19,7 @@ public class Arts : MonoBehaviour {
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
         loop = true;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().sortingOrder = -1;
+        animTime = 3;
     }
 
     // Update is called once per frame
@@ -37,38 +39,51 @@ public class Arts : MonoBehaviour {
 
     void Anim()
     {
-      time++;
-      if (loop == true)
-      {
-        if (time == 4)
+        time++;
+
+        if (animTime >= 0)
         {
-            if (UVPos.x < 1.0f - UVScroll.x)
+            if (time == frame(15))
             {
-                UVPos.x += UVScroll.x;
-            }
-            else
-            {
-                UVPos.x = 0.0f;
-
-                if (UVPos.y > 0.0f + UVScroll.y)
+                if (loop == true)
                 {
-                    UVPos.y -= UVScroll.y;
-                }
-                else
-                {
-                    UVPos.y = 0.0f;
-                    UVPos.x = 1.0f - UVScroll.x;
-                    UVPos = Vector2.zero;
-                    UVPos.y = 1.0f - UVScroll.y;
-                    loop = false;
-                    //transform.GetChild(3).transform.gameObject.SetActive(false);
-                }
-            }
+                    if (UVPos.x < 1.0f - UVScroll.x)
+                    {
+                        UVPos.x += UVScroll.x;
+                    }
+                    else
+                    {
+                        UVPos.x = 0.0f;
 
-            time = 0;
-          }
+                        if (UVPos.y >= 0.0f + UVScroll.y)
+                        {
+                            UVPos.y -= UVScroll.y;
+                        }
+                        else
+                        {
+                            UVPos.y = 0.0f;
+                            UVPos.x = 1.0f - UVScroll.x;
+                            UVPos = Vector2.zero;
+                            UVPos.y = 1.0f - UVScroll.y;
+                            //loop = false;
+                            animTime--;                        
+                        }
+                    }
+                }
+                time = 0;
+            }
         }
-
+        else
+        {
+            transform.GetChild(3).transform.gameObject.SetActive(false);
+        }
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
     }
+
+    int frame( int frameCnt )
+    {
+        int animFrame = 60 / frameCnt;
+        return 60 / frameCnt;
+    }
+
 }

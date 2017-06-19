@@ -1,14 +1,67 @@
 fileFormatVersion: 2
 guid: cf7c757432e26a44dae08c3d67de7a09
-timeCreated: 1497606386
+timeCreated: 1497840339
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: plasma_ball_mk2_all 1_0
+    21300002: plasma_ball_mk2_all 1_1
+    21300004: plasma_ball_mk2_all 1_2
+    21300006: plasma_ball_mk2_all 1_3
+    21300008: plasma_ball_mk2_all 1_4
+    21300010: plasma_ball_mk2_all 1_5
+    21300012: plasma_ball_mk2_all 1_6
+    21300014: plasma_ball_mk2_all 1_7
+    21300016: plasma_ball_mk2_all 1_8
+    21300018: plasma_ball_mk2_all 1_9
+    21300020: plasma_ball_mk2_all 1_10
+    21300022: plasma_ball_mk2_all 1_11
+    21300024: plasma_ball_mk2_all 1_12
+    21300026: plasma_ball_mk2_all 1_13
+    21300028: plasma_ball_mk2_all 1_14
+    21300030: plasma_ball_mk2_all 1_15
+    21300032: plasma_ball_mk2_all 1_16
+    21300034: plasma_ball_mk2_all 1_17
+    21300036: plasma_ball_mk2_all 1_18
+    21300038: plasma_ball_mk2_all 1_19
+    21300040: plasma_ball_mk2_all 1_20
+    21300042: plasma_ball_mk2_all 1_21
+    21300044: plasma_ball_mk2_all 1_22
+    21300046: plasma_ball_mk2_all 1_23
+    21300048: plasma_ball_mk2_all 1_24
+    21300050: plasma_ball_mk2_all 1_25
+    21300052: plasma_ball_mk2_all 1_26
+    21300054: plasma_ball_mk2_all 1_27
+    21300056: plasma_ball_mk2_all 1_28
+    21300058: plasma_ball_mk2_all 1_29
+    21300060: plasma_ball_mk2_all 1_30
+    21300062: plasma_ball_mk2_all 1_31
+    21300064: plasma_ball_mk2_all 1_32
+    21300066: plasma_ball_mk2_all 1_33
+    21300068: plasma_ball_mk2_all 1_34
+    21300070: plasma_ball_mk2_all 1_35
+    21300072: plasma_ball_mk2_all 1_36
+    21300074: plasma_ball_mk2_all 1_37
+    21300076: plasma_ball_mk2_all 1_38
+    21300078: plasma_ball_mk2_all 1_39
+    21300080: plasma_ball_mk2_all 1_40
+    21300082: plasma_ball_mk2_all 1_41
+    21300084: plasma_ball_mk2_all 1_42
+    21300086: plasma_ball_mk2_all 1_43
+    21300088: plasma_ball_mk2_all 1_44
+    21300090: plasma_ball_mk2_all 1_45
+    21300092: plasma_ball_mk2_all 1_46
+    21300094: plasma_ball_mk2_all 1_47
+    21300096: plasma_ball_mk2_all 1_48
+    21300098: plasma_ball_mk2_all 1_49
+    21300100: plasma_ball_mk2_all 1_50
+    21300102: plasma_ball_mk2_all 1_51
+    21300104: plasma_ball_mk2_all 1_52
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -28,13 +81,13 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: 1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,7 +97,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -84,7 +137,696 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 605
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_1
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 605
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 605
+        width: 189
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 605
+        width: 189
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_4
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 605
+        width: 189
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_5
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 605
+        width: 189
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_6
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 605
+        width: 189
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_7
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 605
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 405
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_9
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 405
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_10
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 405
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_11
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 409
+        width: 187
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_12
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 409
+        width: 187
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_13
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 579
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_14
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 410
+        width: 187
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_15
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 580
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_16
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 411
+        width: 186
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_17
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 579
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_18
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 410
+        width: 187
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_19
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 583
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_20
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 491
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_21
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 405
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_22
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 406
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_23
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 407
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_24
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 410
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_25
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 411
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_26
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 410
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_27
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 210
+        width: 187
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_28
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 383
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_29
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 207
+        width: 187
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_30
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 383
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_31
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 382
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_32
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 388
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_33
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 381
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_34
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 388
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_35
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 206
+        width: 186
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_36
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 206
+        width: 187
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_37
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 206
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_38
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 206
+        width: 188
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_39
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 292
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_40
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 207
+        width: 186
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_41
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 292
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_42
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 207
+        width: 186
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_43
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 293
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_44
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 211
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_45
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 188
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_46
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 6
+        width: 188
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_47
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 6
+        width: 188
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_48
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 6
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_49
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 6
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_50
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 6
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_51
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 6
+        width: 188
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plasma_ball_mk2_all 1_52
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 5
+        width: 188
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
