@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -81,37 +87,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Game\Enemy\BoosArea.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\Root.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootEditor.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootPoint.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Chase.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyBoss.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyLife.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyMotion.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\CircularMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\EnemyMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\HorizontalMovement.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\InfiniteMovement.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\VerticalMovwment.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\Boos.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\ChangeBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\CircularBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\DecisionBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\EnemyBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\InfiniteBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\LineBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\New Folder\State.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\New Folder\StateMachine.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\New Folder\_Enemy.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\RushBehaviour.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
-    <Compile Include="Assets\Script\Game\GameManager.cs" />
-    <Compile Include="Assets\Script\Game\player\BitLife.cs" />
-    <Compile Include="Assets\Script\Game\player\BulletManager.cs" />
-    <Compile Include="Assets\Script\Game\player\Shoot.cs" />
-    <Compile Include="Assets\Script\Game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Script\General\Delete\Delete.cs" />
     <Compile Include="Assets\Script\General\Delete\ParticleDelete.cs" />
     <Compile Include="Assets\Script\General\FadeManager.cs" />
@@ -123,6 +98,39 @@
     <Compile Include="Assets\Script\Menu\ScrollManager.cs" />
     <Compile Include="Assets\Script\Menu\TutorialManeger.cs" />
     <Compile Include="Assets\Script\camera.cs" />
+    <Compile Include="Assets\Script\game\GameManager.cs" />
+    <Compile Include="Assets\Script\game\enemy\BoosArea.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\Root.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootEditor.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootPoint.cs" />
+    <Compile Include="Assets\Script\game\enemy\Chase.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyLife.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyMotion.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\CircularMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\EnemyMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\HorizontalMovement.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\InfiniteMovement.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\VerticalMovwment.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\Boos.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\ChangeBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\CircularBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\DecisionBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\EnemyBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\InfiniteBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\LineBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\New Folder\State.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\New Folder\StateMachine.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\New Folder\_Enemy.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\RushBehaviour.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\WaitBehavior.cs" />
+    <Compile Include="Assets\Script\game\player\Arts.cs" />
+    <Compile Include="Assets\Script\game\player\BitLife.cs" />
+    <Compile Include="Assets\Script\game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\game\player\ButtonManager.cs" />
+    <Compile Include="Assets\Script\game\player\Shoot.cs" />
+    <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
