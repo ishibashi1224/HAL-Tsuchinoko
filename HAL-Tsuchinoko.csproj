@@ -107,6 +107,9 @@
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
+    <Compile Include="Assets\Works\木村\menuScript\_MenuManager.cs" />
+    <Compile Include="Assets\Works\木村\menuScript\_ScoreManeger.cs" />
+    <Compile Include="Assets\Works\木村\menuScript\_TutorialManeger.cs" />
     <Compile Include="Assets\Works\木村\script\BitManager.cs" />
     <Compile Include="Assets\Works\木村\script\Down.cs" />
     <Compile Include="Assets\Works\木村\script\GrappleObject.cs" />
