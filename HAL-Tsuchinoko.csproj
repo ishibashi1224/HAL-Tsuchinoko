@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -110,6 +116,7 @@
     <Compile Include="Assets\Script\Game\Enemy\State\State\_Enemy.cs" />
     <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
     <Compile Include="Assets\Script\Game\GameManager.cs" />
+    <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
     <Compile Include="Assets\Script\Game\player\Arts.cs" />
     <Compile Include="Assets\Script\Game\player\BitLife.cs" />
     <Compile Include="Assets\Script\Game\player\BulletManager.cs" />
