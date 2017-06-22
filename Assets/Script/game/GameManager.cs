@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
+        if (GameObject.FindGameObjectsWithTag("EnemyBoss").Length <= 0)
         {
             if (!FadeManager.GetFadeing())
             {

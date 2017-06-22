@@ -94,6 +94,7 @@
     <Compile Include="Assets\Script\Game\Enemy\EnemyBossLife.cs" />
     <Compile Include="Assets\Script\Game\Enemy\EnemyLife.cs" />
     <Compile Include="Assets\Script\Game\Enemy\EnemyMotion.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemySpawn\EnemySpawn.cs" />
     <Compile Include="Assets\Script\Game\Enemy\Movement\CircularMove.cs" />
     <Compile Include="Assets\Script\Game\Enemy\Movement\EnemyMove.cs" />
     <Compile Include="Assets\Script\Game\Enemy\Movement\HorizontalMovement.cs" />
