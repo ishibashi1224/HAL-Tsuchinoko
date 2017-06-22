@@ -16,21 +16,21 @@ public class BossSpawn : MonoBehaviour
     private List<GameObject> Object = null;
 
     // Use this for initialization
-    public void Create()
+    public void Awake()
     {
         List<GameObject> Object = new List<GameObject>();
-        Object.Add(Instantiate(Root));
-        Object.Add(Instantiate(Area));
-        Object.Add(Instantiate(Movement));
-        Object.Add(Instantiate(Boss));
+        Object.Add(Instantiate(Root, transform.position, transform.rotation));
+        Object.Add(Instantiate(Area, transform.position, transform.rotation));
+        Object.Add(Instantiate(Movement, transform.position, transform.rotation));
+        Object.Add(Instantiate(Boss, transform.position, transform.rotation));
     }
 
-    public void Destruction()
-    {
-        foreach(var list in Object)
-        {
-            Destroy(list);
-        }
-        Object.Clear();
-    }
+    //public void Destruction()
+    //{
+    //    foreach(var list in Object)
+    //    {
+    //        Destroy(list);
+    //    }
+    //    Object.Clear();
+    //}
 }

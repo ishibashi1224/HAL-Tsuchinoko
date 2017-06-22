@@ -81,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\Game\Enemy\BossArea.cs" />
     <Compile Include="Assets\Script\Game\Enemy\BossLifeCheck.cs" />
     <Compile Include="Assets\Script\Game\Enemy\BossRoot\Root.cs" />
@@ -88,7 +89,6 @@
     <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootMove.cs" />
     <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootPoint.cs" />
     <Compile Include="Assets\Script\Game\Enemy\BossSpawn\BossSpawn.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossSpawn\BossSpawnManager.cs" />
     <Compile Include="Assets\Script\Game\Enemy\Chase.cs" />
     <Compile Include="Assets\Script\Game\Enemy\EnemyBoss.cs" />
     <Compile Include="Assets\Script\Game\Enemy\EnemyBossLife.cs" />
