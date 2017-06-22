@@ -11,6 +11,7 @@ public class Chase : MonoBehaviour
     private GameObject Target = null;
 
     // Use this for initialization
+
     void Start()
     {
         Target = GameObject.FindGameObjectWithTag("Player").gameObject;

@@ -5,8 +5,6 @@ using UnityEngine;
 public class LineBehavior : EnemyBehavior
 {
     [SerializeField]
-    private Root Root = null;
-    [SerializeField]
     private int MoveMax = 0;
     [SerializeField]
     private float Speed = 0.0f;
@@ -17,11 +15,16 @@ public class LineBehavior : EnemyBehavior
     [SerializeField]
     private bool RotDirection = true;
 
+    private Root Root = null;
     private Vector3 pos, _pos, distancePos, oldPos;     //直線移動用座標・蛇行用座標・判定用座標・前回の座標
     private int point, _point;  //初期地点・初期地点からの移動数
     private int number;         //pointと_pointの合計をRoot.Listの数に合わせた値
     private float angle, _angle, Length;
 
+    private void Awake()
+    {
+        Root = GameObject.FindGameObjectWithTag("Root").GetComponent<Root>();
+    }
     public override void Init()
     {
         pos = transform.root.position;

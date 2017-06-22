@@ -5,10 +5,6 @@ using UnityEngine;
 public class RushBehaviour : EnemyBehavior
 {
     [SerializeField]
-    private GameObject Player = null;
-    [SerializeField]
-    private BoosArea Area = null;
-    [SerializeField]
     private float Speed = 0.0f;
     [SerializeField]
     private float RotSpeed = 0.0f;
@@ -18,12 +14,20 @@ public class RushBehaviour : EnemyBehavior
     private Vector3 pos, oldPos;
     private float angle, _angle, radius;
     private bool action;
+    private GameObject Target = null;
+    private BossArea Area = null;
+
+    private void Awake()
+    {
+        Target = GameObject.FindGameObjectWithTag("Player").gameObject;
+        Area = GameObject.FindGameObjectWithTag("Area").GetComponent<BossArea>();
+    }
 
     public override void Init()
     {
         _angle = 0.0f;
         pos = transform.root.position;
-        angle = Mathf.Atan2(Player.transform.position.x - transform.root.position.x, Player.transform.position.z - transform.root.position.z);
+        angle = Mathf.Atan2(Target.transform.position.x - transform.root.position.x, Target.transform.position.z - transform.root.position.z);
         action = true;
     }
 
