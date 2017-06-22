@@ -114,6 +114,7 @@
     <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
     <Compile Include="Assets\Script\Game\GameManager.cs" />
     <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
+    <Compile Include="Assets\Script\Game\Score\ScoreSystem.cs" />
     <Compile Include="Assets\Script\Game\player\Arts.cs" />
     <Compile Include="Assets\Script\Game\player\BitLife.cs" />
     <Compile Include="Assets\Script\Game\player\BulletManager.cs" />

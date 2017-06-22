@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e6f67d6eb5669b0439db7fc093da09c3
+timeCreated: 1498127556
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ChunkFive
+  fontNames:
+  - ChunkFive
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
