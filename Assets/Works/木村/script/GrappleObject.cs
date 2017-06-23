@@ -6,22 +6,33 @@ public class GrappleObject : MonoBehaviour
 {
     private Vector3 screenPoint;
     private Vector3 offset;
-    private bool ObjectPick = false ;   //物を掴んでいるフラグ
     private int cnt = 0;
-
+    private int WaitFrame = 0;
+    private bool WaitFlag = false;
+    private static bool Use= false;
     private Vector3 TargetObjectPosition;
+
     [SerializeField]
-    private int GrappleCntFlam ;                //物を掴むまでのフレーム数(プレースフレーム数)
+    private int GrappleCntFlam = 50;                //物を掴むまでのフレーム数(プレースフレーム数)
+
+    [SerializeField]
+    private static bool ObjectPick = false;   //物を掴んでいるフラグ
+
+    [SerializeField]
+    private int TargetWaitFrame = 25;
 
     private void Start()
     {
         ObjectPick = false;
         cnt = 0;
         TargetObjectPosition = transform.position;
+        WaitFlag = false;
+        Use = false;
     }
 
     private void Update()
     {
+        if (Use)
         if (Input.GetKey(KeyCode.Mouse0))
         {
             cnt++;
@@ -36,10 +47,21 @@ public class GrappleObject : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Mouse0))
         {
             cnt = 0;
-            ObjectPick = false;
             transform.position = TargetObjectPosition;
+            WaitFlag = true;
+            //Destroy(this.transform.gameObject.GetComponent<GrappleObject>());
         }
-
+        else if( WaitFlag)
+        {
+            WaitFrame++;
+            if (WaitFrame > TargetWaitFrame)
+            {
+                ObjectPick = false;
+                WaitFlag = false;
+                WaitFrame = 0;
+                Use = false;
+            }
+        }
     }
 
     void OnMouseDown()
@@ -54,8 +76,13 @@ public class GrappleObject : MonoBehaviour
     }
 
     //物を掴んでいるフラグ取得メソッド
-    public bool GetFlag()
+    public static  bool GetFlag()
     {
         return ObjectPick;
+    }
+    //使用フラグ
+    public void SetUse (bool use)
+    {
+        Use = use;
     }
 }

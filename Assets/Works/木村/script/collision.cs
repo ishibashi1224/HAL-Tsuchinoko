@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class collision : MonoBehaviour {
-    private GameObject work;
+    //private GameObject work;
     private Vector3 work_pos;
     private Transform transform_work;
+    [SerializeField]
+    private int id = 0;
     // Use this for initialization
+    
     void Start () {
+        transform_work = this.transform;
         work_pos = transform.position;
+        //work = this.gameObject;
     }
 	
 	// Update is called once per frame
@@ -31,10 +36,21 @@ public class collision : MonoBehaviour {
             //入れ替えすべき処理
             //other.gameObject = 
             //other.transform.GetChild(0) = this.transform.FindChild("BitNumber/Bit");
+            //work = Instantiate(this.gameObject, transform_work);
+            //BitManager.SetBit(0, this.gameObject);
+            //work.transform = transform_work;
+            //transform.Find("BitManager").GetComponent<BitManager>().SetBit(0,);
+            //Instantiate(transform.Find("BitManager").GetComponent<BitManager>().GetBit(0), transform_work);
+            
+            GameObject work = Instantiate(BitManager.GetBit(id).transform.GetChild(0).gameObject, other.transform);
 
+            //work.transform.root.parent = null;
+           // work. = work.transform.GetChild(0).GetChild(0).transform;
+            work.transform.parent = other.transform.parent.transform.parent;//bit1
+            work.name = other.transform.parent.name;
 
-            //自己破壊
-            Destroy(this.gameObject);                                               //当たったオブジェクト(bit1 || bit2)を消す
+            //対象破壊
+            Destroy(other.transform.parent.gameObject);                                               //当たったオブジェクト(bit1 || bit2)を消す
 
         }
     }

@@ -21,11 +21,11 @@ public class ScrollManager : MonoBehaviour
                 break;
 
             case "right":
-                GetComponent<Scroll>().LeftScroll();
+                //GetComponent<Scroll>().LeftScroll();
                 break;
 
             case "left":
-                GetComponent<Scroll>().RightScroll();
+                //GetComponent<Scroll>().RightScroll();
                 break;
 
             default:
