@@ -10,6 +10,7 @@ public class Arts : MonoBehaviour {
     private bool loop;
     public int defaultAnimTime;
     private int animTime;
+    private Vector3 defoltScale;
 
     // Use this for initialization
     void Start () {
@@ -21,6 +22,8 @@ public class Arts : MonoBehaviour {
         loop = true;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().sortingOrder = -1;
         animTime = defaultAnimTime;
+        defoltScale = transform.GetChild(3).transform.GetChild(0).localScale;
+        transform.GetChild(3).transform.GetChild(0).localScale = new Vector3( 0.0f , 0.0f , 0.0f );
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class Arts : MonoBehaviour {
             UVPos.y = 1.0f - UVScroll.y;
             transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
             animTime = defaultAnimTime;
+            transform.GetChild(3).transform.GetChild(0).localScale = new Vector3(0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -79,6 +83,20 @@ public class Arts : MonoBehaviour {
         {
             transform.GetChild(3).transform.gameObject.SetActive(false);
         }
+
+        if(transform.GetChild(3).transform.gameObject.activeSelf == true )
+        {
+            if(animTime == defaultAnimTime)
+            {
+                transform.GetChild(3).transform.GetChild(0).localScale += ( defoltScale - transform.GetChild(3).transform.GetChild(0).localScale ) * 0.1f;
+            }
+
+            if (animTime == 0)
+            {
+                transform.GetChild(3).transform.GetChild(0).localScale += ( new Vector3(0.0f, 0.0f, 0.0f) - transform.GetChild(3).transform.GetChild(0).localScale) * 0.05f;
+            }
+        }
+
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
     }
 
@@ -87,5 +105,4 @@ public class Arts : MonoBehaviour {
         int animFrame = 60 / frameCnt;
         return 60 / frameCnt;
     }
-
 }

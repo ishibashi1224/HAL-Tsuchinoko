@@ -104,8 +104,8 @@ public class playerBehaviourScript : MonoBehaviour
         angle = (120 / 180.0f) * Mathf.PI;
         transform.GetChild(2).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
 
-        gameObject.transform.GetChild(3).localScale = new Vector3(3.0f, 1.0f, 3.0f);
-        gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale = new Vector3(0.7f, 1.0f, 0.7f);
+        gameObject.transform.GetChild(3).localScale = new Vector3(1.2f, 1.0f, 1.2f);
+        gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         //ビット子機の距離計算用変数
         nowPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
@@ -119,6 +119,9 @@ public class playerBehaviourScript : MonoBehaviour
 
         angle = (330 / 180.0f) * Mathf.PI;
         transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
+
+        gameObject.transform.GetChild(1).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 120.0f, 0.0f);
+        gameObject.transform.GetChild(2).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 240.0f, 0.0f);
 
     }
 
@@ -233,8 +236,8 @@ public class playerBehaviourScript : MonoBehaviour
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                gameObject.transform.GetChild(3).localScale += new Vector3( 0.4f , 0, 0.4f);
-                gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.01f, 0.0f, 0.01f);
+                gameObject.transform.GetChild(3).localScale += new Vector3( 0.2f , 0, 0.2f);
+                //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.04f, 0.0f, 0.04f);
             }
         }
         else if (Input.GetKey(KeyCode.Z))
@@ -250,8 +253,8 @@ public class playerBehaviourScript : MonoBehaviour
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                gameObject.transform.GetChild(3).localScale -= new Vector3(0.4f, 0, 0.4f);
-                gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.01f, 0.0f, 0.01f);
+                gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
+                //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.04f, 0.0f, 0.04f);
             }
         }
 
@@ -281,6 +284,8 @@ public class playerBehaviourScript : MonoBehaviour
 
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                        gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
                     }
                 }
                 else if (tuchBegin > tuchMove)
@@ -295,6 +300,8 @@ public class playerBehaviourScript : MonoBehaviour
 
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+
+                        gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
                     }
                 }
             }

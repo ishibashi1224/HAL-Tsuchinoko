@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public float speed = 0.01f;
-    public int dleateTime = 5;
+    [SerializeField]
+    private float speed = 0.01f;
+    [SerializeField]
+    private int dleateTime = 5;
     private int cntTime = 0;
+
+    [SerializeField]
+    private int AttackNum = 0;
 
     // Use this for initialization
     void Start()
@@ -15,21 +20,15 @@ public class Shoot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float angle = (gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-        gameObject.transform.position += new Vector3(Mathf.Sin(angle) * speed, 0.0f, Mathf.Cos(angle) * speed);
 
-        ////デリート
-        //cntTime++;
-        //if (cntTime > 60)
-        //{
-        //    cntTime = 0;
-        //    dleateTime--;
-        //    if (dleateTime == 0)
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //}
+       float angle = (gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
+       gameObject.transform.position += new Vector3(Mathf.Sin(angle) * speed, 0.0f, Mathf.Cos(angle) * speed);
+    }
+
+    public int Atack()
+    {
+        return AttackNum;
     }
 }
