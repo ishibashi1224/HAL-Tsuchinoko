@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class GameManager : SingletonMonoBehaviourFast<GameManager>
+public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private float FadeTime = 1.0f;  //  フェードにかける時間。

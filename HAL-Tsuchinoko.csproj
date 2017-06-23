@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_3;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_3;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_3;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_3;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
@@ -82,58 +88,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\AudioManager.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossArea.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossLifeCheck.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\Root.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootEditor.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootPoint.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\BossSpawn\BossSpawn.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Chase.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyBoss.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyBossLife.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyLife.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemyMotion.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\EnemySpawn\EnemySpawn.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\CircularMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\EnemyMove.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\HorizontalMovement.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\InfiniteMovement.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\Movement\VerticalMovwment.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\Boss.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\ChangeBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\CircularBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\DecisionBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\EnemyBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\InfiniteBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\LineBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\RushBehaviour.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\State\State.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\State\StateMachine.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\State\_Enemy.cs" />
-    <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
-    <Compile Include="Assets\Script\Game\Floor.cs" />
-    <Compile Include="Assets\Script\Game\GameManager.cs" />
-    <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
-    <Compile Include="Assets\Script\Game\PauseManager.cs" />
-    <Compile Include="Assets\Script\Game\Score\ScoreSystem.cs" />
-    <Compile Include="Assets\Script\Game\player\Arts.cs" />
-    <Compile Include="Assets\Script\Game\player\BitLife.cs" />
-    <Compile Include="Assets\Script\Game\player\BulletManager.cs" />
-    <Compile Include="Assets\Script\Game\player\ButtonManager.cs" />
-    <Compile Include="Assets\Script\Game\player\Shoot.cs" />
-    <Compile Include="Assets\Script\Game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Script\General\Delete\Delete.cs" />
     <Compile Include="Assets\Script\General\Delete\ParticleDelete.cs" />
     <Compile Include="Assets\Script\General\FadeManager.cs" />
     <Compile Include="Assets\Script\General\SingletonMonoBehaviour.cs" />
-    <Compile Include="Assets\Script\Menu\Flick.cs" />
+    <Compile Include="Assets\Script\Menu\MenuButton.cs" />
     <Compile Include="Assets\Script\Menu\MenuManager.cs" />
     <Compile Include="Assets\Script\Menu\ScoreManeger.cs" />
-    <Compile Include="Assets\Script\Menu\Scroll.cs" />
     <Compile Include="Assets\Script\Menu\ScrollManager.cs" />
+    <Compile Include="Assets\Script\Menu\TapInput.cs" />
+    <Compile Include="Assets\Script\Menu\TargetBitObjectManager.cs" />
     <Compile Include="Assets\Script\Menu\TutorialManeger.cs" />
     <Compile Include="Assets\Script\camera.cs" />
+    <Compile Include="Assets\Script\game\GameManager.cs" />
+    <Compile Include="Assets\Script\game\MapEditor\MapEditer.cs" />
+    <Compile Include="Assets\Script\game\Score\ScoreSystem.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossArea.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossLifeCheck.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\Root.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootEditor.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossRoot\RootPoint.cs" />
+    <Compile Include="Assets\Script\game\enemy\BossSpawn\BossSpawn.cs" />
+    <Compile Include="Assets\Script\game\enemy\Chase.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyBossLife.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyLife.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemyMotion.cs" />
+    <Compile Include="Assets\Script\game\enemy\EnemySpawn\EnemySpawn.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\CircularMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\EnemyMove.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\HorizontalMovement.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\InfiniteMovement.cs" />
+    <Compile Include="Assets\Script\game\enemy\Movement\VerticalMovwment.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\Boss.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\ChangeBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\CircularBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\DecisionBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\EnemyBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\InfiniteBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\LineBehavior.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\RushBehaviour.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\State\State.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\State\StateMachine.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\State\_Enemy.cs" />
+    <Compile Include="Assets\Script\game\enemy\State\WaitBehavior.cs" />
+    <Compile Include="Assets\Script\game\player\Arts.cs" />
+    <Compile Include="Assets\Script\game\player\BitLife.cs" />
+    <Compile Include="Assets\Script\game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\game\player\ButtonManager.cs" />
+    <Compile Include="Assets\Script\game\player\Shoot.cs" />
+    <Compile Include="Assets\Script\game\player\playerBehaviourScript.cs" />
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
@@ -150,13 +155,14 @@
     <Compile Include="Assets\Works\見目\chargeshot.cs" />
     <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
     <Compile Include="Assets\Works\見目\test_Flick.cs" />
+    <Compile Include="Assets\music\se\Flick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Alpha.shader" />
     <None Include="Assets\Shader\AlphaLife.shader" />
     <None Include="Assets\Shader\AlphaMask.shader" />
     <None Include="Assets\Shader\Dissolve.shader" />
-    <None Include="Assets\Shader\floor.shader" />
+    <None Include="Assets\Shader\sample.shader" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
