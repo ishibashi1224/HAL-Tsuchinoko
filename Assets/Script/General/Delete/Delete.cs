@@ -18,7 +18,12 @@ public class Delete : MonoBehaviour
     {
         if (time >= interval)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            if(transform.gameObject.activeSelf == true)
+            {
+                transform.gameObject.SetActive(false);
+                time = 0;
+            }
         }
         time += Time.deltaTime;
     }
