@@ -24,7 +24,7 @@
 		if (val > 0.9999f) 
 		{
 			o.Albedo = fixed4(1, 1, 1, 1);
-			o.Emission = fixed4(3, 0.5, 0.5, 1);
+			o.Emission = fixed4(0.5, 3, 0.5, 1);
 		}
 		else 
 		{

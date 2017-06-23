@@ -30,7 +30,7 @@ public class EnemyMotion : MonoBehaviour
         rot.Add(Target.transform.rotation);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (use)
         {

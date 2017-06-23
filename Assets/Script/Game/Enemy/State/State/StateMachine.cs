@@ -24,7 +24,7 @@ public class StateMachine : MonoBehaviour
         currentState.Init();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (currentState != null)
         {
