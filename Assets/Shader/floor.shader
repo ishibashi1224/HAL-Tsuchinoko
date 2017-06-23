@@ -20,11 +20,11 @@
 	float4 _Vector;
 	void surf(Input IN, inout SurfaceOutputStandard o) {
 		float dist = distance(_Vector.xyz, IN.worldPos);
-		float val = abs(sin(dist*0.01 - _Time * 20));
+		float val = abs(sin(dist*0.05f - _Time * 35));
 		if (val > 0.9999f) 
 		{
 			o.Albedo = fixed4(1, 1, 1, 1);
-			o.Emission = fixed4(0.5, 0.5, 3, 1);
+			o.Emission = fixed4(3, 0.5, 0.5, 1);
 		}
 		else 
 		{
