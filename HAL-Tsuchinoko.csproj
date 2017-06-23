@@ -112,8 +112,10 @@
     <Compile Include="Assets\Script\Game\Enemy\State\State\StateMachine.cs" />
     <Compile Include="Assets\Script\Game\Enemy\State\State\_Enemy.cs" />
     <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Floor.cs" />
     <Compile Include="Assets\Script\Game\GameManager.cs" />
     <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
+    <Compile Include="Assets\Script\Game\PauseManager.cs" />
     <Compile Include="Assets\Script\Game\Score\ScoreSystem.cs" />
     <Compile Include="Assets\Script\Game\player\Arts.cs" />
     <Compile Include="Assets\Script\Game\player\BitLife.cs" />
@@ -154,7 +156,7 @@
     <None Include="Assets\Shader\AlphaLife.shader" />
     <None Include="Assets\Shader\AlphaMask.shader" />
     <None Include="Assets\Shader\Dissolve.shader" />
-    <None Include="Assets\Shader\sample.shader" />
+    <None Include="Assets\Shader\floor.shader" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />

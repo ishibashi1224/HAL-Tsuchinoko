@@ -119,7 +119,7 @@
     <None Include="Assets\Shader\AlphaLife.shader" />
     <None Include="Assets\Shader\AlphaMask.shader" />
     <None Include="Assets\Shader\Dissolve.shader" />
-    <None Include="Assets\Shader\sample.shader" />
+    <None Include="Assets\Shader\floor.shader" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
