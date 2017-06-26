@@ -9,6 +9,9 @@ public class BulletManager : MonoBehaviour
     private GameObject bullet = null;
 
     [SerializeField]
+    private GameObject magazine = null;
+
+    [SerializeField]
     private float interval = 0.0f;
     private float time = 0.0f;
     private Quaternion tes;
@@ -23,35 +26,56 @@ public class BulletManager : MonoBehaviour
     {
         for( int i = 0; i < BulletLimit; i++ )
         {
-            Instantiate(bullet, transform.position, transform.rotation ).transform.parent = transform;
-            transform.GetChild(1 + i).gameObject.SetActive(false);
+            Instantiate(bullet, transform.position, transform.rotation ).transform.parent = magazine.transform;
+            magazine.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (time >= interval)
-        {
-            childCnt++;
-            tes = Quaternion.identity;
-            tes.y = 90;
-
-            if (childCnt >= BulletLimit)
+        if (bulletTrueFalse() == true && ArtsTrueFalse() == false)
+        { 
+            if (time >= interval)
             {
-                childCnt = 0;
-            }
+                childCnt++;
+                tes = Quaternion.identity;
+                tes.y = 90;
 
-            //Instantiate(bullet, transform.position, transform.rotation * transform.localRotation).transform.parent = transform;
-            if (transform.GetChild(1 + childCnt).gameObject.activeSelf == false )
-            {
-                transform.GetChild(1 + childCnt).gameObject.SetActive(true);
-                transform.GetChild(1 + childCnt).gameObject.transform.position = transform.position;
-                transform.GetChild(1 + childCnt).gameObject.transform.rotation = transform.rotation * transform.localRotation;
-            }
+                if (childCnt >= BulletLimit)
+                {
+                    childCnt = 0;
+                }
 
-            time = 0;
+                //Instantiate(bullet, transform.position, transform.rotation * transform.localRotation).transform.parent = transform;
+                if (magazine.transform.GetChild(childCnt).gameObject.activeSelf == false)
+                {
+                    magazine.transform.GetChild(childCnt).gameObject.SetActive(true);
+                    magazine.transform.GetChild(childCnt).gameObject.transform.position = transform.position;
+                    magazine.transform.GetChild(childCnt).gameObject.transform.rotation = transform.rotation * transform.localRotation;
+                }
+
+                time = 0;
+            }
+            time += Time.deltaTime;
         }
-        time += Time.deltaTime;
+    }
+
+    bool bulletTrueFalse()
+    {
+        if (transform.GetChild(0).gameObject.GetComponent<BitLife>().lifeTrueFalse() == true)
+        {
+            return true;
+        };
+        return false;
+    }
+
+    bool ArtsTrueFalse()
+    {
+        if( transform.root.gameObject.transform.GetChild(3).gameObject.activeSelf == true )
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -115,7 +115,7 @@ public class playerBehaviourScript : MonoBehaviour
         nowPos[2].y = transform.GetChild(2).gameObject.transform.position.z;
 
         limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
-        limitLengthMax = limitLengthMin * 2;
+        limitLengthMax = limitLengthMin * 3;
 
         angle = (330 / 180.0f) * Mathf.PI;
         transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
@@ -208,7 +208,9 @@ public class playerBehaviourScript : MonoBehaviour
             RotMove.y = 2 * 180.0f + RotMove.y;
         }
 
-        RotMove = RotMove * 0.1f;
+        //回転度合
+        RotMove = RotMove * 0.025f;
+
         NowRot.y += RotMove.y;
 
         Rot = new Vector3(gameObject.transform.rotation.eulerAngles.x, NowRot.y, gameObject.transform.rotation.eulerAngles.z);
