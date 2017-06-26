@@ -84,6 +84,7 @@ public class Arts : MonoBehaviour {
             transform.GetChild(3).transform.gameObject.SetActive(false);
         }
 
+        //真ん中の▲の拡縮
         if(transform.GetChild(3).transform.gameObject.activeSelf == true )
         {
             if(animTime == defaultAnimTime)

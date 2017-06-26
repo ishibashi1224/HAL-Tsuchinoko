@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
 
-    public GameObject Arts;
+    [SerializeField]
+    private GameObject Arts;
+
+    [SerializeField]
     private float gageSpeed;
     //private Image 
 
     // Use this for initialization
     void Start()
     {
-        gageSpeed = 0.01f;
+        //gageSpeed = 0.01f;
         //gageSpeed = 1.0f;
     }
 
@@ -40,7 +43,21 @@ public class ButtonManager : MonoBehaviour
     {
         if (Arts.activeSelf == false && transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount <= 0)
         {
-            Arts.SetActive(true);
+            if(BitTrueFalse() == true)
+            {
+                Arts.SetActive(true);
+            }
         }
+    }
+
+    bool BitTrueFalse()
+    {
+        if( Arts.transform.root.gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == true &&
+            Arts.transform.root.gameObject.transform.GetChild(1).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == true &&
+            Arts.transform.root.gameObject.transform.GetChild(2).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == true )
+        {
+            return true;
+        }
+        return false;
     }
 }
