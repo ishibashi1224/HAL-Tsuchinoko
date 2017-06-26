@@ -11,6 +11,12 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
     // Use this for initialization
     void Start()
     {
+        float screenRate = (float)380 / Screen.height;
+        if (screenRate > 1) screenRate = 1;
+        int width = (int)(Screen.width * screenRate);
+        int height = (int)(Screen.height * screenRate);
+        Screen.SetResolution(width, height, true, 15);
+
         MenuUse = false;
         tutoriaLmanegeR = TutorialManeger.instance;
         scorEmanegeR = ScoreManeger.instance;
@@ -36,24 +42,11 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         {
             //bit入替可能
             //if(↑)
-            if (Flick.GetFlick() == "up")
             if (Flick.GetFlick() == "up" && !GrappleObject.GetFlag())
             {
                 //ゲームに遷移
                 FadeManager.Instance.LoadLevel("Game", 1);
             }
-        }
-        else
-        {
-
-            //if (Left)         //もし左押したら
-            //{
-            //  tutoriaLmanegeR.SetUse(true);
-            //}
-            //else if (right)   //それ以外でもし右押したら
-            //{
-            //  scorEmanegeR.SetUse(true);
-            //}
         }
     }
     public bool GetUse()

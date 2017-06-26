@@ -9,7 +9,7 @@ public class GrappleObject : MonoBehaviour
     private int cnt = 0;
     private int WaitFrame = 0;
     private bool WaitFlag = false;
-    private static bool Use= false;
+    private bool Use= false;
     private Vector3 TargetObjectPosition;
 
     [SerializeField]

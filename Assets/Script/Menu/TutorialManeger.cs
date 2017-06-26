@@ -19,16 +19,13 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
         if (TutorialUse)
         {
             //Tutorial処理
-            /*if(MenuButton.GetButtonRight()) //右押したら
+            if(MenuButton.GetButtonRight()) //右押したら
             {
                 TutorialUse = false;
-            }*/
+            }
         }
 
-        //if(right) //右押したら
-        //{
-        //    Set
-        //}
+
     }
 
 

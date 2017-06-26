@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
 {
-
     private bool ScoreUse;   //menu使用フラグ
 
 	// Use this for initialization
@@ -12,9 +11,6 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
         ScoreUse = false;
     }
 	
-	// Update is called once per frame
-	void Update () {
-        if(ScoreUse)
     // Update is called once per frame
     void Update()
     {
@@ -26,8 +22,13 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
             {
                 ScoreUse = false;
             }
+            //score処理
+            if(MenuButton.GetButtonLeft()) //右押したら
+            {
+                ScoreUse = false;
+            }
+
         }
-	}
     }
 
     public bool GetUse()

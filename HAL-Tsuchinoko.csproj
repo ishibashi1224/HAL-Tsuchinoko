@@ -154,8 +154,6 @@
     <Compile Include="Assets\Works\test\Fade.cs" />
     <Compile Include="Assets\Works\test\FadeImage.cs" />
     <Compile Include="Assets\Works\test\IFade.cs" />
-    <Compile Include="Assets\Works\木村\script\BitManager.cs" />
-    <Compile Include="Assets\Works\木村\script\collision.cs" />
     <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
     <Compile Include="Assets\Works\石橋\Script\Range.cs" />
     <Compile Include="Assets\Works\石橋\Script\scroll.cs" />
