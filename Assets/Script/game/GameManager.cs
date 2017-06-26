@@ -9,19 +9,14 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     [SerializeField]
     private string FadeSceneName = null;   //  フェードするシーン名
 
-    void Awake()
+    // Use this for initialization
+    void Start()
     {
-        float screenRate = (float)512 / Screen.height;
+        float screenRate = (float)380 / Screen.height;
         if (screenRate > 1) screenRate = 1;
         int width = (int)(Screen.width * screenRate);
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-       
     }
 
     // Update is called once per frame
