@@ -33,33 +33,36 @@ public class GrappleObject : MonoBehaviour
     private void Update()
     {
         if (Use)
-        if (Input.GetKey(KeyCode.Mouse0))
         {
-            cnt++;
-            if (cnt > GrappleCntFlam)
+
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-                Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;
-                ObjectPick = true;
-                transform.position = currentPosition;
+                cnt++;
+                if (cnt > GrappleCntFlam)
+                {
+                    Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+                    Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;
+                    ObjectPick = true;
+                    transform.position = currentPosition;
+                }
             }
-        }
-        else if(Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            cnt = 0;
-            transform.position = TargetObjectPosition;
-            WaitFlag = true;
-            //Destroy(this.transform.gameObject.GetComponent<GrappleObject>());
-        }
-        else if( WaitFlag)
-        {
-            WaitFrame++;
-            if (WaitFrame > TargetWaitFrame)
+            else if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                ObjectPick = false;
-                WaitFlag = false;
-                WaitFrame = 0;
-                Use = false;
+                cnt = 0;
+                transform.position = TargetObjectPosition;
+                WaitFlag = true;
+                //Destroy(this.transform.gameObject.GetComponent<GrappleObject>());
+            }
+            else if (WaitFlag)
+            {
+                WaitFrame++;
+                if (WaitFrame > TargetWaitFrame)
+                {
+                    ObjectPick = false;
+                    WaitFlag = false;
+                    WaitFrame = 0;
+                    Use = false;
+                }
             }
         }
     }

@@ -49,6 +49,7 @@ public class collision : MonoBehaviour {
             work.transform.parent = other.transform.parent.transform.parent;//bit1
             work.name = other.transform.parent.name;
 
+            //Destroy()
             //対象破壊
             Destroy(other.transform.parent.gameObject);                                               //当たったオブジェクト(bit1 || bit2)を消す
 
