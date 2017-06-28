@@ -10,12 +10,18 @@ public class EnemySpawn : MonoBehaviour
     private float interval = 0.0f;
     [SerializeField]
     private int NumMax = 0;
+    [SerializeField]
+    private int Radius = 0;
+
+    private EnemySpawnManager Instance;
     private float time = 0.0f;
+    private float angle;
 
     // Use this for initialization
     void Start()
     {
-
+        Instance = EnemySpawnManager.Instance;
+        angle = (Mathf.PI * 2) / NumMax;
     }
 
     // Update is called once per frame
@@ -26,9 +32,15 @@ public class EnemySpawn : MonoBehaviour
             time = 0.0f;
             for (int count = 0; count < NumMax; count++)
             {
-                Instantiate(Object[Random.Range(0, Object.Count - 1)], transform.position, transform.rotation);
+                Vector3 pos = transform.position + new Vector3(Mathf.Sin(angle * count) * Radius, 0, Mathf.Cos(angle * count) * Radius);
+                if (!Instance.Place(pos))
+                {
+                    if(Instance.Creat())
+                    {
+                        Instance.Add(Instantiate(Object[Random.Range(0, Object.Count - 1)], pos, transform.rotation));
+                    }
+                }
             }
-
         }
         time += Time.deltaTime;
     }
