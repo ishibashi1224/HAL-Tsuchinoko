@@ -11,9 +11,12 @@ public class EnemyLife : MonoBehaviour
     private float _Life = 0.0f;
     private Material material = null;
 
+    private EnemySpawnManager Instance;
+
     // Use this for initialization
     void Start()
     {
+        Instance = EnemySpawnManager.Instance;
         material = gameObject.GetComponent<Renderer>().materials[1];
         _Life = Life;
     }
@@ -25,7 +28,8 @@ public class EnemyLife : MonoBehaviour
         if (Life <= 0)
         {
             Instantiate(particle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Life = _Life;
+            Instance.Return(gameObject);
         }
     }
 
