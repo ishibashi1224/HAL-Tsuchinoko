@@ -7,26 +7,39 @@ using UnityEditor;
 
 public class PauseManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject On;
+    [SerializeField]
+    private GameObject Off;
+
     private Canvas canvas;
     private static string SceneName;
 
-    void Start()
+    void Awake()
     {
         canvas = GetComponent<Canvas>();
        
         SceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        On.SetActive(true);
+        Off.SetActive(false);
     }
 
-    void Update()
+    public void OnOff()
     {
-		if (!FadeManager.GetFadeing())
+        if (!FadeManager.GetFadeing())
         {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                canvas.enabled = !canvas.enabled;
-                Pause();
-            }
+            canvas.enabled = !canvas.enabled;
+            Pause();
+            Switching();
+            AudioManager.Instance.PlaySE("se6");
         }
+    }
+
+    public void Switching()
+    {
+        On.SetActive(!On.activeSelf);
+        Off.SetActive(!Off.activeSelf);
     }
 
     public void Pause()
@@ -34,42 +47,33 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
 
-    public void Resume()
+    public void Continue()
     {
 		if (!FadeManager.GetFadeing ()) 
 		{
 			canvas.enabled = !canvas.enabled;
-			Time.timeScale = 1;
+            Switching();
+            Time.timeScale = 1;
 			AudioManager.Instance.PlaySE ("se6");
 		}
     }
 
-    public void Redo()
-    {
-		if (!FadeManager.GetFadeing ())
-		{
-			Time.timeScale = 1;
-			FadeManager.Instance.LoadLevel (SceneName, 1);
-			AudioManager.Instance.PlaySE ("se6");
-		}
-    }
-
-    public void MenuReturn()
+    public void MainMenu()
     {
 		if (!FadeManager.GetFadeing ()) 
 		{
 			Time.timeScale = 1;
-			FadeManager.Instance.LoadLevel ("menu", 1);
+			FadeManager.Instance.LoadLevel ("Menu", 1);
 			AudioManager.Instance.PlaySE ("se6");
 		}
     }
 
-    public void TitleReturn()
+    public void Retry()
     {
 		if (!FadeManager.GetFadeing ()) 
 		{
-			Time.timeScale = 1;
-			FadeManager.Instance.LoadLevel ("title", 1);
+            Time.timeScale = 1;
+			FadeManager.Instance.LoadLevel ("Game", 1);
 			AudioManager.Instance.PlaySE ("se6");
 		}
     }

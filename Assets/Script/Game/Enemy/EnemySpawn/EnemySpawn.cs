@@ -12,9 +12,13 @@ public class EnemySpawn : MonoBehaviour
     private int NumMax = 0;
     [SerializeField]
     private int Radius = 0;
+    [SerializeField]
+    private float StartTime = 0;
+
 
     private EnemySpawnManager Instance;
-    private float time = 0.0f;
+    private float time;
+    private float startTimer;
     private float angle;
 
     // Use this for initialization
@@ -22,26 +26,35 @@ public class EnemySpawn : MonoBehaviour
     {
         Instance = EnemySpawnManager.Instance;
         angle = (Mathf.PI * 2) / NumMax;
+        time = 0.0f;
+        startTimer = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (interval < time)
+        if (startTimer >= StartTime)
         {
-            time = 0.0f;
-            for (int count = 0; count < NumMax; count++)
+            if (interval < time)
             {
-                Vector3 pos = transform.position + new Vector3(Mathf.Sin(angle * count) * Radius, 0, Mathf.Cos(angle * count) * Radius);
-                if (!Instance.Place(pos))
+                time = 0.0f;
+                for (int count = 0; count < NumMax; count++)
                 {
-                    if(Instance.Creat())
+                    Vector3 pos = transform.position + new Vector3(Mathf.Sin(angle * count) * Radius, 0, Mathf.Cos(angle * count) * Radius);
+                    if (!Instance.Place(pos))
                     {
-                        Instance.Add(Instantiate(Object[Random.Range(0, Object.Count - 1)], pos, transform.rotation));
+                        if (Instance.Creat())
+                        {
+                            Instance.Add(Instantiate(Object[Random.Range(0, Object.Count - 1)], pos, transform.rotation));
+                        }
                     }
                 }
             }
+            time += Time.deltaTime;
         }
-        time += Time.deltaTime;
+        else
+        {
+            startTimer += Time.deltaTime;
+        }
     }
 }
