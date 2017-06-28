@@ -8,6 +8,8 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     private float FadeTime = 1.0f;  //  フェードにかける時間。
     [SerializeField]
     private string FadeSceneName = null;   //  フェードするシーン名
+    [SerializeField]
+    private GameObject MapList = null;
 
     // Use this for initialization
     void Start()
@@ -26,6 +28,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         {
             if (!FadeManager.GetFadeing())
             {
+                //MapManager.Instance.GetMap(MapList);
                 FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
             }
         }
