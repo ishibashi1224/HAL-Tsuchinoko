@@ -55,9 +55,10 @@ public class BitLife : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "enemy" || col.tag == "EnemyBoss")
+        float hp = 0;
+        if (AttackerList.Instance.GetEnemyAttack(col.tag, hp))
         {
-            CntLife--;
+            CntLife -= (int)hp;
             if (CntLife > 0)
             {
                 nowColor -= (DefaultColor - FalseColor) / Life;
