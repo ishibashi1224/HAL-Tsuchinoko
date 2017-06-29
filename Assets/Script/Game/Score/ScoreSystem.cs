@@ -17,29 +17,27 @@ public class ScoreSystem : MonoBehaviour
     // ハイスコアキー（データ保存用）
     const string High_Score_Key = "HighScore";
 
-    // スコアキー（データ保存用）
-    const string Score_Key = "Score";
-
     // ハイスコア値
     static int HighScore = 0;
 
     // 現在スコア値
     static int Score = 0;
 
+    // フレーム管理
     int nCnt = 0;
 
     // ランキング番号
-    private float[] ranking = new float[5];
+    static public int[] ranking = new int[5];
 
-    // スコアのセーブ
-    static public void SaveScore()
+    // ハイスコアセーブ
+    static public void SaveHighScore()
     {
-        PlayerPrefs.SetInt(High_Score_Key, Score);
+        PlayerPrefs.SetInt(High_Score_Key, HighScore);
         PlayerPrefs.Save();
     }
 
-    // スコアのロード
-    static public int LoadScore()
+    // ハイスコアのロード
+    static public int LoadHighScore()
     {
         return PlayerPrefs.GetInt(High_Score_Key, -1);
     }
@@ -67,18 +65,18 @@ public class ScoreSystem : MonoBehaviour
 
             for (var i = 0; i < _score.Length && i < 5; i++)
             {
-                // 文字列をfloat型に変更
-                ranking[i] = float.Parse(_score[i]);
+                // 文字列をint型に変更
+                ranking[i] = int.Parse(_score[i]);
             }
         }
     }
 
     // 新たなスコア保存
-    void SeveRanking(float new_score)
+    void SeveRanking(int new_score)
     {
         if (ranking != null)
         {
-            float num = 0.0f;
+            int num = 0;
 
             for (var i = 0; i < ranking.Length; i++)
             {
@@ -93,41 +91,117 @@ public class ScoreSystem : MonoBehaviour
         }
     }
 
-    // ランキング表示
-    void DrawRanking()
-    {
-
-    }
-
     // Use this for initialization
     void Start()
     {
-        SaveScore();
+        // 初期ハイスコア値保存（念の為）
+        SaveHighScore();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "SCORE:  " + Score.ToString() + "\n" + "HIGH SCORE:  " + HighScore.ToString(); ;
-
-        
+        // フレーム規制
         nCnt++;
-        if (nCnt >= 20)
-        { 
-            Score += 1;
-            if (Score == 100)
-            {
-                SaveScore();
-            }
-            else if (Score == 200)
-            {
-                SaveScore();
-            }
-
+        if (nCnt >= 2)
+        {
             nCnt = 0;
+
+            // スコア加算（仮・「本来はステージクリア毎にスコアを加算」）
+            AddScore(1);
+
+            // スコアのフラグ値判定
+            if(Score == 100)
+            {
+                // 前回のハイスコアを取得
+                HighScore = LoadHighScore();
+
+                // 現在のスコアと前回のハイスコアを比較
+                if (Score > HighScore)
+                {
+                    // 現在の大きい場合、ハイスコアを更新
+                    HighScore = Score;
+
+                    // ハイスコアを保存
+                    SaveHighScore();
+
+                    // ランキングに新しいハイスコアを保存
+                    SeveRanking(HighScore);
+                }
+            }
+            // スコアフラグ
+            else if(Score == 200)
+            {
+                HighScore = LoadHighScore();
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    SaveHighScore();
+
+                    SeveRanking(HighScore);
+                    ComparisonRanking();
+                }
+            }
+            // スコア上限フラグ
+            else if (Score == 300)
+            {
+                HighScore = LoadHighScore();
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    SaveHighScore();
+
+                    SeveRanking(HighScore);
+                    ComparisonRanking();
+                }
+            }
+            // スコア上限フラグ
+            else if (Score == 400)
+            {
+                HighScore = LoadHighScore();
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    SaveHighScore();
+
+                    SeveRanking(HighScore);
+                    ComparisonRanking();
+                }
+            }
+            // スコア上限フラグ
+            else if (Score == 500)
+            {
+                HighScore = LoadHighScore();
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    SaveHighScore();
+
+                    SeveRanking(HighScore);
+                    ComparisonRanking();
+                }
+            }
+            // スコア上限フラグ
+            else if (Score >= 600)
+            {
+                HighScore = LoadHighScore();
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    SaveHighScore();
+
+                    SeveRanking(HighScore);
+                    ComparisonRanking();
+                }
+                Score = 0;
+            }
         }
+
+        // スコアテキスト更新
+        ScoreText.text = "SCORE:  " + Score.ToString() + "\n";
     }
 
+    // デバッグ表示
     void OnGUI()
     {
         float x = Screen.width / 10;
@@ -139,9 +213,15 @@ public class ScoreSystem : MonoBehaviour
         GUI.Label(new Rect(x, y, w, h), "Score : " + Score);
 
         // ハイスコアの取得
-        HighScore = LoadScore();
+        HighScore = LoadHighScore();
 
         // デバッグ ハイスコア値の表示
         GUI.Label(new Rect(x, y + 50, w, h), "HighScore : " + HighScore);
+
+        GUI.Label(new Rect(x, y + 80, w, h), "1. " + ranking[0]);
+        GUI.Label(new Rect(x, y + 90, w, h), "2. " + ranking[1]);
+        GUI.Label(new Rect(x, y + 100, w, h), "3. " + ranking[2]);
+        GUI.Label(new Rect(x, y + 110, w, h), "4. " + ranking[3]);
+        GUI.Label(new Rect(x, y + 120, w, h), "5. " + ranking[4]);
     }
 }
