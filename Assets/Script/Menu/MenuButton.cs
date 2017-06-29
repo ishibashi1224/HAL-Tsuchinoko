@@ -74,4 +74,10 @@ public class MenuButton : MonoBehaviour
         Top = use;
     }
 
+    public static void SetDrawLeft(bool use)
+    {
+        
+    }
+
+
 }

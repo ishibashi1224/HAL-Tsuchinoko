@@ -6,11 +6,12 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
 {
 
     private bool TutorialUse;      //メニュー使用フラグ
-
+    
     // Use this for initialization
     void Start()
     {
         TutorialUse = false;
+
     }
 
     // Update is called once per frame

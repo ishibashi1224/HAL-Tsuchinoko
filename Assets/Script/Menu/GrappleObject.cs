@@ -15,13 +15,13 @@ public class GrappleObject : MonoBehaviour
     private Vector3 scl;
 
     [SerializeField]
-    private int GrappleCntFlam = 50;                //物を掴むまでのフレーム数(プレースフレーム数)
+    private int GrappleCntFlam = 0;                //物を掴むまでのフレーム数(プレースフレーム数)
 
     [SerializeField]
     private static bool ObjectPick = false;   //物を掴んでいるフラグ
 
     [SerializeField]
-    private int TargetWaitFrame = 25;
+    private int TargetWaitFrame = 0;
 
     private void Start()
     {

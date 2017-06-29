@@ -5,10 +5,13 @@ using UnityEngine;
 public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
 {
     private bool ScoreUse;   //menu使用フラグ
-
-	// Use this for initialization
-	void Start () {
+    private GameObject plane;
+    // Use this for initialization
+    void Start () {
         ScoreUse = false;
+        plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        plane.transform.position = new Vector3(0, 0, 0);
+        plane.SetActive(false);
     }
 	
     // Update is called once per frame
@@ -17,15 +20,12 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
         if (ScoreUse)
         {
             //...
-            //スコア処理
-            if (Flick.GetFlick() == "right") //右押したら
-            {
-                ScoreUse = false;
-            }
             //score処理
             if(MenuButton.GetButtonLeft()) //右押したら
             {
                 ScoreUse = false;
+                plane.SetActive(ScoreUse);
+
             }
 
         }
@@ -39,6 +39,7 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
     public void SetUse (bool use)
     {
         ScoreUse = use;
+        plane.SetActive(use);
     }
 
 }
