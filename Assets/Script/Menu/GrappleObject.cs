@@ -11,6 +11,8 @@ public class GrappleObject : MonoBehaviour
     private bool WaitFlag = false;
     private bool Use= false;
     private Vector3 TargetObjectPosition;
+    private float rate = 1.0f;
+    private Vector3 scl;
 
     [SerializeField]
     private int GrappleCntFlam = 50;                //物を掴むまでのフレーム数(プレースフレーム数)
@@ -28,12 +30,26 @@ public class GrappleObject : MonoBehaviour
         TargetObjectPosition = transform.position;
         WaitFlag = false;
         Use = false;
+        scl = transform.localScale;
     }
 
     private void Update()
     {
         if (Use)
         {
+            if (ObjectPick)
+            {
+                this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
+                if (this.transform.localScale.x >= scl.x * 2)
+                {
+                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                }
+
+            }
+            else
+            {
+                this.transform.localScale = scl;
+            }
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -63,6 +79,20 @@ public class GrappleObject : MonoBehaviour
                     WaitFrame = 0;
                     Use = false;
                 }
+            }
+
+            if (ObjectPick)
+            {
+                this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
+                if (this.transform.localScale.x >= scl.x * 2)
+                {
+                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                }
+
+            }
+            else
+            {
+                this.transform.localScale = scl;
             }
         }
     }

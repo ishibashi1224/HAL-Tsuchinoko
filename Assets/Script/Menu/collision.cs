@@ -26,6 +26,22 @@ public class collision : MonoBehaviour {
         //work = gameObject;
     }
 
+    private void SetSphereCollider (GameObject Gameobject)
+    {
+        Debug.Log(Gameobject.transform.GetChild(0));
+        //スフィアコライダー適用
+        SphereCollider workcollider = Gameobject.transform.GetChild(0).gameObject.AddComponent<SphereCollider>();
+        workcollider.radius = 7;
+        workcollider.isTrigger = true;
+
+        //RigitBody適用
+        /*Rigidbody workrigitbody = Gameobject.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
+        workrigitbody.mass = 1.0f;
+        workrigitbody.angularDrag = 0;
+        workrigitbody.isKinematic = false;
+        workrigitbody.useGravity = false;*/
+    }
+
     //コリジョン
     private void OnTriggerStay(Collider other)
     {
@@ -48,6 +64,8 @@ public class collision : MonoBehaviour {
            // work. = work.transform.GetChild(0).GetChild(0).transform;
             work.transform.parent = other.transform.parent.transform.parent;//bit1
             work.name = other.transform.parent.name;
+
+            SetSphereCollider(work);
 
             //Destroy()
             //対象破壊
