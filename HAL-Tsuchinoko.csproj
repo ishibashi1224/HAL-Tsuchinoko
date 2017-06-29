@@ -126,6 +126,7 @@
     <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
     <Compile Include="Assets\Script\Game\MapEditor\MapManager.cs" />
     <Compile Include="Assets\Script\Game\PauseManager.cs" />
+    <Compile Include="Assets\Script\Game\Ranking\Ranking.cs" />
     <Compile Include="Assets\Script\Game\Score\ScoreSystem.cs" />
     <Compile Include="Assets\Script\Game\player\Arts.cs" />
     <Compile Include="Assets\Script\Game\player\BitLife.cs" />

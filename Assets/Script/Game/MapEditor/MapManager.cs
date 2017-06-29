@@ -13,7 +13,7 @@ public class MapManager : SingletonMonoBehaviourFast<MapManager>
     // Use this for initialization
     void Start()
     {
-        CountSetMap();
+
     }
 
     // Update is called once per frame
@@ -29,8 +29,7 @@ public class MapManager : SingletonMonoBehaviourFast<MapManager>
             nCnt++;
             Instantiate(Map[nCnt]);
         }
-
-        if (nCnt > Map.Count)
+        else if (nCnt > Map.Count)
         {
             nCnt = -1;
         }
