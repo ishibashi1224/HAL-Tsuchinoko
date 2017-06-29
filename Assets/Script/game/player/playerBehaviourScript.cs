@@ -28,6 +28,10 @@ public class playerBehaviourScript : MonoBehaviour
     bool GameStart = false;
     int artsCnt;
 
+    Vector3[] defaultLocalPos = new Vector3[3];
+
+    float playerSize;
+
     //テスト用（後で消そう）
     int num = 0;
 
@@ -39,6 +43,9 @@ public class playerBehaviourScript : MonoBehaviour
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
         artsCnt = 0;
+
+        //テクスチャの高さ取得
+        playerSize = transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().bounds.extents.z;
     }
 
     // Use this for initialization
@@ -59,24 +66,14 @@ public class playerBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if (gameObject.transform.position.y <= 8.0f)
-        //{
-        //    gameObject.transform.position += new Vector3(0, 0.05f, 0);
-        //}
-        //else if( GameStart == false && gameObject.transform.position.z <= 0.0f)
-        //{
-        //    gameObject.transform.position += new Vector3(0, 0, move);
-        //}
-        //else
-        //{
-            if (GameStart == false)
-            {
-                gameObject.transform.position = new Vector3(0, gameObject.transform.position.y, 0);
-                StartPoint();
-                GameStart = true;
-            }
-        //}
-            
+
+        if (GameStart == false)
+        {
+            gameObject.transform.position = new Vector3(0, gameObject.transform.position.y, 0);
+            StartPoint();
+            GameStart = true;
+        }
+
         Arts();
 
         Move();
@@ -86,9 +83,10 @@ public class playerBehaviourScript : MonoBehaviour
         rot.eulerAngles = Rot;
         gameObject.transform.rotation = rot;
         gameObject.transform.position += Pos;
-
-        Scaling();
-
+        if (gameObject.transform.GetChild(3).gameObject.activeSelf == false)
+        {
+            Scaling();
+        }
     }
 
     void StartPoint()
@@ -122,6 +120,9 @@ public class playerBehaviourScript : MonoBehaviour
 
         gameObject.transform.GetChild(1).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 120.0f, 0.0f);
         gameObject.transform.GetChild(2).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 240.0f, 0.0f);
+        defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+        defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+        defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
 
     }
 
@@ -238,9 +239,14 @@ public class playerBehaviourScript : MonoBehaviour
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                gameObject.transform.GetChild(3).localScale += new Vector3( 0.2f , 0, 0.2f);
+                //gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.04f, 0.0f, 0.04f);
+                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.2f, 0, +0.2f));
             }
+
+            defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+            defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+            defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
         }
         else if (Input.GetKey(KeyCode.Z))
         {
@@ -255,12 +261,16 @@ public class playerBehaviourScript : MonoBehaviour
                 angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                 transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
+                //gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.04f, 0.0f, 0.04f);
+                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.2f, 0, -0.2f));
             }
+            defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+            defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+            defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
         }
 
-////////スマホ・タッチ用//////////////
+        ////////スマホ・タッチ用//////////////
         if (Input.touchCount >= 2)
         {
             Touch t1 = Input.GetTouch(0);
@@ -316,24 +326,32 @@ public class playerBehaviourScript : MonoBehaviour
 
     void Arts()
     {
-        if (gameObject.transform.GetChild(3).gameObject.activeSelf == true )
+        if (gameObject.transform.GetChild(3).gameObject.activeSelf == true)
         {
-            artsCnt++;
-            if (artsCnt >= 120)
+            Vector3 buf;//計算用
+            //artsCnt++;
+            if (transform.gameObject.GetComponent<Arts>().nowAnim() == 0)
             {
-               //transform.GetChild(0).gameObject.transform.position += (transform.position - transform.GetChild(0).gameObject.transform.position) * 0.1f;
-               //transform.GetChild(1).gameObject.transform.position += (transform.position - transform.GetChild(1).gameObject.transform.position) * 0.1f;
-              // transform.GetChild(2).gameObject.transform.position += (transform.position - transform.GetChild(2).gameObject.transform.position) * 0.1f;
-              // gameObject.transform.GetChild(3).localScale -= new Vector3(0.4f, 0, 0.4f);
-               //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.01f, 0.0f, 0.01f);
+                buf = new Vector3(0.0f, 0.0f, 0.0f);
+                transform.GetChild(0).gameObject.transform.localPosition += (buf - transform.GetChild(0).gameObject.transform.localPosition) * 0.05f;
+
+                buf = new Vector3( -1.3f, 0.0f,  2.5f);
+                transform.GetChild(1).gameObject.transform.localPosition += (buf - transform.GetChild(1).gameObject.transform.localPosition) * 0.05f;
+
+                buf = new Vector3( 1.3f, 0.0f, 2.5f);
+                transform.GetChild(2).gameObject.transform.localPosition += (buf - transform.GetChild(2).gameObject.transform.localPosition) * 0.05f;
             }
         }
         else
         {
-            if(artsCnt > 0)
-            {
-                //StartPoint();
-            }
+            //buf = new Vector3(0.0f, 0.0f, 0.0f);
+            transform.GetChild(0).gameObject.transform.localPosition += (defaultLocalPos[0] - transform.GetChild(0).gameObject.transform.localPosition) * 0.1f;
+
+            //buf = new Vector3(-1.3f, 0.0f, 2.5f);
+            transform.GetChild(1).gameObject.transform.localPosition += (defaultLocalPos[1] - transform.GetChild(1).gameObject.transform.localPosition) * 0.1f;
+
+            //buf = new Vector3(1.3f, 0.0f, 2.5f);
+            transform.GetChild(2).gameObject.transform.localPosition += (defaultLocalPos[2] - transform.GetChild(2).gameObject.transform.localPosition) * 0.1f;
             artsCnt = 0;
         }
     }

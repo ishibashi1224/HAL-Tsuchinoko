@@ -22,12 +22,14 @@ public class Arts : MonoBehaviour {
         loop = true;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().sortingOrder = -1;
         animTime = defaultAnimTime;
-        defoltScale = transform.GetChild(3).transform.GetChild(0).localScale;
-        transform.GetChild(3).transform.GetChild(0).localScale = new Vector3( 0.0f , 0.0f , 0.0f );
+        //defoltScale = transform.GetChild(3).transform.GetChild(0).localScale;
+        //transform.GetChild(3).transform.GetChild(0).localScale = new Vector3( 0.0f , 0.0f , 0.0f );
+        defoltScale = transform.GetChild(3).localScale;
+        transform.GetChild(3).localScale = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         if (transform.GetChild(3).transform.gameObject.activeSelf == true)
         {
             Anim();
@@ -39,7 +41,8 @@ public class Arts : MonoBehaviour {
             UVPos.y = 1.0f - UVScroll.y;
             transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
             animTime = defaultAnimTime;
-            transform.GetChild(3).transform.GetChild(0).localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            //transform.GetChild(3).transform.GetChild(0).localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            transform.GetChild(3).localScale = new Vector3(0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -88,12 +91,14 @@ public class Arts : MonoBehaviour {
         {
             if(animTime == defaultAnimTime)
             {
-                transform.GetChild(3).transform.GetChild(0).localScale += ( defoltScale - transform.GetChild(3).transform.GetChild(0).localScale ) * 0.1f;
+                //transform.GetChild(3).transform.GetChild(0).localScale += ( defoltScale - transform.GetChild(3).transform.GetChild(0).localScale ) * 0.1f;
+                transform.GetChild(3).localScale += (defoltScale - transform.GetChild(3).localScale) * 0.1f;
             }
 
             if (animTime == 0)
             {
-                transform.GetChild(3).transform.GetChild(0).localScale += ( new Vector3(0.0f, 0.0f, 0.0f) - transform.GetChild(3).transform.GetChild(0).localScale) * 0.05f;
+                //transform.GetChild(3).transform.GetChild(0).localScale += ( new Vector3(0.0f, 0.0f, 0.0f) - transform.GetChild(3).transform.GetChild(0).localScale) * 0.05f;
+                transform.GetChild(3).localScale += (new Vector3(0.0f, 0.0f, 0.0f) - transform.GetChild(3).localScale) * 0.05f;
             }
         }
 
@@ -104,5 +109,15 @@ public class Arts : MonoBehaviour {
     {
         int animFrame = 60 / frameCnt;
         return 60 / frameCnt;
+    }
+
+    public void nowScale( Vector3 scale )
+    {
+        defoltScale += scale;
+    }
+
+    public int nowAnim()
+    {
+        return animTime;
     }
 }
