@@ -64,9 +64,10 @@ public class FadeManager : SingletonMonoBehaviourFast<FadeManager>
         {
             this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
             time += Time.deltaTime;
-            isFading = false;
             yield return 0;
         }
+
+        isFading = false;
     }
 
     public static bool GetFadeing()
@@ -74,3 +75,4 @@ public class FadeManager : SingletonMonoBehaviourFast<FadeManager>
         return isFading;
     }
 }
+

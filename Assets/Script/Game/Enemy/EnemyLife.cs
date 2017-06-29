@@ -10,6 +10,7 @@ public class EnemyLife : MonoBehaviour
     private GameObject particle = null;
     private float _Life = 0.0f;
     private Material material = null;
+    private float Attack;
 
     private EnemySpawnManager Instance;
 
@@ -46,10 +47,9 @@ public class EnemyLife : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "bullet")
+        if (AttackerList.Instance.GetPlayerAttack(collider.tag, Attack))
         {
-            SubLife(10.0f);
-            //Destroy(collider.gameObject);
+            SubLife(Attack);
             collider.gameObject.SetActive(false);
         }
     }
