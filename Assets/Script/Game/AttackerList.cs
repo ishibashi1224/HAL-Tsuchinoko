@@ -16,7 +16,7 @@ public class AttackerList : SingletonMonoBehaviourFast<AttackerList>
     [SerializeField]
     private List<Attacker> enemy;
 
-    public bool GetPlayerAttack(string Tag, float Attack)
+    public bool GetPlayerAttack(string Tag, ref float Attack)
     {
         foreach(var list in player)
         {
@@ -30,7 +30,7 @@ public class AttackerList : SingletonMonoBehaviourFast<AttackerList>
         return false;
     }
 
-    public bool GetEnemyAttack(string Tag, float Attack)
+    public bool GetEnemyAttack(string Tag, ref float Attack)
     {
         foreach (var list in enemy)
         {

@@ -56,7 +56,7 @@ public class BitLife : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
         float hp = 0;
-        if (AttackerList.Instance.GetEnemyAttack(col.tag, hp))
+        if (AttackerList.Instance.GetEnemyAttack(col.tag, ref hp))
         {
             CntLife -= (int)hp;
             if (CntLife > 0)

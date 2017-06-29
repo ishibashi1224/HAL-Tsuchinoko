@@ -12,6 +12,7 @@ public class EnemyBossLife : MonoBehaviour
     private float _Life = 0.0f;
     private Material material = null;
     private bool use = true;
+    private float Attack;
 
     // Use this for initialization
     void Start()
@@ -44,10 +45,9 @@ public class EnemyBossLife : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "bullet")
+        if (AttackerList.Instance.GetPlayerAttack(collider.tag, ref Attack))
         {
-            SubLife(10.0f);
-            //Destroy(collider.gameObject);
+            SubLife(Attack);
             collider.gameObject.SetActive(false);
         }
     }

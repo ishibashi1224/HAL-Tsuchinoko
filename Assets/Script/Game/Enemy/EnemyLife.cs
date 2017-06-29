@@ -47,7 +47,7 @@ public class EnemyLife : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (AttackerList.Instance.GetPlayerAttack(collider.tag, Attack))
+        if (AttackerList.Instance.GetPlayerAttack(collider.tag, ref Attack))
         {
             SubLife(Attack);
             collider.gameObject.SetActive(false);
