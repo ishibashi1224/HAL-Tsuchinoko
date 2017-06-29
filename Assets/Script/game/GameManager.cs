@@ -19,6 +19,8 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         int width = (int)(Screen.width * screenRate);
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
+
+        MapManager.Instance.CountSetMap();
     }
 
     // Update is called once per frame
@@ -28,7 +30,6 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         {
             if (!FadeManager.GetFadeing())
             {
-                //MapManager.Instance.GetMap(MapList);
                 FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
             }
         }
