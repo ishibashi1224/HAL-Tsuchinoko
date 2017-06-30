@@ -87,6 +87,8 @@ public class playerBehaviourScript : MonoBehaviour
         {
             Scaling();
         }
+
+        //gaemeOver();
     }
 
     void StartPoint()
@@ -241,7 +243,7 @@ public class playerBehaviourScript : MonoBehaviour
 
                 //gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.04f, 0.0f, 0.04f);
-                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.2f, 0, +0.2f));
+                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove , 0, +0.33f * ScalingMove));
             }
 
             defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
@@ -263,7 +265,7 @@ public class playerBehaviourScript : MonoBehaviour
 
                 //gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.04f, 0.0f, 0.04f);
-                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.2f, 0, -0.2f));
+                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
             }
             defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
             defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
@@ -297,7 +299,7 @@ public class playerBehaviourScript : MonoBehaviour
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                        gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
+                        transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove, 0, +0.33f * ScalingMove));
                     }
                 }
                 else if (tuchBegin > tuchMove)
@@ -313,7 +315,7 @@ public class playerBehaviourScript : MonoBehaviour
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                        gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
+                        transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
                     }
                 }
             }
@@ -356,6 +358,15 @@ public class playerBehaviourScript : MonoBehaviour
         }
     }
 
+    void gaemeOver()
+    {
+        if (gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
+            && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
+            && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false )
+        {
+            transform.gameObject.SetActive(false);
+        }
+    }
 
     /// <summary>
     /// GUI更新はここじゃないとダメらしいよ。
