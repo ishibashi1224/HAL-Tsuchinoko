@@ -10,6 +10,10 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     private string FadeSceneName = null;   //  フェードするシーン名
     [SerializeField]
     private GameObject MapList = null;
+    [SerializeField]
+    private GameObject Clear;
+    [SerializeField]
+    private GameObject GameOver;
 
     // Use this for initialization
     void Start()
@@ -30,8 +34,16 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         {
             if (!FadeManager.GetFadeing())
             {
-                FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
+                Clear.SetActive(true);
             }
+        }
+    }
+
+    public void Scene()
+    {
+        if (!FadeManager.GetFadeing())
+        {
+            FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
         }
     }
 }
