@@ -20,7 +20,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         MenuUse = false;
         tutoriaLmanegeR = TutorialManeger.instance;
         scorEmanegeR = ScoreManeger.instance;
-        AudioManager.Instance.PlayBGM("bgm1", true);
+        AudioManager.Instance.PlayBGM("title", true);
     }
 
     // Update is called once per frame
@@ -46,6 +46,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
             //if(↑)
             if (Flick.GetFlick() == "up" && !GrappleObject.GetFlag())
             {
+                AudioManager.Instance.PlaySE("Decision");
                 //ゲームに遷移
                 FadeManager.Instance.LoadLevel("Game", 1);
             }
