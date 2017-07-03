@@ -5,7 +5,7 @@ using UnityEngine;
 public class BitLife : MonoBehaviour {
 
     [SerializeField]
-    private int Life;
+    private int Life = 10;
 
     [SerializeField]
     private int CntLife;

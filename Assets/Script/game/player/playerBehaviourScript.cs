@@ -46,8 +46,8 @@ public class playerBehaviourScript : MonoBehaviour
         Screen.SetResolution(width, height, true, 15);
         artsCnt = 0;
 
-        //テクスチャの高さ取得
-        playerSize = transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().bounds.extents.z;
+        //ビット付け替え
+        transform.gameObject.GetComponent<BitInstance>().bitForm();
     }
 
     // Use this for initialization
@@ -122,6 +122,8 @@ public class playerBehaviourScript : MonoBehaviour
         angle = (330 / 180.0f) * Mathf.PI;
         transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
 
+        gameObject.transform.GetChild(1).eulerAngles = new Vector3(0.0f, -120.0f, 0.0f);
+        gameObject.transform.GetChild(2).eulerAngles = new Vector3(0.0f, -240.0f, 0.0f);
         gameObject.transform.GetChild(1).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 120.0f, 0.0f);
         gameObject.transform.GetChild(2).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 240.0f, 0.0f);
         defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
@@ -245,12 +247,12 @@ public class playerBehaviourScript : MonoBehaviour
 
                 //gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.04f, 0.0f, 0.04f);
-                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove , 0, +0.33f * ScalingMove));
-            }
+                //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove , 0, +0.33f * ScalingMove));
 
-            defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
-            defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
-            defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
+                defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+                defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+                defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
+            }
         }
         else if (Input.GetKey(KeyCode.Z))
         {
@@ -267,11 +269,12 @@ public class playerBehaviourScript : MonoBehaviour
 
                 //gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
                 //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.04f, 0.0f, 0.04f);
-                transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
+                //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
+
+                defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+                defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+                defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
             }
-            defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
-            defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
-            defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
         }
 
         ////////スマホ・タッチ用//////////////
@@ -371,8 +374,8 @@ public class playerBehaviourScript : MonoBehaviour
     void gaemeOver()
     {
         if (gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
-            && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
-            && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false )
+            && gameObject.transform.GetChild(1).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
+            && gameObject.transform.GetChild(2).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false )
         {
             GameOver.SetActive(true);
             if (!FadeManager.GetFadeing())

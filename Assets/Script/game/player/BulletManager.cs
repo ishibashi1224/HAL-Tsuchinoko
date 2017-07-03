@@ -9,10 +9,10 @@ public class BulletManager : MonoBehaviour
     private GameObject bullet = null;
 
     [SerializeField]
-    private GameObject magazine = null;
+    public GameObject magazine = null;
 
     [SerializeField]
-    private float interval = 0.0f;
+    private float interval = 0.1f;
     private float time = 0.0f;
     private Quaternion tes;
 

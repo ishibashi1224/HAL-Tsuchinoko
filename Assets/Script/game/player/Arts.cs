@@ -11,6 +11,7 @@ public class Arts : MonoBehaviour {
     public int defaultAnimTime;
     private int animTime;
     private Vector3 defoltScale;
+    private float length;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +34,11 @@ public class Arts : MonoBehaviour {
         if (transform.GetChild(3).transform.gameObject.activeSelf == true)
         {
             Anim();
+
+            length = Vector2.Distance(new Vector2(transform.GetChild(1).gameObject.transform.position.x, transform.GetChild(1).gameObject.transform.position.y),
+                              new Vector2(transform.GetChild(2).gameObject.transform.position.x, transform.GetChild(2).gameObject.transform.position.y));
+            defoltScale.x = length * 0.19f;
+            defoltScale.z = length * 0.19f;
         }
         else
         {
