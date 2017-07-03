@@ -23,11 +23,6 @@ public class BitManager : MonoBehaviour
     {
         oldbit = bit;
         bitlen = bit.Length;
-        /*if (CreateFlag)
-        {
-            bit[workNumber] = workgameObject;
-            CreateFlag = false;
-        }*/
     }
     
     public static int GetLength()

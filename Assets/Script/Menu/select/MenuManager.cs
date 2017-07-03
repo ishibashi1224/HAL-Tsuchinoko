@@ -49,6 +49,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
                 AudioManager.Instance.PlaySE("Decision");
                 //ゲームに遷移
                 FadeManager.Instance.LoadLevel("Game", 1);
+                BitDataManager.Instance.BitSave();
             }
         }
     }

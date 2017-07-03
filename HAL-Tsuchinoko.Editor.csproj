@@ -152,6 +152,7 @@
     <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\BitData\PlayerBitData.txt" />
     <None Include="Assets\Shader\Alpha.shader" />
     <None Include="Assets\Shader\AlphaLife.shader" />
     <None Include="Assets\Shader\AlphaMask.shader" />

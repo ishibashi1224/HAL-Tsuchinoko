@@ -21,7 +21,9 @@ public class GrappleObject : MonoBehaviour
     private static bool ObjectPick = false;   //物を掴んでいるフラグ
 
     [SerializeField]
-    private int TargetWaitFrame = 0;
+    float SclRate;
+    //[SerializeField]
+    //private int TargetWaitFrame = 0;
 
     private void Start()
     {
@@ -40,9 +42,9 @@ public class GrappleObject : MonoBehaviour
             if (ObjectPick)
             {
                 this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
-                if (this.transform.localScale.x >= scl.x * 2)
+                if (this.transform.localScale.x >= scl.x * SclRate)
                 {
-                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                    this.transform.localScale = new Vector3(scl.x * SclRate, scl.y, scl.z * SclRate);
                 }
 
             }
@@ -71,22 +73,22 @@ public class GrappleObject : MonoBehaviour
             }
             else if (WaitFlag)
             {
-                WaitFrame++;
+                /*WaitFrame++;
                 if (WaitFrame > TargetWaitFrame)
-                {
+                {*/
                     ObjectPick = false;
                     WaitFlag = false;
-                    WaitFrame = 0;
+                    //WaitFrame = 0;
                     Use = false;
-                }
+                //}
             }
 
             if (ObjectPick)
             {
                 this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
-                if (this.transform.localScale.x >= scl.x * 2)
+                if (this.transform.localScale.x >= scl.x * SclRate)
                 {
-                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                    this.transform.localScale = new Vector3(scl.x * SclRate, scl.y, scl.z * SclRate);
                 }
 
             }

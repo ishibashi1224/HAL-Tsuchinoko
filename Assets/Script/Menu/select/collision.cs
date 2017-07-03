@@ -50,27 +50,44 @@ public class collision : MonoBehaviour {
             Input.GetKeyUp(KeyCode.Mouse0))
         {
             //入れ替えすべき処理
-            //other.gameObject = 
-            //other.transform.GetChild(0) = this.transform.FindChild("BitNumber/Bit");
-            //work = Instantiate(this.gameObject, transform_work);
-            //BitManager.SetBit(0, this.gameObject);
-            //work.transform = transform_work;
-            //transform.Find("BitManager").GetComponent<BitManager>().SetBit(0,);
-            //Instantiate(transform.Find("BitManager").GetComponent<BitManager>().GetBit(0), transform_work);
-            
-            GameObject work = Instantiate(BitManager.GetBit(id).transform.GetChild(0).gameObject, other.transform);
 
-            //work.transform.root.parent = null;
-           // work. = work.transform.GetChild(0).GetChild(0).transform;
+            Debug.Log(BitManager.GetBit(id).transform.GetChild(0).gameObject);
+            GameObject work = Instantiate(BitManager.GetBit(id).transform.GetChild(0).gameObject, other.transform);
+            work.transform.GetChild(0).transform.position = other.transform.GetChild(0).transform.position;
+
             work.transform.parent = other.transform.parent.transform.parent;//bit1
             work.name = other.transform.parent.name;
 
+            //登録
+            BitDataManager.Instance.SetBitID(BitNameTransformNumber(work.name), id);
+
             SetSphereCollider(work);
 
-            //Destroy()
             //対象破壊
-            Destroy(other.transform.parent.gameObject);                                               //当たったオブジェクト(bit1 || bit2)を消す
-
+            Destroy(other.transform.parent.gameObject);                                               //当たったオブジェクト消える
         }
+    }
+    private int Bitnumber;
+    public int BitNameTransformNumber(string name)
+    {
+        
+        switch(name)
+        {
+            case "bit0":
+                Bitnumber = 0;
+                break;
+
+            case "bit1":
+                Bitnumber = 1;
+                break;
+
+            case "bit2":
+                Bitnumber = 2;
+                break;
+
+            default:
+                break;
+        } 
+        return Bitnumber ;
     }
 }

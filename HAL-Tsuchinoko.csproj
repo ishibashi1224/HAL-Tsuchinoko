@@ -92,6 +92,7 @@
     <Compile Include="Assets\Script\General\Delete\ParticleDelete.cs" />
     <Compile Include="Assets\Script\General\FadeManager.cs" />
     <Compile Include="Assets\Script\General\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Script\Menu\BitDataManager.cs" />
     <Compile Include="Assets\Script\Menu\TapMove.cs" />
     <Compile Include="Assets\Script\Menu\ranking\RankingMove.cs" />
     <Compile Include="Assets\Script\Menu\select\BitManager.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Script\Menu\select\GrappleObject.cs" />
     <Compile Include="Assets\Script\Menu\select\MenuButton.cs" />
     <Compile Include="Assets\Script\Menu\select\MenuManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\RingRot.cs" />
     <Compile Include="Assets\Script\Menu\select\ScoreManeger.cs" />
     <Compile Include="Assets\Script\Menu\select\Scroll.cs" />
     <Compile Include="Assets\Script\Menu\select\ScrollManager.cs" />
@@ -169,6 +171,7 @@
     <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\BitData\PlayerBitData.txt" />
     <None Include="Assets\Shader\Alpha.shader" />
     <None Include="Assets\Shader\AlphaLife.shader" />
     <None Include="Assets\Shader\AlphaMask.shader" />
