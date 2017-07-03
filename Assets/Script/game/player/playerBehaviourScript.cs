@@ -304,7 +304,7 @@ public class playerBehaviourScript : MonoBehaviour
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                        transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove, 0, +0.33f * ScalingMove));
+                        //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove, 0, +0.33f * ScalingMove));
 
                         defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                         defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
@@ -324,7 +324,7 @@ public class playerBehaviourScript : MonoBehaviour
                         angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
                         transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
-                        transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
+                        //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
 
                         defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                         defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;

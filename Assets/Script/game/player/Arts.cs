@@ -35,8 +35,8 @@ public class Arts : MonoBehaviour {
         {
             Anim();
 
-            length = Vector2.Distance(new Vector2(transform.GetChild(1).gameObject.transform.position.x, transform.GetChild(1).gameObject.transform.position.y),
-                              new Vector2(transform.GetChild(2).gameObject.transform.position.x, transform.GetChild(2).gameObject.transform.position.y));
+            length = Vector2.Distance(new Vector2(transform.GetChild(1).gameObject.transform.position.x, transform.GetChild(1).gameObject.transform.position.z),
+                              new Vector2(transform.GetChild(2).gameObject.transform.position.x, transform.GetChild(2).gameObject.transform.position.z));
             defoltScale.x = length * 0.19f;
             defoltScale.z = length * 0.19f;
         }
