@@ -20,11 +20,11 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         MenuUse = false;
         tutoriaLmanegeR = TutorialManeger.instance;
         scorEmanegeR = ScoreManeger.instance;
-        AudioManager.Instance.PlayBGM("bgm1", true);
+        AudioManager.Instance.PlayBGM("title", true);
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         if(MenuButton.GetButtonLeft())
         {

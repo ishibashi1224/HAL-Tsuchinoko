@@ -198,30 +198,30 @@ public class ScoreSystem : MonoBehaviour
         }
 
         // スコアテキスト更新
-        ScoreText.text = "SCORE:  " + Score.ToString() + "\n";
+        //ScoreText.text = "SCORE:  " + Score.ToString() + "\n";
     }
 
     // デバッグ表示
-    void OnGUI()
-    {
-        float x = Screen.width / 10;
-        float y = 150;
-        float w = Screen.width * 8 / 10;
-        float h = Screen.height / 20;
+    //void OnGUI()
+    //{
+    //    float x = Screen.width / 10;
+    //    float y = 150;
+    //    float w = Screen.width * 8 / 10;
+    //    float h = Screen.height / 20;
 
-        // デバッグ表示 現在スコア値の表示
-        GUI.Label(new Rect(x, y, w, h), "Score : " + Score);
+    //    // デバッグ表示 現在スコア値の表示
+    //    GUI.Label(new Rect(x, y, w, h), "Score : " + Score);
 
-        // ハイスコアの取得
-        HighScore = LoadHighScore();
+    //    // ハイスコアの取得
+    //    HighScore = LoadHighScore();
 
-        // デバッグ ハイスコア値の表示
-        GUI.Label(new Rect(x, y + 50, w, h), "HighScore : " + HighScore);
+    //    // デバッグ ハイスコア値の表示
+    //    GUI.Label(new Rect(x, y + 50, w, h), "HighScore : " + HighScore);
 
-        GUI.Label(new Rect(x, y + 80, w, h), "1. " + ranking[0]);
-        GUI.Label(new Rect(x, y + 90, w, h), "2. " + ranking[1]);
-        GUI.Label(new Rect(x, y + 100, w, h), "3. " + ranking[2]);
-        GUI.Label(new Rect(x, y + 110, w, h), "4. " + ranking[3]);
-        GUI.Label(new Rect(x, y + 120, w, h), "5. " + ranking[4]);
-    }
+    //    GUI.Label(new Rect(x, y + 80, w, h), "1. " + ranking[0]);
+    //    GUI.Label(new Rect(x, y + 90, w, h), "2. " + ranking[1]);
+    //    GUI.Label(new Rect(x, y + 100, w, h), "3. " + ranking[2]);
+    //    GUI.Label(new Rect(x, y + 110, w, h), "4. " + ranking[3]);
+    //    GUI.Label(new Rect(x, y + 120, w, h), "5. " + ranking[4]);
+    //}
 }

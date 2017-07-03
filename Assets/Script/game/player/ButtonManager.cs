@@ -23,19 +23,22 @@ public class ButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount >= 0)
+        if( transform.root.GetChild(3).gameObject.activeSelf == false )
         {
-            transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount -= gageSpeed;
-        }
-        if (transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount <= 0)
-        {
-            transform.gameObject.GetComponent<UnityEngine.UI.Button>().interactable = true;
-        }
+            if (transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount >= 0)
+            {
+                transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount -= gageSpeed;
+            }
+            if (transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount <= 0)
+            {
+                transform.gameObject.GetComponent<UnityEngine.UI.Button>().interactable = true;
+            }
 
-        if (Arts.activeSelf == true)
-        {
-            transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount = 1;
-            transform.gameObject.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            if (Arts.activeSelf == true)
+            {
+                transform.GetChild(1).transform.gameObject.GetComponent<Image>().fillAmount = 1;
+                transform.gameObject.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            }
         }
     }
 
@@ -45,7 +48,11 @@ public class ButtonManager : MonoBehaviour
         {
             if(BitTrueFalse() == true)
             {
-                Arts.SetActive(true);
+                if (transform.root.GetChild(3).gameObject.activeSelf == false)
+                {
+                    AudioManager.Instance.PlaySE("トライパニッシュ");
+                    Arts.SetActive(true);
+                }
             }
         }
     }

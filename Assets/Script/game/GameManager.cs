@@ -23,8 +23,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         int width = (int)(Screen.width * screenRate);
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
-
-        MapManager.Instance.CountSetMap();
+        AudioManager.Instance.PlayBGM("Game_loop_Ml", true);
     }
 
     // Update is called once per frame
@@ -35,6 +34,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
             if (!FadeManager.GetFadeing())
             {
                 Clear.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }
@@ -43,6 +43,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     {
         if (!FadeManager.GetFadeing())
         {
+            Time.timeScale = 1;
             FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
         }
     }

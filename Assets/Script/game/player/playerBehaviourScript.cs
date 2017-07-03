@@ -9,6 +9,8 @@ public class playerBehaviourScript : MonoBehaviour
     private float move = 0.0f;
     [SerializeField]
     private float ScalingMove = 0.0f;
+    [SerializeField]
+    private GameObject GameOver = null;
 
     private GUIStyle labelStyle;
     Vector3 Pos;
@@ -88,7 +90,7 @@ public class playerBehaviourScript : MonoBehaviour
             Scaling();
         }
 
-        //gaemeOver();
+        gaemeOver();
     }
 
     void StartPoint()
@@ -300,6 +302,10 @@ public class playerBehaviourScript : MonoBehaviour
                         transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
                         transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove, 0, +0.33f * ScalingMove));
+
+                        defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+                        defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+                        defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
                     }
                 }
                 else if (tuchBegin > tuchMove)
@@ -316,6 +322,10 @@ public class playerBehaviourScript : MonoBehaviour
                         transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
 
                         transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
+
+                        defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+                        defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+                        defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
                     }
                 }
             }
@@ -364,7 +374,11 @@ public class playerBehaviourScript : MonoBehaviour
             && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
             && gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false )
         {
-            transform.gameObject.SetActive(false);
+            GameOver.SetActive(true);
+            if (!FadeManager.GetFadeing())
+            {
+                Time.timeScale = 0;
+            }
         }
     }
 
@@ -372,7 +386,7 @@ public class playerBehaviourScript : MonoBehaviour
     /// GUI更新はここじゃないとダメらしいよ。
     /// まだよくわかんない。
     /// </summary>
-    void OnGUI()
+ /*   void OnGUI()
     {
         float x = Screen.width / 10;
         float y = 0;
@@ -385,6 +399,7 @@ public class playerBehaviourScript : MonoBehaviour
 
         GUI.Label(new Rect(x, y, w, h), text, this.labelStyle);
     }
+    */
 
 
 }

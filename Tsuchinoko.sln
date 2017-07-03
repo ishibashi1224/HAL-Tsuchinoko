@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tsuchinoko.Plugins", "Tsuchinoko.Plugins.csproj", "{52A87BB1-E760-807C-46E7-AF295095E72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tsuchinoko", "Tsuchinoko.csproj", "{09887022-A0A0-CA6C-57D8-3B71F333611D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tsuchinoko.Editor", "Tsuchinoko.Editor.csproj", "{669EBC5F-BC96-915B-A627-71BC2461C488}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52A87BB1-E760-807C-46E7-AF295095E72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A87BB1-E760-807C-46E7-AF295095E72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A87BB1-E760-807C-46E7-AF295095E72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A87BB1-E760-807C-46E7-AF295095E72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09887022-A0A0-CA6C-57D8-3B71F333611D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09887022-A0A0-CA6C-57D8-3B71F333611D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09887022-A0A0-CA6C-57D8-3B71F333611D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09887022-A0A0-CA6C-57D8-3B71F333611D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{669EBC5F-BC96-915B-A627-71BC2461C488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669EBC5F-BC96-915B-A627-71BC2461C488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669EBC5F-BC96-915B-A627-71BC2461C488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669EBC5F-BC96-915B-A627-71BC2461C488}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
