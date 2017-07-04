@@ -6,7 +6,7 @@ public class GrappleObject : MonoBehaviour
 {
     private Vector3 screenPoint;
     private Vector3 offset;
-    private int cnt = 0;
+    //private int cnt = 0;
     private int WaitFrame = 0;
     private bool WaitFlag = false;
     private bool Use= false;
@@ -14,19 +14,21 @@ public class GrappleObject : MonoBehaviour
     private float rate = 1.0f;
     private Vector3 scl;
 
-    [SerializeField]
-    private int GrappleCntFlam = 0;                //物を掴むまでのフレーム数(プレースフレーム数)
+//    [SerializeField]
+//    private int GrappleCntFlam = 0;                //物を掴むまでのフレーム数(プレースフレーム数)
 
     [SerializeField]
     private static bool ObjectPick = false;   //物を掴んでいるフラグ
 
     [SerializeField]
-    private int TargetWaitFrame = 0;
+    float SclRate;
+    //[SerializeField]
+    //private int TargetWaitFrame = 0;
 
     private void Start()
     {
         ObjectPick = false;
-        cnt = 0;
+      //  cnt = 0;
         TargetObjectPosition = transform.position;
         WaitFlag = false;
         Use = false;
@@ -40,9 +42,9 @@ public class GrappleObject : MonoBehaviour
             if (ObjectPick)
             {
                 this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
-                if (this.transform.localScale.x >= scl.x * 2)
+                if (this.transform.localScale.x >= scl.x * SclRate)
                 {
-                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                    this.transform.localScale = new Vector3(scl.x * SclRate, scl.y, scl.z * SclRate);
                 }
 
             }
@@ -53,40 +55,40 @@ public class GrappleObject : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                cnt++;
-                if (cnt > GrappleCntFlam)
-                {
+                //cnt++;
+                //if (cnt > GrappleCntFlam)
+                //{
                     Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
                     Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;
                     ObjectPick = true;
                     transform.position = currentPosition;
-                }
+                //}
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                cnt = 0;
+               // cnt = 0;
                 transform.position = TargetObjectPosition;
                 WaitFlag = true;
                 //Destroy(this.transform.gameObject.GetComponent<GrappleObject>());
             }
             else if (WaitFlag)
             {
-                WaitFrame++;
+                /*WaitFrame++;
                 if (WaitFrame > TargetWaitFrame)
-                {
+                {*/
                     ObjectPick = false;
                     WaitFlag = false;
-                    WaitFrame = 0;
+                    //WaitFrame = 0;
                     Use = false;
-                }
+                //}
             }
 
             if (ObjectPick)
             {
                 this.transform.localScale += new Vector3(this.transform.localScale.x + 0.001f, this.transform.localScale.y, this.transform.localScale.z + 0.001f);
-                if (this.transform.localScale.x >= scl.x * 2)
+                if (this.transform.localScale.x >= scl.x * SclRate)
                 {
-                    this.transform.localScale = new Vector3(scl.x * 2, scl.y, scl.z * 2);
+                    this.transform.localScale = new Vector3(scl.x * SclRate, scl.y, scl.z * SclRate);
                 }
 
             }
