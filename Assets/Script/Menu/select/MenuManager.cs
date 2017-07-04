@@ -20,11 +20,11 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         MenuUse = false;
         tutoriaLmanegeR = TutorialManeger.instance;
         scorEmanegeR = ScoreManeger.instance;
-        AudioManager.Instance.PlayBGM("title", true);
+        //AudioManager.Instance.PlayBGM("title", true);
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
         if(MenuButton.GetButtonLeft())
         {
@@ -46,8 +46,10 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
             //if(↑)
             if (Flick.GetFlick() == "up" && !GrappleObject.GetFlag())
             {
+//                AudioManager.Instance.PlaySE("Decision");
                 //ゲームに遷移
                 FadeManager.Instance.LoadLevel("Game", 1);
+                BitDataManager.Instance.BitSave();
             }
         }
     }
