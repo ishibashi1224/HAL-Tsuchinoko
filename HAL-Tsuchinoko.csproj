@@ -138,6 +138,7 @@
     <Compile Include="Assets\Script\General\Delete\Delete.cs" />
     <Compile Include="Assets\Script\General\Delete\ParticleDelete.cs" />
     <Compile Include="Assets\Script\General\FadeManager.cs" />
+    <Compile Include="Assets\Script\General\Movie.cs" />
     <Compile Include="Assets\Script\General\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Script\Menu\BitDataManager.cs" />
     <Compile Include="Assets\Script\Menu\RingRot.cs" />
