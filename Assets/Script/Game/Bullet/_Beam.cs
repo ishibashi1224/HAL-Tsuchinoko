@@ -8,6 +8,10 @@ public class _Beam : MonoBehaviour
 {
     [SerializeField]
     private float Length;
+
+    [SerializeField]
+    private float StartPos = 0;
+
     private LineRenderer Line;
 
     // Use this for initialization
@@ -21,6 +25,7 @@ public class _Beam : MonoBehaviour
     {
         float angle = (transform.eulerAngles.y / 180.0f) * Mathf.PI;
         Vector3 pos = transform.position;
+        pos += new Vector3(Mathf.Sin(angle) * StartPos, 0.0f, Mathf.Cos(angle) * StartPos);
         Line.SetPosition(0, pos);
         pos += new Vector3(Mathf.Sin(angle) * Length, 0.0f, Mathf.Cos(angle) * Length);
         Line.SetPosition(1, pos);

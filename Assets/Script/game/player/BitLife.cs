@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BitLife : MonoBehaviour {
 
     [SerializeField]
-    private int Life = 10;
+    private float Life = 10.0f;
 
     [SerializeField]
-    private int CntLife;
+    private float CntLife;
 
     [SerializeField]
     private int reverseTime = 10;
@@ -16,16 +17,15 @@ public class BitLife : MonoBehaviour {
     private float time = 0;
     private int Cnttime = 0;
 
-    private Color DefaultColor;
-    private Color nowColor;
-    private Color FalseColor = new Color(0.8f, 0.8f, 0.8f);
+    private Material material = null;
 
     // Use this for initialization
     void Start () {
         CntLife = Life;
-        gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        DefaultColor = gameObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
-        nowColor = DefaultColor;
+        if(SceneManager.GetActiveScene().name == "Game")//エラー防止用、ゲームシーンでのみ
+        {
+            material = gameObject.GetComponent<Renderer>().materials[1];
+        }
     }
 	
 	// Update is called once per frame
@@ -35,15 +35,13 @@ public class BitLife : MonoBehaviour {
         {
             time = 0.0f;
             Cnttime++;
-            nowColor += (DefaultColor - FalseColor) / reverseTime;
-            gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", nowColor);
+            if (SceneManager.GetActiveScene().name == "Game")//エラー防止用、ゲームシーンでのみ
+            {
+                material.SetFloat("_Range", Cnttime / Life);
+            }
             if (Cnttime >= reverseTime)
             {
                 CntLife = Life;
-                gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-                gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", DefaultColor);
-                nowColor = DefaultColor;
                 Cnttime = 0;
             }
         }
@@ -58,12 +56,10 @@ public class BitLife : MonoBehaviour {
         float hp = 0;
         if (AttackerList.Instance.GetEnemyAttack(col.tag, ref hp))
         {
-            CntLife -= (int)hp;
+            CntLife -= hp;
             if (CntLife > 0)
             {
-                nowColor -= (DefaultColor - FalseColor) / Life;
-                gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-                gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", nowColor);
+                material.SetFloat("_Range", CntLife / Life);
             }
         }
     }

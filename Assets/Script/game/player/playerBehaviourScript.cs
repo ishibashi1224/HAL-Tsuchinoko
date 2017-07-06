@@ -76,6 +76,8 @@ public class playerBehaviourScript : MonoBehaviour
             GameStart = true;
         }
 
+        BeamTrueFalse();
+
         Arts();
 
         Move();
@@ -381,6 +383,44 @@ public class playerBehaviourScript : MonoBehaviour
             if (!FadeManager.GetFadeing())
             {
                 Time.timeScale = 0;
+            }
+        }
+    }
+
+    void BeamTrueFalse()
+    {
+        //ビームのtrueFalse処理
+        if (BitChange.Instance.BitLoad(0) == 1 )
+        {
+            if (transform.GetChild(0).GetChild(0).gameObject.GetComponent<BitLife>().lifeTrueFalse() == false || transform.GetChild(3).gameObject.activeSelf == true)
+            {
+                transform.GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);
+            }
+        }
+        if (BitChange.Instance.BitLoad(1) == 1)
+        {
+            if (transform.GetChild(1).GetChild(0).gameObject.GetComponent<BitLife>().lifeTrueFalse() == false || transform.GetChild(3).gameObject.activeSelf == true)
+            {
+                transform.GetChild(1).GetChild(0).GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.GetChild(1).GetChild(0).GetChild(0).gameObject.SetActive(true);
+            }
+        }
+        if (BitChange.Instance.BitLoad(2) == 1)
+        {
+            if (transform.GetChild(2).GetChild(0).gameObject.GetComponent<BitLife>().lifeTrueFalse() == false || transform.GetChild(3).gameObject.activeSelf == true)
+            {
+                transform.GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(true);
             }
         }
     }

@@ -29,21 +29,37 @@ public class BitInstance : MonoBehaviour {
 
     public void bitForm()
     {
-        //ビットの付け替えファイル読み込み
-        textFile = Resources.Load("BitData/PlayerBitData") as TextAsset;
-        StringReader reader = new StringReader(textFile.text);
+        //#if UNITY_EDITOR_WIN
+        //        StreamReader sr = new StreamReader(Application.streamingAssetsPath + "/BitData/PlayerBitData.txt", false); //false=上書き
+        //#else
+        //        StreamReader sr = new StreamReader(Application.persistentDataPath + "/BitData/PlayerBitData.txt", false); //false=上書き
+        //#endif
+        //        for (int i = 0; i < bitNum; i++)
+        //        {
+        //            //ビット番号受け取る
+        //            bit[i] = bitType[int.Parse(sr.ReadLine().ToString())];
+
+        //            //ビット生成
+        //            Instantiate(bit[i], transform.position, transform.rotation).transform.parent = transform;
+        //            transform.GetChild(i + 1).SetSiblingIndex(transform.GetChild(i + 1).GetSiblingIndex() - 1);
+        //            transform.GetChild(i).transform.GetComponent<BulletManager>().magazine = bulletManager.transform.GetChild(i).gameObject;
+        //            transform.GetChild(i).transform.localScale = new Vector3(3.0f, 1.0f, 3.0f);
+        //        }
+        //        sr.Close();
 
         for (int i = 0; i < bitNum; i++)
         {
             //ビット番号受け取る
-            bit[i] = bitType[ int.Parse( reader.ReadLine() ) ];
+            bit[i] = bitType[BitChange.Instance.BitLoad(i)];
 
             //ビット生成
             Instantiate(bit[i], transform.position, transform.rotation).transform.parent = transform;
             transform.GetChild(i + 1).SetSiblingIndex(transform.GetChild(i + 1).GetSiblingIndex() - 1);
-            transform.GetChild(i).transform.GetComponent<BulletManager>().magazine = bulletManager.transform.GetChild(i).gameObject;
+            if(BitChange.Instance.BitLoad(i) != 1 )
+            {
+                transform.GetChild(i).transform.GetComponent<BulletManager>().magazine = bulletManager.transform.GetChild(i).gameObject;
+            }         
             transform.GetChild(i).transform.localScale = new Vector3(3.0f, 1.0f, 3.0f);
         }
-        reader.Close();
     }
 }
