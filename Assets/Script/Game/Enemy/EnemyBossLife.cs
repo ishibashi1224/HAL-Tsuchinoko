@@ -35,7 +35,14 @@ public class EnemyBossLife : MonoBehaviour
     public void SubLife(float Power)
     {
         Life -= Power;
-        if (Life <= 0) Life = 0;
+        if (Life <= 0)
+        {
+            GameObject obj = Instantiate(particle, transform.position, Quaternion.identity);
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localScale = new Vector3(1, 1, 1);
+            Destroy(gameObject.GetComponent<SphereCollider>());
+            Life = 0;
+        }
     }
 
     public float GetLife()

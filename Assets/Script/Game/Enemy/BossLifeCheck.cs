@@ -7,10 +7,12 @@ public class BossLifeCheck : MonoBehaviour
     [SerializeField]
     private GameObject particle = null;
     private GameObject[] Object;
+    private GameObject  _Object;
     // Use this for initialization
     void Start()
     {
         Object = GameObject.FindGameObjectsWithTag("BossLife");
+        _Object = GameObject.FindGameObjectWithTag("BossHead");
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class BossLifeCheck : MonoBehaviour
             }
         }
 
-        Instantiate(particle, transform.position, Quaternion.identity);
+        Instantiate(particle, _Object.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
