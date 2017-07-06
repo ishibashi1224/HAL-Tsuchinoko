@@ -6,7 +6,10 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
 {
 
     private bool TutorialUse;      //メニュー使用フラグ
-    
+
+    [SerializeField]
+    Canvas TutorialCanvas = null;
+
     // Use this for initialization
     void Start()
     {
@@ -22,7 +25,7 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
             //Tutorial処理
             if(MenuButton.GetButtonRight()) //右押したら
             {
-                TutorialUse = false;
+                TutorialUse = false;   
             }
         }
 

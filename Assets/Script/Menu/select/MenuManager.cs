@@ -8,6 +8,10 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
     private bool MenuUse;
     private TutorialManeger tutoriaLmanegeR = null;
     private ScoreManeger scorEmanegeR = null;
+
+    [SerializeField]
+    Canvas MenuCanvas = null;
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +24,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         MenuUse = false;
         tutoriaLmanegeR = TutorialManeger.instance;
         scorEmanegeR = ScoreManeger.instance;
+
         //AudioManager.Instance.PlayBGM("title", true);
     }
 

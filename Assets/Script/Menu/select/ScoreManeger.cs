@@ -5,12 +5,13 @@ using UnityEngine;
 public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
 {
     private bool ScoreUse;   //menu使用フラグ
+
+    [SerializeField]
+    Canvas RankingCanvas = null;
+
     // Use this for initialization
     void Start () {
         ScoreUse = false;
-        /*plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        plane.transform.position = new Vector3(0, 0, 0);
-        plane.SetActive(false);*/
     }
 	
     // Update is called once per frame
@@ -20,13 +21,13 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
         {
             //...
             //score処理
-            if(MenuButton.GetButtonLeft()) //右押したら
+            if (MenuButton.GetButtonLeft()) //右押したら
             {
                 ScoreUse = false;
-                //plane.SetActive(ScoreUse);
 
             }
 
+            
         }
     }
 

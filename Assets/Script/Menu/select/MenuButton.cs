@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuButton : MonoBehaviour
 {
     private static bool left;
@@ -14,6 +14,7 @@ public class MenuButton : MonoBehaviour
         left = false;
         Right = false;
         Top = false;
+
     }
 
     // Update is called once per frame
@@ -73,11 +74,4 @@ public class MenuButton : MonoBehaviour
         Debug.Log("SetButtonTop");
         Top = use;
     }
-
-    public static void SetDrawLeft(bool use)
-    {
-        
-    }
-
-
 }
