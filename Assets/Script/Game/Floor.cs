@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
-    private GameObject Object = null; 
+    private GameObject Object = null;
     private Material material = null;
     // Use this for initialization
     void Start()
     {
         material = gameObject.GetComponent<Renderer>().material;
-        Object = GameObject.FindGameObjectWithTag("EnemyBoss").gameObject;
+        if (GameObject.FindGameObjectsWithTag("EnemyBoss").Length > 0)
+        {
+            Object = GameObject.FindGameObjectWithTag("EnemyBoss");
+        }
     }
 
     // Update is called once per frame
@@ -18,7 +21,10 @@ public class Floor : MonoBehaviour
     {
         if (Object == null)
         {
-            Object = GameObject.FindGameObjectWithTag("EnemyBoss").gameObject;
+            if (GameObject.FindGameObjectsWithTag("EnemyBoss").Length > 0)
+            {
+                Object = GameObject.FindGameObjectWithTag("EnemyBoss");
+            }
         }
         else
         {
