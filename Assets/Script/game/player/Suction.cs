@@ -26,7 +26,7 @@ public class Suction : MonoBehaviour {
     {
         if (col.tag == "enemy")
         {
-            col.transform.position += ( transform.position - col.transform.position) * 0.03f;
+            col.transform.position += ( transform.position - col.transform.position) * 0.07f;
         }
     }
 }

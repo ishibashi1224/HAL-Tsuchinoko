@@ -13,6 +13,10 @@ public class playerBehaviourScript : MonoBehaviour
     private GameObject GameOver = null;
     [SerializeField]
     private GameObject PlayerArea = null;
+    [SerializeField]
+    private int GameOverInterval = 3;
+    [SerializeField]
+    private GameObject GameOverExplosion = null;
 
     private GUIStyle labelStyle;
     Vector3 Pos;
@@ -34,7 +38,12 @@ public class playerBehaviourScript : MonoBehaviour
 
     Vector3[] defaultLocalPos = new Vector3[3];
 
+
     float playerSize;
+
+    //ゲームオーバー系変数
+    bool GameOverFlag = false;
+    int[] GameOverCnt = new int[2];
 
     //テスト用（後で消そう）
     int num = 0;
@@ -50,6 +59,11 @@ public class playerBehaviourScript : MonoBehaviour
 
         //ビット付け替え
         transform.gameObject.GetComponent<BitInstance>().bitForm();
+
+        //ゲームオーバー変数初期化
+        GameOverFlag = false;
+        GameOverCnt[0] = 0;
+        GameOverCnt[1] = 0;
     }
 
     // Use this for initialization
@@ -78,41 +92,45 @@ public class playerBehaviourScript : MonoBehaviour
             GameStart = true;
         }
 
-        BeamTrueFalse();
-
-        Arts();
-
-        Move();
-
-        MoveRot();
-
-        rot.eulerAngles = Rot;
-        gameObject.transform.rotation = rot;
-        gameObject.transform.position += Pos;
-
-        //移動限界処理
-        if (PlayerArea.GetComponent<PlayerArea>().Detection(gameObject.transform.position) == false)
+        if (GameOverFlag == false)
         {
-            AudioManager.Instance.PlaySE("アラート");
-        }
-        else
-        {
-            //ここでアラートだけ止めたい
-            //AudioManager.Instance.StopSE();
-        }
-        if (PlayerArea.GetComponent<PlayerArea>().Xaxis(gameObject.transform.position.x) == false)
-        {
-            gameObject.transform.position -= new Vector3(Pos.x, 0.0f, 0.0f);
-        }
-        if (PlayerArea.GetComponent<PlayerArea>().Zaxis(gameObject.transform.position.z) == false)
-        {
-            gameObject.transform.position -= new Vector3(0.0f, 0.0f, Pos.z);
-        }
+
+            BeamTrueFalse();
+
+            Arts();
+
+            Move();
+
+            MoveRot();
+
+            rot.eulerAngles = Rot;
+            gameObject.transform.rotation = rot;
+            gameObject.transform.position += Pos;
+
+            //移動限界処理
+            if (PlayerArea.GetComponent<PlayerArea>().Detection(gameObject.transform.position) == false)
+            {
+                AudioManager.Instance.PlaySE("アラート");
+            }
+            else
+            {
+                //ここでアラートだけ止めたい
+                //AudioManager.Instance.StopSE();
+            }
+            if (PlayerArea.GetComponent<PlayerArea>().Xaxis(gameObject.transform.position.x) == false)
+            {
+                gameObject.transform.position -= new Vector3(Pos.x, 0.0f, 0.0f);
+            }
+            if (PlayerArea.GetComponent<PlayerArea>().Zaxis(gameObject.transform.position.z) == false)
+            {
+                gameObject.transform.position -= new Vector3(0.0f, 0.0f, Pos.z);
+            }
 
 
-        if (gameObject.transform.GetChild(3).gameObject.activeSelf == false)
-        {
-            Scaling();
+            if (gameObject.transform.GetChild(3).gameObject.activeSelf == false)
+            {
+                Scaling();
+            }
         }
 
         gaemeOver();
@@ -402,10 +420,27 @@ public class playerBehaviourScript : MonoBehaviour
             && gameObject.transform.GetChild(1).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
             && gameObject.transform.GetChild(2).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false)
         {
-            GameOver.SetActive(true);
-            if (!FadeManager.GetFadeing())
+            GameOverFlag = true;
+            Instantiate(GameOverExplosion, transform.position, transform.rotation);
+        }
+
+        //ゲームオーバー中
+        if (GameOverFlag == true)
+        {
+            GameOverCnt[0]++;
+
+            if (GameOverCnt[0] == 60)
             {
-                Time.timeScale = 0;
+                GameOverCnt[1]++;
+                GameOverCnt[0] = 0;
+            }
+            if (GameOverCnt[1] == GameOverInterval)
+            {
+                GameOver.SetActive(true);
+                if (!FadeManager.GetFadeing())
+                {
+                    Time.timeScale = 0;
+                }
             }
         }
     }
