@@ -9,6 +9,12 @@ public class TitleManager : SingletonMonoBehaviourFast<TitleManager>
     [SerializeField]
     private string FadeSceneName = null;   //  フェードするシーン名
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;//フレームレートを60にする
+    }
+
+
     // Use this for initialization
     void Start()
     {

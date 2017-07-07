@@ -1,0 +1,51 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerArea : MonoBehaviour
+{
+    [SerializeField]
+    private float Width = 0.0f;
+    [SerializeField]
+    private float Depth = 0.0f;
+    [SerializeField]
+    private float Height = 0.0f;
+
+    public bool Detection(Vector3 pos)
+    {
+        if (transform.position.x - (Width * 0.5f) <= pos.x && transform.position.x + (Width * 0.5f) >= pos.x)
+        {
+            if (transform.position.z - (Depth * 0.5f) <= pos.z && transform.position.z + (Depth * 0.5f) >= pos.z)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1.0f, 0.92f, 0.016f, 0.4f);
+        Gizmos.DrawCube(transform.position, new Vector3(Width, Height, Depth));
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(transform.position, new Vector3(Width, Height, Depth));
+    }
+
+    public bool Xaxis(float posX)
+    {
+        if (transform.position.x - (Width * 0.5f) <= posX && transform.position.x + (Width * 0.5f) >= posX)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool Zaxis(float posZ)
+    {
+        if (transform.position.z - (Depth * 0.5f) <= posZ && transform.position.z + (Depth * 0.5f) >= posZ)
+        {
+            return true;
+        }
+        return false;
+    }
+}

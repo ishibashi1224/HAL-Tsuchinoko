@@ -11,6 +11,8 @@ public class playerBehaviourScript : MonoBehaviour
     private float ScalingMove = 0.0f;
     [SerializeField]
     private GameObject GameOver = null;
+    [SerializeField]
+    private GameObject PlayerArea = null;
 
     private GUIStyle labelStyle;
     Vector3 Pos;
@@ -87,6 +89,27 @@ public class playerBehaviourScript : MonoBehaviour
         rot.eulerAngles = Rot;
         gameObject.transform.rotation = rot;
         gameObject.transform.position += Pos;
+
+        //移動限界処理
+        if (PlayerArea.GetComponent<PlayerArea>().Detection(gameObject.transform.position) == false)
+        {
+            AudioManager.Instance.PlaySE("アラート");
+        }
+        else
+        {
+            //ここでアラートだけ止めたい
+            //AudioManager.Instance.StopSE();
+        }
+        if (PlayerArea.GetComponent<PlayerArea>().Xaxis(gameObject.transform.position.x) == false)
+        {
+            gameObject.transform.position -= new Vector3(Pos.x, 0.0f, 0.0f);
+        }
+        if (PlayerArea.GetComponent<PlayerArea>().Zaxis(gameObject.transform.position.z) == false)
+        {
+            gameObject.transform.position -= new Vector3(0.0f, 0.0f, Pos.z);
+        }
+
+
         if (gameObject.transform.GetChild(3).gameObject.activeSelf == false)
         {
             Scaling();
@@ -352,10 +375,10 @@ public class playerBehaviourScript : MonoBehaviour
                 buf = new Vector3(0.0f, 0.0f, 0.0f);
                 transform.GetChild(0).gameObject.transform.localPosition += (buf - transform.GetChild(0).gameObject.transform.localPosition) * 0.05f;
 
-                buf = new Vector3( -1.3f, 0.0f,  2.5f);
+                buf = new Vector3(-1.3f, 0.0f, 2.5f);
                 transform.GetChild(1).gameObject.transform.localPosition += (buf - transform.GetChild(1).gameObject.transform.localPosition) * 0.05f;
 
-                buf = new Vector3( 1.3f, 0.0f, 2.5f);
+                buf = new Vector3(1.3f, 0.0f, 2.5f);
                 transform.GetChild(2).gameObject.transform.localPosition += (buf - transform.GetChild(2).gameObject.transform.localPosition) * 0.05f;
             }
         }
@@ -377,7 +400,7 @@ public class playerBehaviourScript : MonoBehaviour
     {
         if (gameObject.transform.GetChild(0).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
             && gameObject.transform.GetChild(1).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false
-            && gameObject.transform.GetChild(2).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false )
+            && gameObject.transform.GetChild(2).GetChild(0).GetComponent<BitLife>().lifeTrueFalse() == false)
         {
             GameOver.SetActive(true);
             if (!FadeManager.GetFadeing())
@@ -390,7 +413,7 @@ public class playerBehaviourScript : MonoBehaviour
     void BeamTrueFalse()
     {
         //ビームのtrueFalse処理
-        if (BitChange.Instance.BitLoad(0) == 1 )
+        if (BitChange.Instance.BitLoad(0) == 1)
         {
             if (transform.GetChild(0).GetChild(0).gameObject.GetComponent<BitLife>().lifeTrueFalse() == false || transform.GetChild(3).gameObject.activeSelf == true)
             {

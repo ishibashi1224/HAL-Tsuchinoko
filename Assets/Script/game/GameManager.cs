@@ -18,6 +18,11 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     private GameObject GameOver;
     private float time;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;//フレームレートを60にする
+    }
+
     // Use this for initialization
     void Start()
     {
