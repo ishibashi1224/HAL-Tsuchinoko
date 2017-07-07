@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
 {
-
-    private bool TutorialUse;      //メニュー使用フラグ
+    //private static bool TutorialChange;
+    //private bool TutorialUse;      //メニュー使用フラグ
 
     [SerializeField]
     Canvas TutorialCanvas = null;
@@ -13,19 +13,27 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
     // Use this for initialization
     void Start()
     {
-        TutorialUse = false;
-
+   //     TutorialUse = false;
+    //    TutorialChange = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TutorialUse)
+        if(MenuManager.instance.GetMode() == MenuManager.MenuModeEnum.TUTORIAL)
+        //if (TutorialUse)
         {
             //Tutorial処理
-            if(MenuButton.GetButtonRight()) //右押したら
+            if(MenuButton.GetButtonRight()&& !Scroll.GetUse()) //右押したら
             {
-                TutorialUse = false;   
+
+                //TutorialUse = false;
+                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.NONE);
+                //ScoreManeger.instance.SetUse(false);
+                //MenuManager.instance.SetUse(true);
+                //TutorialChange = true;
+                //ScoreManeger.instance.SetChange(true);
+
             }
         }
 
@@ -33,7 +41,7 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
     }
 
 
-    public bool GetUse()
+   /* public bool GetUse()
     {
         return TutorialUse;
     }
@@ -42,4 +50,19 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
     {
         TutorialUse = use;
     }
+
+    public bool GetChange()
+    {
+        return TutorialChange;
+    }
+
+    public void ResetChange()
+    {
+        TutorialChange = false;
+    }
+
+    public void SetChange(bool use)
+    {
+        TutorialChange = use;
+    }*/
 }

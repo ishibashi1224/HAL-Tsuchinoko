@@ -25,31 +25,34 @@ public class MenuButton : MonoBehaviour
 
     public void ButtonPushTop()
     {
-        Debug.Log("ButtonPuchTop=true");
         Top = true;
     }
 
     public void ButtonPushLeft()
     {
-        Debug.Log("ButtonPuchleft=true");
         left = true;
     }
 
     public void ButtonPushRight()
     {
-        Debug.Log("ButtonPuchRight=true");
         Right = true;
     }
 
 
     public static bool GetButtonLeft()
     {
-        return left;
+        //if (Input.GetMouseButtonDown(0))
+        //{
+            return left;
+        //}
     }
 
     public static bool GetButtonRight()
     {
-        return Right;
+        //if (Input.GetMouseButtonDown(0))
+        //{
+            return Right;
+        //}
     }
 
     public static bool GetButtonTop()
@@ -59,13 +62,11 @@ public class MenuButton : MonoBehaviour
 
     public static void SetButtonLeft(bool use)
     {
-        Debug.Log("SetButtonLeft");
         left = use;
     }
 
     public static void SetButtonRight(bool use)
     {
-        Debug.Log("SetButtonRight");
         Right = use;
     }
 

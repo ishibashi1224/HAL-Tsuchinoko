@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
 {
-    private bool ScoreUse;   //menu使用フラグ
-
+    //private bool ScoreUse;   //menu使用フラグ
+    //private static bool ScoreChange;
     [SerializeField]
     Canvas RankingCanvas = null;
 
     // Use this for initialization
     void Start () {
-        ScoreUse = false;
+    //    ScoreUse = false;
+     //   ScoreChange = false;
     }
 	
     // Update is called once per frame
     void Update()
     {
-        if (ScoreUse)
+        if (MenuManager.instance.GetMode() == MenuManager.MenuModeEnum.SCORE)
         {
             //...
             //score処理
-            if (MenuButton.GetButtonLeft()) //右押したら
+            //if (MenuManager.instance.GetMode() == MenuManager.MenuModeEnum.SCORE)
+            if (MenuButton.GetButtonLeft()&& !Scroll.GetUse()) //右押したら
             {
-                ScoreUse = false;
-
+                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.NONE);
+                //TutorialManeger.instance.SetUse(false);
+                //TutorialManeger.instance.SetChange(true);
+                //MenuManager.instance.SetUse(true);
+                //ScoreChange = true;
+                return;
+                
             }
 
             
         }
     }
 
-    public bool GetUse()
+    /*public bool GetUse()
     {
         return ScoreUse;
     }
@@ -41,4 +48,19 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
         ScoreUse = use;
     }
 
+    public bool GetChange()
+    {
+        return ScoreChange;
+    }
+
+    public void ResetChange()
+    {
+        ScoreChange = false;
+    }
+
+    public void SetChange(bool use)
+    {
+        ScoreChange = use;
+    }
+    */
 }
