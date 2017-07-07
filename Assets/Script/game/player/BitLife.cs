@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BitLife : MonoBehaviour {
+public class BitLife : MonoBehaviour
+{
 
     [SerializeField]
     private float Life = 10.0f;
@@ -14,24 +15,29 @@ public class BitLife : MonoBehaviour {
     [SerializeField]
     private int reverseTime = 10;
 
+    [SerializeField]
+    private GameObject repair = null;
+
     private float time = 0;
     private int Cnttime = 0;
 
     private Material material = null;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         CntLife = Life;
-        if(SceneManager.GetActiveScene().name == "Game")//エラー防止用、ゲームシーンでのみ
+        if (SceneManager.GetActiveScene().name == "Game")//エラー防止用、ゲームシーンでのみ
         {
             material = gameObject.GetComponent<Renderer>().materials[1];
         }
     }
-	
-	// Update is called once per frame
-	void FixedUpdate() {
-        
-        if( time >= 60 )
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        if (time >= 60)
         {
             time = 0.0f;
             Cnttime++;
@@ -43,10 +49,18 @@ public class BitLife : MonoBehaviour {
             {
                 CntLife = Life;
                 Cnttime = 0;
+                Destroy(transform.GetChild(transform.childCount - 1).gameObject);
             }
         }
-		if(CntLife <= 0)
+        if (CntLife <= 0)
         {
+            if (time == 0 && Cnttime == 0)
+            {
+                GameObject obj = Instantiate(repair, transform.position, transform.rotation).gameObject;
+                obj.transform.parent = transform;
+                obj.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+            }
             time++;
         }
     }

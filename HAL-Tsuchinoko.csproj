@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}</ProjectGuid>
+    <ProjectGuid>{6BFB3605-25E7-AB42-AA65-307BC9078AFF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>GamePlugins:3</UnityProjectType>
+    <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.5.3f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -75,44 +75,104 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ContrastStretch.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\DepthOfField.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientObscurance.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
-    <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+    <ProjectReference Include="HAL-Tsuchinoko.Plugins.csproj">
+      <Project>{7A9D2051-CF51-7AF6-A2AF-905D64D83D99}</Project>
+      <Name>HAL-Tsuchinoko.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Script\AudioManager.cs" />
+    <Compile Include="Assets\Script\Game\AttackerList.cs" />
+    <Compile Include="Assets\Script\Game\BitChange.cs" />
+    <Compile Include="Assets\Script\Game\Bullet\BeamScroll.cs" />
+    <Compile Include="Assets\Script\Game\Bullet\_Beam.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossArea.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossLifeCheck.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossRoot\Root.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootEditor.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootMove.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossRoot\RootPoint.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\BossSpawn\BossSpawn.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\Chase.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemyBoss.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemyBossLife.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemyLife.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemyMotion.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemySpawn\EnemySpawn.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\EnemySpawn\EnemySpawnManager.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Boss.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\ChangeBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\CircularBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\DecisionBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\EnemyBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\InfiniteBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\LineBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Movement\CircularMove.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Movement\EnemyMove.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Movement\HorizontalMovement.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Movement\InfiniteMovement.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\Movement\VerticalMovwment.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\RushBehaviour.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\State\State.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\State\StateMachine.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\State\_Enemy.cs" />
+    <Compile Include="Assets\Script\Game\Enemy\State\WaitBehavior.cs" />
+    <Compile Include="Assets\Script\Game\Floor.cs" />
+    <Compile Include="Assets\Script\Game\GameManager.cs" />
+    <Compile Include="Assets\Script\Game\MapEditor\MapEditer.cs" />
+    <Compile Include="Assets\Script\Game\MapEditor\MapManager.cs" />
+    <Compile Include="Assets\Script\Game\PauseManager.cs" />
+    <Compile Include="Assets\Script\Game\Ranking\Ranking.cs" />
+    <Compile Include="Assets\Script\Game\Score\ScoreSystem.cs" />
+    <Compile Include="Assets\Script\Game\player\Arts.cs" />
+    <Compile Include="Assets\Script\Game\player\BitInstance.cs" />
+    <Compile Include="Assets\Script\Game\player\BitLife.cs" />
+    <Compile Include="Assets\Script\Game\player\BulletManager.cs" />
+    <Compile Include="Assets\Script\Game\player\ButtonManager.cs" />
+    <Compile Include="Assets\Script\Game\player\PlayerArea.cs" />
+    <Compile Include="Assets\Script\Game\player\Shoot.cs" />
+    <Compile Include="Assets\Script\Game\player\Suction.cs" />
+    <Compile Include="Assets\Script\Game\player\hitEffect.cs" />
+    <Compile Include="Assets\Script\Game\player\playerBehaviourScript.cs" />
+    <Compile Include="Assets\Script\Game\player\vanish.cs" />
+    <Compile Include="Assets\Script\General\Delete\Delete.cs" />
+    <Compile Include="Assets\Script\General\Delete\ParticleDelete.cs" />
+    <Compile Include="Assets\Script\General\FadeManager.cs" />
+    <Compile Include="Assets\Script\General\Movie.cs" />
+    <Compile Include="Assets\Script\General\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Script\Menu\BitDataManager.cs" />
+    <Compile Include="Assets\Script\Menu\CanvasDrawManager.cs" />
+    <Compile Include="Assets\Script\Menu\DeltaButtonManager.cs" />
+    <Compile Include="Assets\Script\Menu\MenuCanvasManager.cs" />
+    <Compile Include="Assets\Script\Menu\RingRot.cs" />
+    <Compile Include="Assets\Script\Menu\ranking\RankingMove.cs" />
+    <Compile Include="Assets\Script\Menu\select\BitManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\DeltaCollarChange.cs" />
+    <Compile Include="Assets\Script\Menu\select\DeltaUseManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\Flick.cs" />
+    <Compile Include="Assets\Script\Menu\select\GrappleObject.cs" />
+    <Compile Include="Assets\Script\Menu\select\MenuButton.cs" />
+    <Compile Include="Assets\Script\Menu\select\MenuManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\ScoreManeger.cs" />
+    <Compile Include="Assets\Script\Menu\select\Scroll.cs" />
+    <Compile Include="Assets\Script\Menu\select\ScrollManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\SurfaceGetter.cs" />
+    <Compile Include="Assets\Script\Menu\select\TargetBitObjectManager.cs" />
+    <Compile Include="Assets\Script\Menu\select\TutorialManeger.cs" />
+    <Compile Include="Assets\Script\Menu\select\collision.cs" />
+    <Compile Include="Assets\Script\TexAnim.cs" />
+    <Compile Include="Assets\Script\Title\TitleManager.cs" />
+    <Compile Include="Assets\Script\camera.cs" />
+    <Compile Include="Assets\Works\test\Fade.cs" />
+    <Compile Include="Assets\Works\test\FadeImage.cs" />
+    <Compile Include="Assets\Works\test\IFade.cs" />
+    <Compile Include="Assets\Works\石橋\Script\AlphaMask.cs" />
+    <Compile Include="Assets\Works\石橋\Script\Range.cs" />
+    <Compile Include="Assets\Works\石橋\Script\scroll.cs" />
+    <Compile Include="Assets\Works\見目\Beam.cs" />
+    <Compile Include="Assets\Works\見目\chargeshot.cs" />
+    <Compile Include="Assets\Works\見目\map_Editer_Ver1.cs" />
+    <Compile Include="Assets\Works\見目\test_Flick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BitData\PlayerBitData.txt" />

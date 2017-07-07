@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scene/Game.unity
-=======
-- path: Assets/Scene/Menu.unity
->>>>>>> menu_EndDay
   isLoaded: 1
   isActive: 1
