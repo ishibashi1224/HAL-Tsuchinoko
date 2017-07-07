@@ -14,7 +14,6 @@ public class MenuButton : MonoBehaviour
         left = false;
         Right = false;
         Top = false;
-
     }
 
     // Update is called once per frame
@@ -66,7 +65,6 @@ public class MenuButton : MonoBehaviour
 
     public static void SetButtonTop(bool use)
     {
-        Debug.Log("SetButtonTop");
         Top = use;
     }
 }

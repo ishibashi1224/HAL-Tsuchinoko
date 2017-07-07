@@ -16,7 +16,9 @@ public class DeltaButtonManager : MonoBehaviour {
     //private static GameObject thisobject;
     private void Awake()
     {
-//        thisobject = this.gameObject;
+        topbutton.SetActive(true);
+        rightbutton.SetActive(true);
+        leftbutton.SetActive(true);
     }
     // Use this for initialization
     void Start () {
@@ -28,11 +30,9 @@ public class DeltaButtonManager : MonoBehaviour {
 
         if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.TUTORIAL )
         {
-            //GameObject.Find("Canvas").transform.Find("MenuPanel").gameObject.SetActive(true);
-
-            //gameObject.SetActive(!gameObject.activeSelf);
             topbutton.SetActive(false);
             leftbutton.SetActive(false);
+            rightbutton.SetActive(true);
         }
 
         if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.SCORE)
@@ -44,7 +44,7 @@ public class DeltaButtonManager : MonoBehaviour {
         if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.MENU)
         {
             topbutton.SetActive(true);
-            rightbutton.SetActive(true);
+            rightbutton.SetActive(false);
             leftbutton.SetActive(true);
         }
 	}

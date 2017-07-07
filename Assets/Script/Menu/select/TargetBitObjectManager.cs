@@ -9,23 +9,26 @@ public class TargetBitObjectManager : SingletonMonoBehaviourFast<TargetBitObject
     private static string objname;
     void Update()
     {
-        // 左クリックを取得
-        if (Input.GetMouseButtonDown(0))
+        if (!FadeManager.GetFadeing())
         {
-            // クリックしたスクリーン座標をrayに変換
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            // Rayの当たったオブジェクトの情報を格納する
-            RaycastHit hit = new RaycastHit();
-            // オブジェクトにrayが当たった時
-            if (Physics.Raycast(ray, out hit, distance))
+            // 左クリックを取得
+            if (Input.GetMouseButtonDown(0))
             {
-                //if (hit.transform.gameObject.GetComponent<GrappleObject>())
-                for (int i= 0; i < BitManager.GetLength() ; i++  )
+                // クリックしたスクリーン座標をrayに変換
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                // Rayの当たったオブジェクトの情報を格納する
+                RaycastHit hit = new RaycastHit();
+                // オブジェクトにrayが当たった時
+                if (Physics.Raycast(ray, out hit, distance))
                 {
-                    if (BitManager.GetBit(i).name ==  hit.transform.name.ToString())
+                    //if (hit.transform.gameObject.GetComponent<GrappleObject>())
+                    for (int i = 0; i < BitManager.GetLength(); i++)
                     {
-                        hit.transform.gameObject.GetComponent<GrappleObject>().SetUse(true);
-                        objname = hit.transform.name.ToString();
+                        if (BitManager.GetBit(i).name == hit.transform.name.ToString())
+                        {
+                            hit.transform.gameObject.GetComponent<GrappleObject>().SetUse(true);
+                            objname = hit.transform.name.ToString();
+                        }
                     }
                 }
             }
