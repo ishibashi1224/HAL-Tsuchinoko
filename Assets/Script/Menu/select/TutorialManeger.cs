@@ -28,7 +28,7 @@ public class TutorialManeger : SingletonMonoBehaviourFast<TutorialManeger>
             {
 
                 //TutorialUse = false;
-                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.NONE);
+                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.MENU);
                 //ScoreManeger.instance.SetUse(false);
                 //MenuManager.instance.SetUse(true);
                 //TutorialChange = true;

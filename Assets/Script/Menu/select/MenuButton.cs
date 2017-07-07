@@ -41,18 +41,12 @@ public class MenuButton : MonoBehaviour
 
     public static bool GetButtonLeft()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            return left;
-        //}
+        return left;
     }
 
     public static bool GetButtonRight()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            return Right;
-        //}
+        return Right;
     }
 
     public static bool GetButtonTop()

@@ -25,7 +25,7 @@ public class ScoreManeger : SingletonMonoBehaviourFast<ScoreManeger>
             //if (MenuManager.instance.GetMode() == MenuManager.MenuModeEnum.SCORE)
             if (MenuButton.GetButtonLeft()&& !Scroll.GetUse()) //右押したら
             {
-                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.NONE);
+                MenuManager.instance.SetModeEnum(MenuManager.MenuModeEnum.MENU);
                 //TutorialManeger.instance.SetUse(false);
                 //TutorialManeger.instance.SetChange(true);
                 //MenuManager.instance.SetUse(true);

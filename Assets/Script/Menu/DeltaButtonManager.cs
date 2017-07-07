@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class DeltaButtonManager : MonoBehaviour {
     [SerializeField]
-    private GameObject  leftbutton;
+    private GameObject leftbutton;
+
+    [SerializeField]
+    private GameObject topbutton;
+
+    [SerializeField]
+    private GameObject rightbutton;
+
 
     //private static GameObject thisobject;
     private void Awake()
@@ -24,11 +31,20 @@ public class DeltaButtonManager : MonoBehaviour {
             //GameObject.Find("Canvas").transform.Find("MenuPanel").gameObject.SetActive(true);
 
             //gameObject.SetActive(!gameObject.activeSelf);
+            topbutton.SetActive(false);
             leftbutton.SetActive(false);
         }
-        else
+
+        if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.SCORE)
         {
-            //leftbutton.active= true;
+            topbutton.SetActive(false);
+            rightbutton.SetActive(false);
+        }
+
+        if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.MENU)
+        {
+            topbutton.SetActive(true);
+            rightbutton.SetActive(true);
             leftbutton.SetActive(true);
         }
 	}

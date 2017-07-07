@@ -10,6 +10,8 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
     //private ScoreManeger scorEmanegeR = null;
     private int cnt = 0;
     private int targetcnt = 0;
+    private bool waitbull = false;
+    private bool inputwait = false;
     [SerializeField]
     Canvas MenuCanvas = null;
 
@@ -21,7 +23,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         SCORE 
     }
 
-    private static MenuModeEnum e_MenuModeEnum = MenuModeEnum.NONE;
+    private static MenuModeEnum e_MenuModeEnum = MenuModeEnum.MENU;
     private static MenuModeEnum e_MenuModeEnum_Old = e_MenuModeEnum;
     // Use this for initialization
     void Start()
@@ -32,7 +34,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
         cnt = 0;
-        targetcnt = 0;
+        targetcnt = 1*10;
         //MenuUse = false;
         //tutoriaLmanegeR = TutorialManeger.instance;
         //scorEmanegeR = ScoreManeger.instance;
@@ -46,7 +48,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
         //過去の
         //e_MenuModeEnum_Old = e_MenuModeEnum;
 
-        if (e_MenuModeEnum == MenuModeEnum.NONE && !Scroll.GetUse())
+        /*if (e_MenuModeEnum == MenuModeEnum.NONE && !Scroll.GetUse())
         {
             cnt++;
             if (cnt > targetcnt)
@@ -59,35 +61,74 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
                 cnt = 0;
 
             }
-        }
+        }*/
 
         if ( e_MenuModeEnum == MenuModeEnum.MENU )
         //if (!tutoriaLmanegeR.GetUse() && !scorEmanegeR.GetUse())
         {
-            if (MenuButton.GetButtonLeft()&& !Scroll.GetUse()&& e_MenuModeEnum_Old == MenuModeEnum.NONE /*&& tutoriaLmanegeR.GetChange()==false&& scorEmanegeR.GetChange()==false*/)
+            if (!inputwait)
             {
-                e_MenuModeEnum = MenuModeEnum.TUTORIAL;
-                //tutoriaLmanegeR.SetUse(true);
-                MenuButton.SetButtonLeft(false);
-                GetComponent<Scroll>().LeftScroll();
-            }
-            else
-            //if
-            if (MenuButton.GetButtonRight()&& !Scroll.GetUse()/*&& scorEmanegeR.GetChange() == false&& tutoriaLmanegeR.GetChange() == false*/)
-            {
-                if (e_MenuModeEnum_Old != MenuModeEnum.NONE)
+                if (MenuButton.GetButtonLeft() && !Scroll.GetUse()/*&& e_MenuModeEnum_Old == MenuModeEnum.NONE*/ /*&& tutoriaLmanegeR.GetChange()==false&& scorEmanegeR.GetChange()==false*/)
                 {
-                    e_MenuModeEnum = MenuModeEnum.SCORE;
+                    if (e_MenuModeEnum_Old == MenuModeEnum.SCORE)
+                    {
+                        waitbull = true;
+                        GetComponent<Scroll>().LeftScroll();
+                        MenuButton.SetButtonLeft(false);
+                        MenuButton.SetButtonRight(false);
+                    }
+                    else if (!waitbull)
+                    {
+
+                        SetModeEnum(MenuModeEnum.TUTORIAL);
+                        //tutoriaLmanegeR.SetUse(true);
+                        MenuButton.SetButtonLeft(false);
+                        GetComponent<Scroll>().LeftScroll();
+                    }
+                    inputwait = true;
                 }
-                else
+
+                //if
+                if (MenuButton.GetButtonRight() && !Scroll.GetUse()/*&& scorEmanegeR.GetChange() == false&& tutoriaLmanegeR.GetChange() == false*/)
+                {
+                    if (e_MenuModeEnum_Old == MenuModeEnum.TUTORIAL)
+                    {
+                        waitbull = true;
+                        GetComponent<Scroll>().RightScroll();
+                        MenuButton.SetButtonRight(false);
+                        MenuButton.SetButtonLeft(false);
+                    }
+                    else if (!waitbull)
+                    {
+                        SetModeEnum(MenuModeEnum.SCORE);
+                        //scorEmanegeR.SetUse(true);
+                        MenuButton.SetButtonRight(false);
+                        GetComponent<Scroll>().RightScroll();
+                    }
+                    inputwait = true;
+                }
+            }
+
+            if (waitbull && !Scroll.GetUse())
+            {
+                cnt++;
+                if (cnt > targetcnt/2)
                 {
                     SetModeEnum(MenuModeEnum.MENU);
+                    cnt = 0;
+                    waitbull = false;
                 }
-                //scorEmanegeR.SetUse(true);
-                MenuButton.SetButtonRight(false);
-                GetComponent<Scroll>().RightScroll();
             }
-            Debug.Log("Enum : " + e_MenuModeEnum.ToString());
+            else if (inputwait)
+            {
+                cnt++;
+                if (cnt > targetcnt)
+                {
+                    cnt = 0;
+                    inputwait = false;
+                }
+            }
+                Debug.Log("Enum : " + e_MenuModeEnum.ToString());
         //Debug.Log("TutoriaL : " + tutoriaLmanegeR.GetUse().ToString());
 
 
