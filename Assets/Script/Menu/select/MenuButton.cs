@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuButton : MonoBehaviour
 {
     private static bool left;
@@ -14,6 +14,7 @@ public class MenuButton : MonoBehaviour
         left = false;
         Right = false;
         Top = false;
+
     }
 
     // Update is called once per frame
@@ -24,19 +25,16 @@ public class MenuButton : MonoBehaviour
 
     public void ButtonPushTop()
     {
-        Debug.Log("ButtonPuchTop=true");
         Top = true;
     }
 
     public void ButtonPushLeft()
     {
-        Debug.Log("ButtonPuchleft=true");
         left = true;
     }
 
     public void ButtonPushRight()
     {
-        Debug.Log("ButtonPuchRight=true");
         Right = true;
     }
 
@@ -58,13 +56,11 @@ public class MenuButton : MonoBehaviour
 
     public static void SetButtonLeft(bool use)
     {
-        Debug.Log("SetButtonLeft");
         left = use;
     }
 
     public static void SetButtonRight(bool use)
     {
-        Debug.Log("SetButtonRight");
         Right = use;
     }
 
@@ -73,11 +69,4 @@ public class MenuButton : MonoBehaviour
         Debug.Log("SetButtonTop");
         Top = use;
     }
-
-    public static void SetDrawLeft(bool use)
-    {
-        
-    }
-
-
 }

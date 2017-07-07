@@ -1,31 +1,25 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Movie : MonoBehaviour
-{ 
-    //[SerializeField]
-    //MovieTexture m_movieTexture = null;
+{
+    [SerializeField]
+    private string video = null;
+    // Use this for initialization
+    void Start()
+    {
 
-    //public void Play()
-    //{
-    //    m_movieTexture.Play();
-    //}
+    }
 
-    //public void Stop()
-    //{
-    //    m_movieTexture.Pause();
-    //}
+    // Update is called once per frame
+    void Update()
+    {
 
-    //public void RePlay()
-    //{
-    //    m_movieTexture.Stop();
-    //    m_movieTexture.Play();
-    //}
+    }
 
-    //void Start()
-    //{
-    //    m_movieTexture.loop = false;
-    //    gameObject.GetComponent<Renderer>().material.mainTexture = m_movieTexture;
-    //}
+    public void MovieStart()
+    {
+        Handheld.PlayFullScreenMovie(video, Color.black, FullScreenMovieControlMode.Minimal);
+    }
 }

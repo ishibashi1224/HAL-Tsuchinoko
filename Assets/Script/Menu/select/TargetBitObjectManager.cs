@@ -28,8 +28,6 @@ public class TargetBitObjectManager : SingletonMonoBehaviourFast<TargetBitObject
                         objname = hit.transform.name.ToString();
                     }
                 }
-                
-                Debug.Log(hit.transform.name);
             }
         }
     }

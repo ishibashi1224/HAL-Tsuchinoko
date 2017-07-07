@@ -21,7 +21,7 @@ public class RankingMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (workScoreManager.GetUse())
+        if (MenuManager.Instance.GetMode()== MenuManager.MenuModeEnum.SCORE)
         {
             if (this.transform.position.x <= SurfaceGetter.GetPos().x && moveflag)
             {

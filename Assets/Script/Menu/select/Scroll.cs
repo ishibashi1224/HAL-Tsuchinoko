@@ -12,7 +12,7 @@ public class Scroll : MonoBehaviour
     private float speed = 0;
 
     private float posx;
-    private bool use;
+    private static bool use;
 
     // Use this for initialization
     void Start()
@@ -50,5 +50,10 @@ public class Scroll : MonoBehaviour
             posx = camera.transform.position.x - move;
             use = true;
         }
+    }
+
+    public static bool GetUse()
+    {
+        return use;
     }
 }
