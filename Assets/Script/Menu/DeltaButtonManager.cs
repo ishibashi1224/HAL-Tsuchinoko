@@ -44,7 +44,7 @@ public class DeltaButtonManager : MonoBehaviour {
         if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.MENU)
         {
             topbutton.SetActive(true);
-            rightbutton.SetActive(false);
+            rightbutton.SetActive(true);
             leftbutton.SetActive(true);
         }
 	}

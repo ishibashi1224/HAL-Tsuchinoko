@@ -437,6 +437,7 @@ public class playerBehaviourScript : MonoBehaviour
             if (GameOverCnt[1] == GameOverInterval)
             {
                 GameOver.SetActive(true);
+                ScoreSystem.Instance.enabled = false;
                 if (!FadeManager.GetFadeing())
                 {
                     Time.timeScale = 0;

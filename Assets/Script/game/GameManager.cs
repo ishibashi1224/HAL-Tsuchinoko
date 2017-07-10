@@ -40,12 +40,23 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
     {
         if (GameObject.FindGameObjectsWithTag("EnemyBoss").Length <= 0)
         {
+            if(time == 0.0f)
+            {
+                ScoreSystem.instance.RankingUpdate();
+                ScoreSystem.Instance.enabled = false;
+            }
+            
             if (time >= Interval && !FadeManager.GetFadeing())
             {
                 Clear.SetActive(true);
+                
                 Time.timeScale = 0;
             }
             time += Time.deltaTime;
+        }
+        else
+        {
+            ScoreSystem.Instance.enabled = true;
         }
     }
 

@@ -3,26 +3,53 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Ranking : MonoBehaviour
+public class Ranking : SingletonMonoBehaviourFast<Ranking>
 {
-    [SerializeField]
-    private Text RankingText = null;
+   // [SerializeField]
+    private Text RankingText;
 
     // ランキング表示
     void DrawRanking()
     {
-        //RankingText.text = "1." + ScoreSystem.ranking[0] + "\n" + "2." + ScoreSystem.ranking[1] + "\n" + "3." + ScoreSystem.ranking[2] + "\n" + "4." + ScoreSystem.ranking[3] + "\n" + "5." + ScoreSystem.ranking[4] + "\n";
+        RankingText.text = "1. " + ((int)ScoreSystem.ranking[0] / 60).ToString(string.Format("00")) + ":" + ((int)ScoreSystem.ranking[0] % 60).ToString(string.Format("00"))
+                   +"\n" + "2. " + ((int)ScoreSystem.ranking[1] / 60).ToString(string.Format("00")) + ":" + ((int)ScoreSystem.ranking[1] % 60).ToString(string.Format("00"))
+                   +"\n" + "3. " + ((int)ScoreSystem.ranking[2] / 60).ToString(string.Format("00")) + ":" + ((int)ScoreSystem.ranking[2] % 60).ToString(string.Format("00"))
+                   +"\n" + "4. " + ((int)ScoreSystem.ranking[3] / 60).ToString(string.Format("00")) + ":" + ((int)ScoreSystem.ranking[3] % 60).ToString(string.Format("00"))
+                   +"\n" + "5. " + ((int)ScoreSystem.ranking[4] / 60).ToString(string.Format("00")) + ":" + ((int)ScoreSystem.ranking[4] % 60).ToString(string.Format("00"));
+        ;
     }
 
     // Use this for initialization
     void Start()
     {
+        RankingText = gameObject.GetComponent<Text>();
 
+        if (this != Instance)
+        {
+            Destroy(this);
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DrawRanking();
+        if (ScoreSystem.ranking.Count > 0)
+        {
+            DrawRanking();
+        }
+        else if(ScoreSystem.ranking.Count <= 0.0f)
+        {
+            ScoreSystem.ranking.Clear();
+            ScoreSystem.ranking.Add(120);
+            ScoreSystem.ranking.Add(180);
+            ScoreSystem.ranking.Add(240);
+            ScoreSystem.ranking.Add(300);
+            ScoreSystem.ranking.Add(360);
+
+            DrawRanking();
+        }
     }
 }

@@ -3,225 +3,140 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ScoreSystem : MonoBehaviour
+public class ScoreSystem : SingletonMonoBehaviourFast<ScoreSystem>
 {
     [SerializeField]
     private List<GameObject> Enemy = new List<GameObject>();
 
     [SerializeField]
-    private Text ScoreText = null;
+    private Text TimeText;
 
     // ランキングキー（データ保存用）
     const string Ranking_Key = "Ranking";
 
-    // ハイスコアキー（データ保存用）
+    // ハイタイムキー（データ保存用）
     const string High_Score_Key = "HighScore";
 
-    // ハイスコア値
-    static int HighScore = 0;
+    // 現在の秒時刻
+    static public float fSecond = 0.0f;
 
-    // 現在スコア値
-    static int Score = 0;
+    // 現在の分時刻
+    static public float fMinute = 0.0f;
+
+    // 現在の時間
+    static public float fTime = 0.0f;
+
+    // 最速時間時刻
+    static public float fHighTime = 99.0f;
+
+    // ランキング保存用フラグ処理（一回のみ実行する為）
+    bool bGameOver = false;
+
+    // フレームフラグ処理（一回のみ実行する為）
+    bool bFrame = false;
 
     // フレーム管理
     int nCnt = 0;
 
-    // ランキング番号
-    static public int[] ranking = new int[5];
+    // ランキング番号（ランキング配列[0]番がハイタイムとなる）
+    static public List<float> ranking = new List<float>();
 
-    // ハイスコアセーブ
+    // ハイタイムセーブ
     static public void SaveHighScore()
     {
-        PlayerPrefs.SetInt(High_Score_Key, HighScore);
+        PlayerPrefs.SetFloat(High_Score_Key, fHighTime);
         PlayerPrefs.Save();
     }
 
-    // ハイスコアのロード
-    static public int LoadHighScore()
+    // ハイタイムのロード
+    static public float LoadHighScore()
     {
-        return PlayerPrefs.GetInt(High_Score_Key, -1);
+        return PlayerPrefs.GetFloat(High_Score_Key);
     }
 
-    // スコアの加算
-    static public void AddScore(int addScore)
+    // タイムの加算
+    static public void AddScore(float addScore)
     {
-        Score += addScore;
+        fTime += addScore;
     }
 
-    // スコアの減算
-    static public void SubtractScore(int subScore)
+    // タイムの減算
+    static public void SubtractScore(float subScore)
     {
-        Score -= subScore;
+        fTime -= subScore;
     }
 
-    // スコアを比較し、ランキングを決める
+    // タイムを比較し、ランキングを決める
     void ComparisonRanking()
     {
-        var _ranking = PlayerPrefs.GetString(Ranking_Key);
-
-        if (_ranking.Length > 0)
-        {
-            var _score = _ranking.Split(","[0]);
-
-            for (var i = 0; i < _score.Length && i < 5; i++)
-            {
-                // 文字列をint型に変更
-                ranking[i] = int.Parse(_score[i]);
-            }
-        }
+        ranking.Sort();
     }
 
-    // 新たなスコア保存
-    void SeveRanking(int new_score)
+    // 新たなタイム保存
+    static public void SaveRanking(float time)
     {
-        if (ranking != null)
-        {
-            int num = 0;
+        ranking.Add(time);
 
-            for (var i = 0; i < ranking.Length; i++)
-            {
-                num = ranking[i];
-                ranking[i] = new_score;
-                new_score = num;
-            }
-        }
-        else
-        {
-            ranking[0] = new_score;
-        }
+        ranking.Sort();
+
+        ranking.RemoveAt(5);
+    }
+
+
+    void UpdateTime(float time)
+    {
+        fMinute = (int)fTime / 60;
+        fSecond = (int)fTime % 60;
+        TimeText.text = fMinute.ToString(string.Format("00")) + ":" + fSecond.ToString(string.Format("00"));
+    }
+
+    // ランキング更新
+    public void RankingUpdate()
+    {
+        // 前回のハイタイムを取得
+        fHighTime = LoadHighScore();
+
+        SaveRanking(fTime);
+
+        fTime = 0.0f;
     }
 
     // Use this for initialization
     void Start()
     {
-        // 初期ハイスコア値保存（念の為）
-        SaveHighScore();
+        if (this != Instance)
+        {
+            Destroy(this);
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // フレーム規制
-        nCnt++;
-        if (nCnt >= 2)
+     // ゲーム中のみタイムを加算されるフラグ判定
+     // if (bFrame == false)
         {
-            nCnt = 0;
+            // タイム加算
+            AddScore(Time.deltaTime);
 
-            // スコア加算（仮・「本来はステージクリア毎にスコアを加算」）
-            AddScore(1);
-
-            // スコアのフラグ値判定
-            if(Score == 100)
-            {
-                // 前回のハイスコアを取得
-                HighScore = LoadHighScore();
-
-                // 現在のスコアと前回のハイスコアを比較
-                if (Score > HighScore)
-                {
-                    // 現在の大きい場合、ハイスコアを更新
-                    HighScore = Score;
-
-                    // ハイスコアを保存
-                    SaveHighScore();
-
-                    // ランキングに新しいハイスコアを保存
-                    SeveRanking(HighScore);
-                }
-            }
-            // スコアフラグ
-            else if(Score == 200)
-            {
-                HighScore = LoadHighScore();
-                if (Score > HighScore)
-                {
-                    HighScore = Score;
-                    SaveHighScore();
-
-                    SeveRanking(HighScore);
-                    ComparisonRanking();
-                }
-            }
-            // スコア上限フラグ
-            else if (Score == 300)
-            {
-                HighScore = LoadHighScore();
-                if (Score > HighScore)
-                {
-                    HighScore = Score;
-                    SaveHighScore();
-
-                    SeveRanking(HighScore);
-                    ComparisonRanking();
-                }
-            }
-            // スコア上限フラグ
-            else if (Score == 400)
-            {
-                HighScore = LoadHighScore();
-                if (Score > HighScore)
-                {
-                    HighScore = Score;
-                    SaveHighScore();
-
-                    SeveRanking(HighScore);
-                    ComparisonRanking();
-                }
-            }
-            // スコア上限フラグ
-            else if (Score == 500)
-            {
-                HighScore = LoadHighScore();
-                if (Score > HighScore)
-                {
-                    HighScore = Score;
-                    SaveHighScore();
-
-                    SeveRanking(HighScore);
-                    ComparisonRanking();
-                }
-            }
-            // スコア上限フラグ
-            else if (Score >= 600)
-            {
-                HighScore = LoadHighScore();
-                if (Score > HighScore)
-                {
-                    HighScore = Score;
-                    SaveHighScore();
-
-                    SeveRanking(HighScore);
-                    ComparisonRanking();
-                }
-                Score = 0;
-            }
+            // タイムのテキスト更新
+            UpdateTime(fTime);
+            
         }
-
-        // スコアテキスト更新
-        //ScoreText.text = "SCORE:  " + Score.ToString() + "\n";
     }
 
     // デバッグ表示
-    //void OnGUI()
-    //{
-    //    float x = Screen.width / 10;
-    //    float y = 150;
-    //    float w = Screen.width * 8 / 10;
-    //    float h = Screen.height / 20;
+    void OnGUI()
+    {
+        float x = Screen.width / 10;
+        float y = 150;
+        float w = Screen.width * 8 / 10;
+        float h = Screen.height / 20;
 
-    //    // デバッグ表示 現在スコア値の表示
-    //    GUI.Label(new Rect(x, y, w, h), "Score : " + Score);
+        // GUI.Label(new Rect(x, y + 80, w, h), "1.　" + ranking[0].ToString(string.Format("00", (int)fTime / 60)) + ":" + string.Format("00",(int)fTime % 60));
 
-    //    // ハイスコアの取得
-    //    HighScore = LoadHighScore();
-
-    //    // デバッグ ハイスコア値の表示
-    //    GUI.Label(new Rect(x, y + 50, w, h), "HighScore : " + HighScore);
-
-    //    GUI.Label(new Rect(x, y + 80, w, h), "1. " + ranking[0]);
-    //    GUI.Label(new Rect(x, y + 90, w, h), "2. " + ranking[1]);
-    //    GUI.Label(new Rect(x, y + 100, w, h), "3. " + ranking[2]);
-    //    GUI.Label(new Rect(x, y + 110, w, h), "4. " + ranking[3]);
-    //    GUI.Label(new Rect(x, y + 120, w, h), "5. " + ranking[4]);
-    //}
+    }
 }
