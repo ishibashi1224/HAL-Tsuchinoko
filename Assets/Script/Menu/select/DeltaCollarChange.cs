@@ -34,15 +34,25 @@ public class DeltaCollarChange : MonoBehaviour
             time *= -1;
         }
         image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
-        //ResetColor();
+        ResetColor();
     }
 
     public void ResetColor ()
     {
         if (MenuManager.Instance.GetMode() == MenuManager.MenuModeEnum.MENU)
         {
-            //image.color =  gameObject.transform.parent.GetChild(0).GetComponent<Image>().color;
-            image.color = gameObject.transform.parent.GetChild(2).GetComponent<Image>().color;
+            if (gameObject.transform.parent.GetChild(0).gameObject.activeSelf)
+            {
+                image.color = gameObject.transform.parent.GetChild(0).GetComponent<Image>().color;
+            }
+            else if (gameObject.transform.parent.GetChild(1).gameObject.activeSelf)
+            {
+                image.color = gameObject.transform.parent.GetChild(1).GetComponent<Image>().color;
+            }
+            else if (gameObject.transform.parent.GetChild(2).gameObject.activeSelf)
+            {
+                image.color = gameObject.transform.parent.GetChild(2).GetComponent<Image>().color;
+            }
         }
     }
 }
