@@ -27,7 +27,7 @@ public class playerBehaviourScript : MonoBehaviour
     Vector3 RotMove;
     float tuchBegin;
     float tuchMove;
-    float angle;
+    private float angle = (Mathf.PI * 2) / 3;
     float limitLengthMin;
     float limitLengthMax;
     Vector2[] nowPos = new Vector2[3];
@@ -138,16 +138,50 @@ public class playerBehaviourScript : MonoBehaviour
 
     void StartPoint()
     {
+        ////angle = 0;
+        ////transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(angle) * 5);
+
+        ////transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(0, 0, 2.5f);
+
+        //angle = (240 / 180.0f) * Mathf.PI;
+        //transform.GetChild(1).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
+
+        //angle = (120 / 180.0f) * Mathf.PI;
+        //transform.GetChild(2).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
+
+        //gameObject.transform.GetChild(3).localScale = new Vector3(1.2f, 1.0f, 1.2f);
+        //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        ////ビット子機の距離計算用変数
+        //nowPos[1].x = transform.GetChild(1).gameObject.transform.position.x;
+        //nowPos[1].y = transform.GetChild(1).gameObject.transform.position.z;
+
+        //nowPos[2].x = transform.GetChild(2).gameObject.transform.position.x;
+        //nowPos[2].y = transform.GetChild(2).gameObject.transform.position.z;
+
+        //limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
+        //limitLengthMax = limitLengthMin * 3;
+
+        //angle = (330 / 180.0f) * Mathf.PI;
+        //transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
+
+        //gameObject.transform.GetChild(1).eulerAngles = new Vector3(0.0f, -120.0f, 0.0f);
+        //gameObject.transform.GetChild(2).eulerAngles = new Vector3(0.0f, -240.0f, 0.0f);
+        //gameObject.transform.GetChild(1).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 120.0f, 0.0f);
+        //gameObject.transform.GetChild(2).transform.GetChild(0).eulerAngles = new Vector3(0.0f, 240.0f, 0.0f);
+        //defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
+        //defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
+        //defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
+
         //angle = 0;
         //transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(angle) * 5);
 
         //transform.GetChild(0).gameObject.transform.position = transform.position - new Vector3(0, 0, 2.5f);
-
-        angle = (240 / 180.0f) * Mathf.PI;
-        transform.GetChild(1).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
-
-        angle = (120 / 180.0f) * Mathf.PI;
-        transform.GetChild(2).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle) * 5, 0, Mathf.Cos(0) * 5);
+        
+        for(int  count = 0; count < 3; count++)
+        {
+            transform.GetChild(count).gameObject.transform.position = transform.position + new Vector3(Mathf.Sin(angle * count) * 5, 0, Mathf.Cos(angle * count) * 5);
+        }
 
         gameObject.transform.GetChild(3).localScale = new Vector3(1.2f, 1.0f, 1.2f);
         gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -161,9 +195,6 @@ public class playerBehaviourScript : MonoBehaviour
 
         limitLengthMin = Vector2.Distance(nowPos[1], nowPos[2]);
         limitLengthMax = limitLengthMin * 3;
-
-        angle = (330 / 180.0f) * Mathf.PI;
-        transform.GetChild(0).gameObject.transform.position = transform.GetChild(1).gameObject.transform.position - new Vector3(Mathf.Sin(angle) * limitLengthMin, 0, Mathf.Cos(angle) * limitLengthMin);
 
         gameObject.transform.GetChild(1).eulerAngles = new Vector3(0.0f, -120.0f, 0.0f);
         gameObject.transform.GetChild(2).eulerAngles = new Vector3(0.0f, -240.0f, 0.0f);
@@ -279,18 +310,12 @@ public class playerBehaviourScript : MonoBehaviour
         {
             if (limitLengthMax >= Vector2.Distance(nowPos[1], nowPos[2]))
             {
-                angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(0).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+                float rot = (transform.eulerAngles.y / 180.0f) * Mathf.PI;
 
-                angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(1).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                //gameObject.transform.GetChild(3).localScale += new Vector3(0.2f, 0, 0.2f);
-                //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale -= new Vector3(0.04f, 0.0f, 0.04f);
-                //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove , 0, +0.33f * ScalingMove));
+                for (int count = 0; count < 3; count++)
+                {
+                    transform.GetChild(count).gameObject.transform.position -= new Vector3(Mathf.Sin(angle * count + rot) * ScalingMove, 0, Mathf.Cos(angle * count + rot) * ScalingMove);
+                }
 
                 defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                 defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
@@ -301,19 +326,12 @@ public class playerBehaviourScript : MonoBehaviour
         {
             if (limitLengthMin < Vector2.Distance(nowPos[1], nowPos[2]))
             {
-                angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(0).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(1).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                //gameObject.transform.GetChild(3).localScale -= new Vector3(0.2f, 0, 0.2f);
-                //gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).localScale += new Vector3(0.04f, 0.0f, 0.04f);
-                //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
-
+                for (int count = 0; count < 3; count++)
+                {
+                    float rot = (transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                    transform.GetChild(count).gameObject.transform.position += new Vector3(Mathf.Sin(angle * count + rot) * ScalingMove, 0, Mathf.Cos(angle * count + rot) * ScalingMove);
+                }
+                
                 defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                 defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
                 defaultLocalPos[2] = transform.GetChild(2).gameObject.transform.localPosition;
@@ -338,16 +356,12 @@ public class playerBehaviourScript : MonoBehaviour
                 {
                     if (limitLengthMax >= Vector2.Distance(nowPos[1], nowPos[2]))
                     {
-                        angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(0).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
+                        float rot = (transform.eulerAngles.y / 180.0f) * Mathf.PI;
 
-                        angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(1).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                        angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(2).gameObject.transform.position -= new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                        //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(+0.33f * ScalingMove, 0, +0.33f * ScalingMove));
+                        for (int count = 0; count < 3; count++)
+                        {
+                            transform.GetChild(count).gameObject.transform.position -= new Vector3(Mathf.Sin(angle * count + rot) * ScalingMove, 0, Mathf.Cos(angle * count + rot) * ScalingMove);
+                        }
 
                         defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                         defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
@@ -358,16 +372,11 @@ public class playerBehaviourScript : MonoBehaviour
                 {
                     if (limitLengthMin < Vector2.Distance(nowPos[1], nowPos[2]))
                     {
-                        angle = (transform.GetChild(0).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(0).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                        angle = (transform.GetChild(2).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(1).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                        angle = (transform.GetChild(1).gameObject.transform.eulerAngles.y / 180.0f) * Mathf.PI;
-                        transform.GetChild(2).gameObject.transform.position += new Vector3(Mathf.Sin(angle) * ScalingMove, 0.0f, Mathf.Cos(angle) * ScalingMove);
-
-                        //transform.gameObject.GetComponent<Arts>().nowScale(new Vector3(-0.33f * ScalingMove, 0, -0.33f * ScalingMove));
+                        for (int count = 0; count < 3; count++)
+                        {
+                            float rot = (transform.eulerAngles.y / 180.0f) * Mathf.PI;
+                            transform.GetChild(count).gameObject.transform.position += new Vector3(Mathf.Sin(angle * count + rot) * ScalingMove, 0, Mathf.Cos(angle * count + rot) * ScalingMove);
+                        }
 
                         defaultLocalPos[0] = transform.GetChild(0).gameObject.transform.localPosition;
                         defaultLocalPos[1] = transform.GetChild(1).gameObject.transform.localPosition;
