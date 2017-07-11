@@ -50,15 +50,4 @@ public class CanvasDrawManager : MonoBehaviour
             ScoreCanvas.SetActive(false);
         }
     }
-
-    /*    public static GameObject GetGameObject()
-        {
-            return thisobject;
-        }
-
-        public static void SetActiveOperator(bool use)
-        {
-            thisobject.SetActive(use);
-        }
-        */
 }

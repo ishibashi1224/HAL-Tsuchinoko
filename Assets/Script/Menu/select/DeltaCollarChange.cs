@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class DeltaCollarChange : MonoBehaviour
 {
-    //  private Image image = GetComponent<Image>();
-    [SerializeField]
-    private Image image;
+    private float time = 0;
+    private float alpha = 0;
 
     [SerializeField]
     private float interval;
+
+    [SerializeField]
+    private Image image;
+
     // Use this for initialization
-    float time = 0;
-    float alpha = 0;
     void Start()
     {
         time = 0;
