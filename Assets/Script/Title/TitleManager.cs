@@ -30,6 +30,7 @@ public class TitleManager : SingletonMonoBehaviourFast<TitleManager>
     {
         if (!FadeManager.GetFadeing())
         {
+            AudioManager.instance.PlaySE("Decision");
             FadeManager.Instance.LoadLevel(FadeSceneName, FadeTime);
         }
     }

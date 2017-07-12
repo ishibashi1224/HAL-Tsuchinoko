@@ -50,7 +50,8 @@ public class BulletManager : MonoBehaviour
                 //Instantiate(bullet, transform.position, transform.rotation * transform.localRotation).transform.parent = transform;
                 if (magazine.transform.GetChild(childCnt).gameObject.activeSelf == false)
                 {
-                    AudioManager.Instance.PlaySE("ショット");
+                    //AudioManager.Instance.PlaySE("ショット");
+                    AudioManager.Instance.PlaySE("shot");
                     magazine.transform.GetChild(childCnt).gameObject.SetActive(true);
                     magazine.transform.GetChild(childCnt).gameObject.transform.position = transform.position;
                     magazine.transform.GetChild(childCnt).gameObject.transform.rotation = transform.rotation * transform.localRotation;

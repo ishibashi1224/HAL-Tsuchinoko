@@ -49,7 +49,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
             if (time >= Interval && !FadeManager.GetFadeing())
             {
                 Clear.SetActive(true);
-                
+                //AudioManager.instance.PlayBGM("victory", false);
                 Time.timeScale = 0;
             }
             time += Time.deltaTime;

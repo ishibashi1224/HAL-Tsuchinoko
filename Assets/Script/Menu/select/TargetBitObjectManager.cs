@@ -26,6 +26,7 @@ public class TargetBitObjectManager : SingletonMonoBehaviourFast<TargetBitObject
                     {
                         if (BitManager.GetBit(i).name == hit.transform.name.ToString())
                         {
+                            AudioManager.instance.PlaySE("UnitSelect");
                             hit.transform.gameObject.GetComponent<GrappleObject>().SetUse(true);
                             objname = hit.transform.name.ToString();
                         }

@@ -110,7 +110,7 @@ public class playerBehaviourScript : MonoBehaviour
             //移動限界処理
             if (PlayerArea.GetComponent<PlayerArea>().Detection(gameObject.transform.position) == false)
             {
-                AudioManager.Instance.PlaySE("アラート");
+                AudioManager.Instance.PlaySE("Alert");
             }
             else
             {

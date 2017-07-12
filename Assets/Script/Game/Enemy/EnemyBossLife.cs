@@ -54,7 +54,8 @@ public class EnemyBossLife : MonoBehaviour
     {
         if (AttackerList.Instance.GetPlayerAttack(collider.tag, ref Attack))
         {
-            AudioManager.Instance.PlaySE("敵撃破1");
+            //AudioManager.Instance.PlaySE("敵撃破1");
+            AudioManager.Instance.PlaySE("EnemyDestroy_1");
             SubLife(Attack);
             if (collider.tag != "Beam")
             {
