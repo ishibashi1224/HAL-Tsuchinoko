@@ -64,7 +64,7 @@ public class EnemyLife : MonoBehaviour
         {
             if (collider.tag == "Beam")
             {
-                AudioManager.Instance.PlaySE("敵撃破1");
+                AudioManager.Instance.PlaySE("EnemyDestroy_1");
                 SubLife(Attack);
             }
         }

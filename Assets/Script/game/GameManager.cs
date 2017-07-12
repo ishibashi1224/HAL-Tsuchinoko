@@ -32,6 +32,7 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         int height = (int)(Screen.height * screenRate);
         Screen.SetResolution(width, height, true, 15);
         AudioManager.Instance.PlayBGM("Game_loop_Ml", true);
+
         time = 0;
     }
 
@@ -42,14 +43,14 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager>
         {
             if(time == 0.0f)
             {
-                ScoreSystem.instance.RankingUpdate();
-                ScoreSystem.Instance.enabled = false;
+                //ScoreSystem.instance.RankingUpdate();
+              //  ScoreSystem.Instance.enabled = false;
             }
             
             if (time >= Interval && !FadeManager.GetFadeing())
             {
                 Clear.SetActive(true);
-                //AudioManager.instance.PlayBGM("victory", false);
+                AudioManager.instance.PlayBGM("victory", false);
                 Time.timeScale = 0;
             }
             time += Time.deltaTime;

@@ -29,5 +29,6 @@ public class _Beam : MonoBehaviour
         Line.SetPosition(0, pos);
         pos += new Vector3(Mathf.Sin(angle) * Length, 0.0f, Mathf.Cos(angle) * Length);
         Line.SetPosition(1, pos);
+        AudioManager.Instance.PlaySE("shot_ver2");
     }
 }

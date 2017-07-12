@@ -437,6 +437,7 @@ public class playerBehaviourScript : MonoBehaviour
             if (GameOverCnt[1] == GameOverInterval)
             {
                 GameOver.SetActive(true);
+                AudioManager.Instance.PlayBGM("lose", false); 
                 ScoreSystem.Instance.enabled = false;
                 if (!FadeManager.GetFadeing())
                 {
