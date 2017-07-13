@@ -50,7 +50,7 @@ public class ButtonManager : MonoBehaviour
             {
                 if (transform.root.GetChild(3).gameObject.activeSelf == false)
                 {
-                    AudioManager.Instance.PlaySE("トライパニッシュ");
+                    AudioManager.Instance.PlaySE("Tripanish");
                     Arts.SetActive(true);
                 }
             }

@@ -20,6 +20,7 @@ public class Arts : MonoBehaviour {
         UVPos.y = 1.0f - UVScroll.y;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureScale = UVScroll;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().material.mainTextureOffset = UVPos;
+        transform.GetChild(3).GetChild(0).transform.gameObject.GetComponent<Renderer>().material.SetColor("_Color" , new Color( 1.0f , 1.0f , 1.0f , 0.75f));
         loop = true;
         transform.GetChild(3).transform.gameObject.GetComponent<Renderer>().sortingOrder = -1;
         animTime = defaultAnimTime;
