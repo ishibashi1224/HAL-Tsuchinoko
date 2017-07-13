@@ -120,6 +120,7 @@
     <Compile Include="Assets\Script\game\BitChange.cs" />
     <Compile Include="Assets\Script\game\Bullet\BeamScroll.cs" />
     <Compile Include="Assets\Script\game\Bullet\_Beam.cs" />
+    <Compile Include="Assets\Script\game\Bullet\plasma.cs" />
     <Compile Include="Assets\Script\game\Floor.cs" />
     <Compile Include="Assets\Script\game\GameManager.cs" />
     <Compile Include="Assets\Script\game\MapEditor\MapEditer.cs" />
