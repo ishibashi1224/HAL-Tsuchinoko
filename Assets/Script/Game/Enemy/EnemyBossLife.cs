@@ -37,6 +37,7 @@ public class EnemyBossLife : MonoBehaviour
         Life -= Power;
         if (Life <= 0)
         {
+            AudioManager.Instance.PlaySE("boss_explosion");
             GameObject obj = Instantiate(particle, transform.position, Quaternion.identity);
             obj.transform.parent = gameObject.transform;
             obj.transform.localScale = new Vector3(1, 1, 1);

@@ -99,6 +99,7 @@ public class MenuManager : SingletonMonoBehaviourFast<MenuManager>
 
             if (MenuButton.GetButtonTop())                  //上のボタンを押したら
             {
+                AudioManager.instance.PlayBGM("start", false);
                 AudioManager.Instance.PlaySE("TitleTap");   //SEを鳴らす
                 FadeManager.Instance.LoadLevel("Game", 1);  //ゲームに遷移
                 BitDataManager.Instance.BitSave();          //ビット状態保存

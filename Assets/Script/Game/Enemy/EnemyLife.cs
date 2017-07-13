@@ -28,6 +28,7 @@ public class EnemyLife : MonoBehaviour
         material.SetFloat("_Range", Life / _Life);
         if (Life <= 0)
         {
+            
             Instantiate(particle, transform.position, Quaternion.identity);
             Life = _Life;
             Instance.Return(gameObject);
@@ -53,6 +54,7 @@ public class EnemyLife : MonoBehaviour
             SubLife(Attack);
             if( collider.tag != "Beam" )
             {
+                AudioManager.Instance.PlaySE("enemy_explosion");
                 collider.gameObject.SetActive(false);
             }
         }
@@ -64,7 +66,8 @@ public class EnemyLife : MonoBehaviour
         {
             if (collider.tag == "Beam")
             {
-                AudioManager.Instance.PlaySE("敵撃破1");
+                AudioManager.Instance.PlaySE("EnemyDestroy_1");
+                AudioManager.Instance.PlaySE("enemy_explosion");
                 SubLife(Attack);
             }
         }
