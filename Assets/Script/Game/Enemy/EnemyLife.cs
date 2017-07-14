@@ -71,10 +71,7 @@ public class EnemyLife : MonoBehaviour
             if (collider.tag == "Beam")
             {
                 AudioManager.Instance.PlaySE("EnemyDestroy_1");
-<<<<<<< HEAD
                 AudioManager.Instance.PlaySE("enemy_explosion");
-=======
->>>>>>> margeSaito3
                 SubLife(Attack);
             }
         }
