@@ -33,7 +33,7 @@ public class plasma : MonoBehaviour
             {
                 if (transform.parent.GetComponent<EnemyBossLife>().GetLife() > 0)
                 {
-                    AudioManager.Instance.PlaySE("敵撃破1");
+                    AudioManager.Instance.PlaySE("EnemyDestroy_1");
                     transform.parent.GetComponent<EnemyBossLife>().SubLife(Attack);
                 }
             }
