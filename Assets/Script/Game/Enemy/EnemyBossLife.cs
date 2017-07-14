@@ -56,9 +56,16 @@ public class EnemyBossLife : MonoBehaviour
         if (AttackerList.Instance.GetPlayerAttack(collider.tag, ref Attack))
         {
             //AudioManager.Instance.PlaySE("敵撃破1");
-            AudioManager.Instance.PlaySE("EnemyDestroy_1");
-            SubLife(Attack);
-            if (collider.tag != "Beam")
+            if (Life > 0)
+            {
+                AudioManager.Instance.PlaySE("EnemyDestroy_1");
+                SubLife(Attack);
+            }
+            //if (collider.tag != "Beam" && collider.tag != "plasma")
+            //{
+            //    collider.gameObject.SetActive(false);
+            //}
+            if (collider.tag == "Bullet")
             {
                 collider.gameObject.SetActive(false);
             }
@@ -69,9 +76,9 @@ public class EnemyBossLife : MonoBehaviour
     {
         if (AttackerList.Instance.GetPlayerAttack(collider.tag, ref Attack))
         {
-            if (collider.tag == "Beam")
+            if (collider.tag == "Beam" && Life > 0)
             {
-                AudioManager.Instance.PlaySE("敵撃破1");
+                AudioManager.Instance.PlaySE("EnemyDestroy_1");
                 SubLife(Attack);
             }
         }

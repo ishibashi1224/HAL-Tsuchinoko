@@ -52,7 +52,11 @@ public class EnemyLife : MonoBehaviour
         {
             AudioManager.Instance.PlaySE("EnemyDestroy_1");
             SubLife(Attack);
-            if( collider.tag != "Beam" )
+            //if (collider.tag != "Beam" && collider.tag != "plasma")
+            //{
+            //    collider.gameObject.SetActive(false);
+            //}
+            if (collider.tag == "Bullet")
             {
                 AudioManager.Instance.PlaySE("enemy_explosion");
                 collider.gameObject.SetActive(false);
@@ -67,7 +71,10 @@ public class EnemyLife : MonoBehaviour
             if (collider.tag == "Beam")
             {
                 AudioManager.Instance.PlaySE("EnemyDestroy_1");
+<<<<<<< HEAD
                 AudioManager.Instance.PlaySE("enemy_explosion");
+=======
+>>>>>>> margeSaito3
                 SubLife(Attack);
             }
         }
