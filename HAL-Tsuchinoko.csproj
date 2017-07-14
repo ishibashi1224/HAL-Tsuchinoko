@@ -119,6 +119,7 @@
     <Compile Include="Assets\Script\game\AttackerList.cs" />
     <Compile Include="Assets\Script\game\BitChange.cs" />
     <Compile Include="Assets\Script\game\Bullet\BeamScroll.cs" />
+    <Compile Include="Assets\Script\game\Bullet\ReflectionBullet.cs" />
     <Compile Include="Assets\Script\game\Bullet\_Beam.cs" />
     <Compile Include="Assets\Script\game\Bullet\plasma.cs" />
     <Compile Include="Assets\Script\game\Floor.cs" />

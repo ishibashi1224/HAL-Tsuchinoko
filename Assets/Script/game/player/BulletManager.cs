@@ -47,6 +47,12 @@ public class BulletManager : MonoBehaviour
                     childCnt = 0;
                 }
 
+                if (magazine.transform.childCount < BulletLimit)
+                {
+                    Instantiate(bullet, transform.position, transform.rotation).transform.parent = magazine.transform;
+                    magazine.transform.GetChild(transform.childCount).gameObject.SetActive(false);
+                }
+
                 //Instantiate(bullet, transform.position, transform.rotation * transform.localRotation).transform.parent = transform;
                 if (magazine.transform.GetChild(childCnt).gameObject.activeSelf == false)
                 {
