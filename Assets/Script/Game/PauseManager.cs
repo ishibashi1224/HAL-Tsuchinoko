@@ -32,7 +32,7 @@ public class PauseManager : MonoBehaviour
             canvas.enabled = !canvas.enabled;
             Pause();
             Switching();
-            AudioManager.Instance.PlaySE("se6");
+            AudioManager.Instance.PlaySE("Decision");
         }
     }
 
@@ -54,8 +54,8 @@ public class PauseManager : MonoBehaviour
 			canvas.enabled = !canvas.enabled;
             Switching();
             Time.timeScale = 1;
-			AudioManager.Instance.PlaySE ("se6");
-		}
+            AudioManager.Instance.PlaySE("Decision");
+        }
     }
 
     public void MainMenu()
@@ -64,8 +64,8 @@ public class PauseManager : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			FadeManager.Instance.LoadLevel ("Menu", 1);
-			AudioManager.Instance.PlaySE ("se6");
-		}
+            AudioManager.Instance.PlaySE("Decision");
+        }
     }
 
     public void Retry()
@@ -74,8 +74,8 @@ public class PauseManager : MonoBehaviour
 		{
             Time.timeScale = 1;
 			FadeManager.Instance.LoadLevel ("Game", 1);
-			AudioManager.Instance.PlaySE ("se6");
-		}
+            AudioManager.Instance.PlaySE("Decision");
+        }
     }
 
     public static string GetSceneName()
